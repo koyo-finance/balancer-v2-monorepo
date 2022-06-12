@@ -1,12 +1,12 @@
 {
-  "name": "@balancer-labs/v2-monorepo",
+  "name": "@koyofinance/exchange-vault-monorepo",
   "private": true,
   "description": "Balancer v2 Monorepo",
   "license": "GPL-3.0-only",
-  "homepage": "https://github.com/balancer-labs/balancer-v2-monorepo#readme",
-  "repository": "git@github.com:balancer-labs/balancer-v2-monorepo.git",
+  "homepage": "https://github.com/koyo-finance/exchange-vault-monoreporeadme",
+  "repository": "git@github.com:koyo-finance/exchange-vault-monorepo.git",
   "bugs": {
-    "url": "https://github.com/balancer-labs/balancer-v2-monorepo/issues"
+    "url": "https://github.com/koyo-finance/exchange-vault-monorepoissues"
   },
   "engines": {
     "node": ">=12.10"
