@@ -3,17 +3,17 @@ import { expect } from 'chai';
 import { BigNumber, Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
-import Token from '@balancer-labs/v2-helpers/src/models/tokens/Token';
-import TokenList from '@balancer-labs/v2-helpers/src/models/tokens/TokenList';
-import { expectBalanceChange } from '@balancer-labs/v2-helpers/src/test/tokenBalance';
-import { encodeExit, encodeJoin } from '@balancer-labs/v2-helpers/src/models/pools/mockPool';
+import Token from '@koyofinance/exchange-vault-helpers/src/models/tokens/Token';
+import TokenList from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokenList';
+import { expectBalanceChange } from '@koyofinance/exchange-vault-helpers/src/test/tokenBalance';
+import { encodeExit, encodeJoin } from '@koyofinance/exchange-vault-helpers/src/models/pools/mockPool';
 
-import { bn } from '@balancer-labs/v2-helpers/src/numbers';
-import { deploy, deployedAt } from '@balancer-labs/v2-helpers/src/contract';
-import { ANY_ADDRESS, MAX_UINT256, ZERO_ADDRESS, ZERO_BYTES32 } from '@balancer-labs/v2-helpers/src/constants';
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
-import { lastBlockNumber, MONTH } from '@balancer-labs/v2-helpers/src/time';
-import { actionId } from '@balancer-labs/v2-helpers/src/models/misc/actions';
+import { bn } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { deploy, deployedAt } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { ANY_ADDRESS, MAX_UINT256, ZERO_ADDRESS, ZERO_BYTES32 } from '@koyofinance/exchange-vault-helpers/src/constants';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
+import { lastBlockNumber, MONTH } from '@koyofinance/exchange-vault-helpers/src/time';
+import { actionId } from '@koyofinance/exchange-vault-helpers/src/models/misc/actions';
 import { PoolSpecialization } from '../../balancer-js/dist';
 
 const OP_KIND = { WITHDRAW: 0, DEPOSIT: 1, UPDATE: 2 };

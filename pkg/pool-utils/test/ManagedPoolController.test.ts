@@ -2,20 +2,20 @@ import { ethers } from 'hardhat';
 import { expect } from 'chai';
 import { Contract } from 'ethers';
 
-import { fp } from '@balancer-labs/v2-helpers/src/numbers';
-import TokenList from '@balancer-labs/v2-helpers/src/models/tokens/TokenList';
-import WeightedPool from '@balancer-labs/v2-helpers/src/models/pools/weighted/WeightedPool';
+import { fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import TokenList from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokenList';
+import WeightedPool from '@koyofinance/exchange-vault-helpers/src/models/pools/weighted/WeightedPool';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 import {
   WeightedPoolType,
   ManagedPoolRights,
   BasePoolRights,
-} from '@balancer-labs/v2-helpers/src/models/pools/weighted/types';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { currentTimestamp, MONTH, DAY, HOUR } from '@balancer-labs/v2-helpers/src/time';
-import Vault from '@balancer-labs/v2-helpers/src/models/vault/Vault';
-import { encodeInvestmentConfig } from '@balancer-labs/v2-asset-manager-utils/test/helpers/rebalance';
-import { ZERO_ADDRESS, MAX_UINT256 } from '@balancer-labs/v2-helpers/src/constants';
+} from '@koyofinance/exchange-vault-helpers/src/models/pools/weighted/types';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { currentTimestamp, MONTH, DAY, HOUR } from '@koyofinance/exchange-vault-helpers/src/time';
+import Vault from '@koyofinance/exchange-vault-helpers/src/models/vault/Vault';
+import { encodeInvestmentConfig } from '@koyofinance/exchange-vault-asset-manager-utils/test/helpers/rebalance';
+import { ZERO_ADDRESS, MAX_UINT256 } from '@koyofinance/exchange-vault-helpers/src/constants';
 import { SwapKind } from '@balancer-labs/balancer-js';
 
 const POOL_SWAP_FEE_PERCENTAGE = fp(0.01);

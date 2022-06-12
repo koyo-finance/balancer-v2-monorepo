@@ -2,7 +2,7 @@
 
 # Balancer V2 Deployments
 
-[![NPM Package](https://img.shields.io/npm/v/@balancer-labs/v2-deployments.svg)](https://www.npmjs.org/package/@balancer-labs/v2-deployments)
+[![NPM Package](https://img.shields.io/npm/v/@koyofinance/exchange-vault-deployments.svg)](https://www.npmjs.org/package/@koyofinance/exchange-vault-deployments)
 [![GitHub Repository](https://img.shields.io/badge/github-deployments-lightgrey?logo=github)](https://github.com/balancer-labs/balancer-v2-monorepo/tree/deployments-latest/pkg/deployments)
 
 This package contains the addresses and ABIs of all Balancer V2 deployed contracts, for Ethereum, Polygon, Arbitrum and Optimism mainnet, as well as various test networks. Each deployment consists of a deployment script (called 'task'), inputs (script configuration, such as dependencies), outputs (typically contract addresses), and ABIs of related contracts.
@@ -20,12 +20,12 @@ For more information on how to create new deployments or run existing ones in ne
 ### Installation
 
 ```console
-$ npm install @balancer-labs/v2-deployments
+$ npm install @koyofinance/exchange-vault-deployments
 ```
 
 ### Usage
 
-Import `@balancer-labs/v2-deployments` to access the different ABIs and deployed addresses. To see all Task IDs and their associated contracts, head to [Past Deployments](#past-deployments).
+Import `@koyofinance/exchange-vault-deployments` to access the different ABIs and deployed addresses. To see all Task IDs and their associated contracts, head to [Past Deployments](#past-deployments).
 
 ---
 

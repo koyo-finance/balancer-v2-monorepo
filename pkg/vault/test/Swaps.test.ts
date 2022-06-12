@@ -4,11 +4,11 @@ import { Dictionary } from 'lodash';
 import { BigNumber, Contract, ContractReceipt } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
-import TokenList, { ETH_TOKEN_ADDRESS } from '@balancer-labs/v2-helpers/src/models/tokens/TokenList';
-import { actionId } from '@balancer-labs/v2-helpers/src/models/misc/actions';
-import { encodeJoin } from '@balancer-labs/v2-helpers/src/models/pools/mockPool';
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
-import { Comparison, expectBalanceChange } from '@balancer-labs/v2-helpers/src/test/tokenBalance';
+import TokenList, { ETH_TOKEN_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokenList';
+import { actionId } from '@koyofinance/exchange-vault-helpers/src/models/misc/actions';
+import { encodeJoin } from '@koyofinance/exchange-vault-helpers/src/models/pools/mockPool';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
+import { Comparison, expectBalanceChange } from '@koyofinance/exchange-vault-helpers/src/test/tokenBalance';
 
 import {
   BatchSwapStep,
@@ -18,9 +18,9 @@ import {
   PoolSpecialization,
   RelayerAuthorization,
 } from '@balancer-labs/balancer-js';
-import { MONTH } from '@balancer-labs/v2-helpers/src/time';
-import { deploy, deployedAt } from '@balancer-labs/v2-helpers/src/contract';
-import { BigNumberish, bn, fp } from '@balancer-labs/v2-helpers/src/numbers';
+import { MONTH } from '@koyofinance/exchange-vault-helpers/src/time';
+import { deploy, deployedAt } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { BigNumberish, bn, fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
 import {
   ANY_ADDRESS,
   MAX_GAS_LIMIT,
@@ -29,7 +29,7 @@ import {
   MAX_UINT256,
   ZERO_ADDRESS,
   ZERO_BYTES32,
-} from '@balancer-labs/v2-helpers/src/constants';
+} from '@koyofinance/exchange-vault-helpers/src/constants';
 
 type SwapData = {
   pool?: number; // Index in the poolIds array

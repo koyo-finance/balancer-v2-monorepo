@@ -20,7 +20,7 @@ export type ContractDeploymentParams = {
 // the package name, without the @balancer-labs scope. Note that the full path is never required.
 //
 // For example, to deploy Vault.sol from the package that holds its artifacts, use `deploy('Vault')`. To deploy it from
-// a different package, use `deploy('v2-vault/Vault')`, assuming the Vault's package is @balancer-labs/v2-vault.
+// a different package, use `deploy('v2-vault/Vault')`, assuming the Vault's package is @koyofinance/exchange-vault.
 export async function deploy(
   contract: string,
   { from, args, libraries }: ContractDeploymentParams = {}

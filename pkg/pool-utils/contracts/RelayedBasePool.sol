@@ -15,10 +15,10 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@balancer-labs/v2-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import "@balancer-labs/v2-interfaces/contracts/pool-utils/IRelayedBasePool.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/pool-utils/IRelayedBasePool.sol";
 
-import "@balancer-labs/v2-solidity-utils/contracts/openzeppelin/Address.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/Address.sol";
 
 import "./LegacyBasePool.sol";
 

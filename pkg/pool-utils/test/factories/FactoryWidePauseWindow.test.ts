@@ -1,8 +1,8 @@
 import { BigNumber, Contract } from 'ethers';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
 import { expect } from 'chai';
-import { advanceTime, currentTimestamp, DAY } from '@balancer-labs/v2-helpers/src/time';
-import { bn } from '@balancer-labs/v2-helpers/src/numbers';
+import { advanceTime, currentTimestamp, DAY } from '@koyofinance/exchange-vault-helpers/src/time';
+import { bn } from '@koyofinance/exchange-vault-helpers/src/numbers';
 
 describe('FactoryWidePauseWindow', function () {
   let factory: Contract;

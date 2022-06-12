@@ -2,10 +2,10 @@ import { AsyncFunc } from 'mocha';
 import { BigNumber } from 'ethers';
 import chai, { expect } from 'chai';
 
-import { NAry } from '@balancer-labs/v2-helpers/src/models/types/types';
-import { ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
-import { BigNumberish, bn, fp } from '@balancer-labs/v2-helpers/src/numbers';
-import { expectEqualWithError, expectLessThanOrEqualWithError } from '@balancer-labs/v2-helpers/src/test/relativeError';
+import { NAry } from '@koyofinance/exchange-vault-helpers/src/models/types/types';
+import { ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
+import { BigNumberish, bn, fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { expectEqualWithError, expectLessThanOrEqualWithError } from '@koyofinance/exchange-vault-helpers/src/test/relativeError';
 
 import { sharedBeforeEach } from './sharedBeforeEach';
 

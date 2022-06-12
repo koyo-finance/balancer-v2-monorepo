@@ -3,10 +3,10 @@ import { ethers } from 'hardhat';
 import { Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
-import { actionId } from '@balancer-labs/v2-helpers/src/models/misc/actions';
-import { advanceTime } from '@balancer-labs/v2-helpers/src/time';
-import { deploy, deployedAt } from '@balancer-labs/v2-helpers/src/contract';
-import { ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
+import { actionId } from '@koyofinance/exchange-vault-helpers/src/models/misc/actions';
+import { advanceTime } from '@koyofinance/exchange-vault-helpers/src/time';
+import { deploy, deployedAt } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
 
 describe('TimelockAuthorizerMigrator', () => {
   let user1: SignerWithAddress, user2: SignerWithAddress, user3: SignerWithAddress, root: SignerWithAddress;

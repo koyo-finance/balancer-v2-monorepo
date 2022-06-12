@@ -3,14 +3,14 @@ import { expect } from 'chai';
 import { Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
-import { encodeJoin } from '@balancer-labs/v2-helpers/src/models/pools/mockPool';
+import { encodeJoin } from '@koyofinance/exchange-vault-helpers/src/models/pools/mockPool';
 
 import { BatchSwapStep, FundManagement, SwapKind } from '@balancer-labs/balancer-js';
-import { fp, bn } from '@balancer-labs/v2-helpers/src/numbers';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
+import { fp, bn } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
 import { PoolSpecialization } from '@balancer-labs/balancer-js';
-import { MAX_UINT112, MAX_UINT256, ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
-import TokenList from '@balancer-labs/v2-helpers/src/models/tokens/TokenList';
+import { MAX_UINT112, MAX_UINT256, ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
+import TokenList from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokenList';
 
 describe('Swap Queries', () => {
   let vault: Contract, funds: FundManagement;

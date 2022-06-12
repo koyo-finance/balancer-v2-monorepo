@@ -2,8 +2,8 @@ import { ethers } from 'hardhat';
 import { expect } from 'chai';
 import { Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { fp } from '@balancer-labs/v2-helpers/src/numbers';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
 
 describe('RecoveryMode', function () {
   let owner: SignerWithAddress;

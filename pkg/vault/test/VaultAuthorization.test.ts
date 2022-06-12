@@ -3,11 +3,11 @@ import { expect } from 'chai';
 import { Contract, ContractTransaction } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { actionId } from '@balancer-labs/v2-helpers/src/models/misc/actions';
-import { MONTH } from '@balancer-labs/v2-helpers/src/time';
-import { ANY_ADDRESS, MAX_GAS_LIMIT, MAX_UINT256, ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { actionId } from '@koyofinance/exchange-vault-helpers/src/models/misc/actions';
+import { MONTH } from '@koyofinance/exchange-vault-helpers/src/time';
+import { ANY_ADDRESS, MAX_GAS_LIMIT, MAX_UINT256, ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
 import { RelayerAuthorization } from '@balancer-labs/balancer-js';
 
 describe('VaultAuthorization', function () {

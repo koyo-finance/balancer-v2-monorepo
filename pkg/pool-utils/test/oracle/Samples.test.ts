@@ -1,9 +1,9 @@
 import { expect } from 'chai';
 import { Contract } from 'ethers';
 
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { BigNumberish, bn } from '@balancer-labs/v2-helpers/src/numbers';
-import { MAX_UINT31, MIN_INT22, MAX_INT22, MIN_INT53, MAX_INT53 } from '@balancer-labs/v2-helpers/src/constants';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { BigNumberish, bn } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { MAX_UINT31, MIN_INT22, MAX_INT22, MIN_INT53, MAX_INT53 } from '@koyofinance/exchange-vault-helpers/src/constants';
 
 describe('Samples', () => {
   let samples: Contract;

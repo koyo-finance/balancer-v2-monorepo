@@ -3,19 +3,19 @@ import { expect } from 'chai';
 import { BigNumber, Contract, ContractReceipt } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
-import { deploy, deployedAt } from '@balancer-labs/v2-helpers/src/contract';
-import { Account } from '@balancer-labs/v2-helpers/src/models/types/types';
-import { actionId } from '@balancer-labs/v2-helpers/src/models/misc/actions';
-import { BigNumberish, fp } from '@balancer-labs/v2-helpers/src/numbers';
+import { deploy, deployedAt } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { Account } from '@koyofinance/exchange-vault-helpers/src/models/types/types';
+import { actionId } from '@koyofinance/exchange-vault-helpers/src/models/misc/actions';
+import { BigNumberish, fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
 import { JoinPoolRequest, ExitPoolRequest, PoolSpecialization } from '@balancer-labs/balancer-js';
-import { advanceTime, DAY, MONTH } from '@balancer-labs/v2-helpers/src/time';
-import { ANY_ADDRESS, ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
+import { advanceTime, DAY, MONTH } from '@koyofinance/exchange-vault-helpers/src/time';
+import { ANY_ADDRESS, ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
 import { WeightedPoolEncoder } from '@balancer-labs/balancer-js';
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
-import TokenList from '@balancer-labs/v2-helpers/src/models/tokens/TokenList';
-import TypesConverter from '@balancer-labs/v2-helpers/src/models/types/TypesConverter';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
+import TokenList from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokenList';
+import TypesConverter from '@koyofinance/exchange-vault-helpers/src/models/types/TypesConverter';
 import { defaultAbiCoder } from '@ethersproject/abi';
-import { expectBalanceChange } from '@balancer-labs/v2-helpers/src/test/tokenBalance';
+import { expectBalanceChange } from '@koyofinance/exchange-vault-helpers/src/test/tokenBalance';
 import { random } from 'lodash';
 
 describe('LegacyBasePool', function () {

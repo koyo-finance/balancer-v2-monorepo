@@ -4,18 +4,18 @@ import { Dictionary } from 'lodash';
 import { BigNumber, Contract, ContractReceipt } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
-import Token from '@balancer-labs/v2-helpers/src/models/tokens/Token';
-import TokensDeployer from '@balancer-labs/v2-helpers/src/models/tokens/TokensDeployer';
-import TokenList, { ETH_TOKEN_ADDRESS } from '@balancer-labs/v2-helpers/src/models/tokens/TokenList';
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
+import Token from '@koyofinance/exchange-vault-helpers/src/models/tokens/Token';
+import TokensDeployer from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokensDeployer';
+import TokenList, { ETH_TOKEN_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokenList';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
 
-import { bn } from '@balancer-labs/v2-helpers/src/numbers';
-import { MONTH } from '@balancer-labs/v2-helpers/src/time';
-import { actionId } from '@balancer-labs/v2-helpers/src/models/misc/actions';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
+import { bn } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { MONTH } from '@koyofinance/exchange-vault-helpers/src/time';
+import { actionId } from '@koyofinance/exchange-vault-helpers/src/models/misc/actions';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
 import { forceSendEth } from './helpers/eth';
-import { expectBalanceChange } from '@balancer-labs/v2-helpers/src/test/tokenBalance';
-import { ANY_ADDRESS, ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
+import { expectBalanceChange } from '@koyofinance/exchange-vault-helpers/src/test/tokenBalance';
+import { ANY_ADDRESS, ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
 
 const OP_KIND = {
   DEPOSIT_INTERNAL: 0,

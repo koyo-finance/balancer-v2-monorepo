@@ -3,7 +3,7 @@ import { defaultAbiCoder } from '@ethersproject/abi';
 import { BigNumber, Contract, ContractTransaction, ContractReceipt } from 'ethers';
 
 import { SwapKind } from '@balancer-labs/balancer-js';
-import { BigNumberish, bn, fp } from '@balancer-labs/v2-helpers/src/numbers';
+import { BigNumberish, bn, fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
 import { StablePoolEncoder } from '@balancer-labs/balancer-js/src';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 

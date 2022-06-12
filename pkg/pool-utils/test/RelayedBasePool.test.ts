@@ -4,12 +4,12 @@ import { Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 
 import { PoolSpecialization } from '@balancer-labs/balancer-js';
-import Vault from '@balancer-labs/v2-helpers/src/models/vault/Vault';
-import TokenList from '@balancer-labs/v2-helpers/src/models/tokens/TokenList';
+import Vault from '@koyofinance/exchange-vault-helpers/src/models/vault/Vault';
+import TokenList from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokenList';
 
-import { fp } from '@balancer-labs/v2-helpers/src/numbers';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
+import { fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
 
 describe('RelayedBasePool', function () {
   let user: SignerWithAddress;

@@ -14,11 +14,11 @@
 
 pragma solidity ^0.7.0;
 
-import "@balancer-labs/v2-interfaces/contracts/solidity-utils/helpers/IRecoveryMode.sol";
-import "@balancer-labs/v2-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import "@balancer-labs/v2-interfaces/contracts/pool-utils/BasePoolUserData.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/IRecoveryMode.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/pool-utils/BasePoolUserData.sol";
 
-import "@balancer-labs/v2-solidity-utils/contracts/math/FixedPoint.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
 
 import "./BasePoolAuthorization.sol";
 

@@ -1,7 +1,7 @@
 import '@nomiclabs/hardhat-ethers';
 import '@nomiclabs/hardhat-waffle';
 
-import { hardhatBaseConfig } from '@balancer-labs/v2-common';
+import { hardhatBaseConfig } from '@koyofinance/exchange-vault-common';
 import { name } from './package.json';
 
 export default {

@@ -2,7 +2,7 @@
 
 # Balancer V2 Pool Utilities
 
-[![NPM Package](https://img.shields.io/npm/v/@balancer-labs/v2-pool-utils.svg)](https://www.npmjs.org/package/@balancer-labs/v2-pool-utils)
+[![NPM Package](https://img.shields.io/npm/v/@koyofinance/exchange-vault-pool-utils.svg)](https://www.npmjs.org/package/@koyofinance/exchange-vault-pool-utils)
 [![Docs](https://img.shields.io/badge/docs-%F0%9F%93%84-blue)](https://docs.balancer.fi/developers/smart-contracts/apis/pools)
 
 This package contains Solidity utilities for developing Balancer V2 Pools, implementing common patterns such as token decimal scaling, caller checks on hooks, etc.
@@ -16,7 +16,7 @@ The recommended pattern is to create new Pools from factory contracts, as that l
 ### Installation
 
 ```console
-$ npm install @balancer-labs/v2-pool-utils
+$ npm install @koyofinance/exchange-vault-pool-utils
 ```
 
 ### Usage

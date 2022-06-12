@@ -2,7 +2,7 @@
 
 # Balancer V2 Solidity Utilities
 
-[![NPM Package](https://img.shields.io/npm/v/@balancer-labs/v2-solidity-utils.svg)](https://www.npmjs.org/package/@balancer-labs/v2-solidity-utils)
+[![NPM Package](https://img.shields.io/npm/v/@koyofinance/exchange-vault-solidity-utils.svg)](https://www.npmjs.org/package/@koyofinance/exchange-vault-solidity-utils)
 
 This package contains Solidity utilities and libraries used when developing Balancer V2 contracts. Many design decisions and trade-offs have been made in the context of Balancer V2's requirements and constraints (such as reduced bytecode size), which may make these libraries unsuitable for other projects.
 
@@ -11,7 +11,7 @@ This package contains Solidity utilities and libraries used when developing Bala
 ### Installation
 
 ```console
-$ npm install @balancer-labs/v2-solidity-utils
+$ npm install @koyofinance/exchange-vault-solidity-utils
 ```
 
 ## Licensing

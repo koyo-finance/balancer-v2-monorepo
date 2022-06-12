@@ -1,10 +1,10 @@
 import { expect } from 'chai';
 import { Contract } from 'ethers';
 
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { BigNumberish, bn } from '@balancer-labs/v2-helpers/src/numbers';
-import { MAX_UINT112, MAX_UINT32 } from '@balancer-labs/v2-helpers/src/constants';
-import { lastBlockNumber } from '@balancer-labs/v2-helpers/src/time';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { BigNumberish, bn } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { MAX_UINT112, MAX_UINT32 } from '@koyofinance/exchange-vault-helpers/src/constants';
+import { lastBlockNumber } from '@koyofinance/exchange-vault-helpers/src/time';
 
 describe('balance allocation', () => {
   let library: Contract;

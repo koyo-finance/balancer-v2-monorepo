@@ -1,5 +1,5 @@
 {
-  "name": "@balancer-labs/v2-helpers",
+  "name": "@koyofinance/exchange-vault-helpers",
   "description": "Internal helpers",
   "private": true,
   "version": "1.0.0",

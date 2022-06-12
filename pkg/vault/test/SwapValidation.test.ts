@@ -4,17 +4,17 @@ import { BigNumber, Contract, ContractTransaction } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
 import { PoolSpecialization } from '@balancer-labs/balancer-js';
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
-import { encodeJoin } from '@balancer-labs/v2-helpers/src/models/pools/mockPool';
-import TokenList from '@balancer-labs/v2-helpers/src/models/tokens/TokenList';
-import TokensDeployer from '@balancer-labs/v2-helpers/src/models/tokens/TokensDeployer';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
+import { encodeJoin } from '@koyofinance/exchange-vault-helpers/src/models/pools/mockPool';
+import TokenList from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokenList';
+import TokensDeployer from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokensDeployer';
 
 import { BatchSwapStep, FundManagement, SwapKind } from '@balancer-labs/balancer-js';
-import { bn } from '@balancer-labs/v2-helpers/src/numbers';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { fromNow, MONTH } from '@balancer-labs/v2-helpers/src/time';
-import { ANY_ADDRESS, MAX_INT256, MAX_UINT256, ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
-import { actionId } from '@balancer-labs/v2-helpers/src/models/misc/actions';
+import { bn } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { fromNow, MONTH } from '@koyofinance/exchange-vault-helpers/src/time';
+import { ANY_ADDRESS, MAX_INT256, MAX_UINT256, ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
+import { actionId } from '@koyofinance/exchange-vault-helpers/src/models/misc/actions';
 
 describe('Swap Validation', () => {
   let authorizer: Contract, vault: Contract;

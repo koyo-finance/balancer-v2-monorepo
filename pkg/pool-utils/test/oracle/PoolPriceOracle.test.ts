@@ -1,10 +1,10 @@
 import { expect } from 'chai';
 import { BigNumber, Contract } from 'ethers';
 
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
-import { bn, decimal, fp } from '@balancer-labs/v2-helpers/src/numbers';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { advanceTime, advanceToTimestamp, currentTimestamp, MINUTE } from '@balancer-labs/v2-helpers/src/time';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
+import { bn, decimal, fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { advanceTime, advanceToTimestamp, currentTimestamp, MINUTE } from '@koyofinance/exchange-vault-helpers/src/time';
 
 describe('PoolPriceOracle', () => {
   let oracle: Contract;

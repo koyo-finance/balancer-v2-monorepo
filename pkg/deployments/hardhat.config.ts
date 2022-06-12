@@ -1,4 +1,4 @@
-import '@balancer-labs/v2-common/setupTests';
+import '@koyofinance/exchange-vault-common/setupTests';
 import '@nomiclabs/hardhat-ethers';
 import '@nomiclabs/hardhat-waffle';
 import { existsSync, readdirSync, statSync } from 'fs';

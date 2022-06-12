@@ -15,9 +15,9 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@balancer-labs/v2-interfaces/contracts/pool-utils/IBasePoolController.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/pool-utils/IBasePoolController.sol";
 
-import "@balancer-labs/v2-solidity-utils/contracts/helpers/WordCodec.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/WordCodec.sol";
 
 import "../BasePoolAuthorization.sol";
 

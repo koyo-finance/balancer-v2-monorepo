@@ -15,13 +15,13 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@balancer-labs/v2-interfaces/contracts/pool-stable/StablePoolUserData.sol";
-import "@balancer-labs/v2-interfaces/contracts/pool-weighted/WeightedPoolUserData.sol";
-import "@balancer-labs/v2-interfaces/contracts/vault/IVault.sol";
-import "@balancer-labs/v2-interfaces/contracts/vault/IFlashLoanRecipient.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/pool-stable/StablePoolUserData.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/pool-weighted/WeightedPoolUserData.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/vault/IFlashLoanRecipient.sol";
 
-import "@balancer-labs/v2-solidity-utils/contracts/helpers/ERC20Helpers.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/ERC20Helpers.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 
 import "hardhat/console.sol";
 

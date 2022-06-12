@@ -3,13 +3,13 @@ import { ethers } from 'hardhat';
 import { Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
-import TimelockAuthorizer from '@balancer-labs/v2-helpers/src/models/authorizer/TimelockAuthorizer';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { actionId } from '@balancer-labs/v2-helpers/src/models/misc/actions';
-import { BigNumberish } from '@balancer-labs/v2-helpers/src/numbers';
-import { ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
-import { advanceTime, currentTimestamp, DAY } from '@balancer-labs/v2-helpers/src/time';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
+import TimelockAuthorizer from '@koyofinance/exchange-vault-helpers/src/models/authorizer/TimelockAuthorizer';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { actionId } from '@koyofinance/exchange-vault-helpers/src/models/misc/actions';
+import { BigNumberish } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
+import { advanceTime, currentTimestamp, DAY } from '@koyofinance/exchange-vault-helpers/src/time';
 
 describe('TimelockAuthorizer', () => {
   let authorizer: TimelockAuthorizer, vault: Contract, authenticatedContract: Contract;

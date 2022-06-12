@@ -1,12 +1,12 @@
 import '@nomiclabs/hardhat-ethers';
 import '@nomiclabs/hardhat-waffle';
 
-import { hardhatBaseConfig } from '@balancer-labs/v2-common';
+import { hardhatBaseConfig } from '@koyofinance/exchange-vault-common';
 import { name } from './package.json';
 
 import { task } from 'hardhat/config';
 import { TASK_COMPILE } from 'hardhat/builtin-tasks/task-names';
-import overrideQueryFunctions from '@balancer-labs/v2-helpers/plugins/overrideQueryFunctions';
+import overrideQueryFunctions from '@koyofinance/exchange-vault-helpers/plugins/overrideQueryFunctions';
 
 task(TASK_COMPILE).setAction(overrideQueryFunctions);
 

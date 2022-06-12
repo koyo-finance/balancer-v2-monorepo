@@ -15,12 +15,12 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@balancer-labs/v2-interfaces/contracts/standalone-utils/IAumProtocolFeesCollector.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/standalone-utils/IAumProtocolFeesCollector.sol";
 
-import "@balancer-labs/v2-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/helpers/InputHelpers.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/helpers/SingletonAuthentication.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/SingletonAuthentication.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 
 /**
  * @dev This an auxiliary contract to the Vault, deployed by it during construction. It offloads some of the tasks the

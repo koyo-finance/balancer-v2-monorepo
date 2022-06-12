@@ -1,5 +1,5 @@
 {
-  "name": "@balancer-labs/v2-interfaces",
+  "name": "@koyofinance/exchange-vault-interfaces",
   "version": "0.0.1",
   "description": "V2 Interfaces",
   "license": "GPL-3.0-only",

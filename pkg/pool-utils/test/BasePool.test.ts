@@ -3,16 +3,16 @@ import { expect } from 'chai';
 import { Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
-import TokenList from '@balancer-labs/v2-helpers/src/models/tokens/TokenList';
-import { advanceTime, DAY, MONTH } from '@balancer-labs/v2-helpers/src/time';
-import { actionId } from '@balancer-labs/v2-helpers/src/models/misc/actions';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
+import TokenList from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokenList';
+import { advanceTime, DAY, MONTH } from '@koyofinance/exchange-vault-helpers/src/time';
+import { actionId } from '@koyofinance/exchange-vault-helpers/src/models/misc/actions';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
 import { PoolSpecialization } from '@balancer-labs/balancer-js';
-import { BigNumberish, fp } from '@balancer-labs/v2-helpers/src/numbers';
-import { ANY_ADDRESS, ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
-import { Account } from '@balancer-labs/v2-helpers/src/models/types/types';
-import TypesConverter from '@balancer-labs/v2-helpers/src/models/types/TypesConverter';
+import { BigNumberish, fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { ANY_ADDRESS, ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
+import { Account } from '@koyofinance/exchange-vault-helpers/src/models/types/types';
+import TypesConverter from '@koyofinance/exchange-vault-helpers/src/models/types/TypesConverter';
 
 describe('BasePool', function () {
   let admin: SignerWithAddress,

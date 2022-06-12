@@ -15,10 +15,10 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@balancer-labs/v2-solidity-utils/contracts/helpers/SingletonAuthentication.sol";
-import "@balancer-labs/v2-interfaces/contracts/vault/IVault.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/SingletonAuthentication.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
 
-import "@balancer-labs/v2-solidity-utils/contracts/helpers/BaseSplitCodeFactory.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/BaseSplitCodeFactory.sol";
 
 /**
  * @notice Base contract for Pool factories.

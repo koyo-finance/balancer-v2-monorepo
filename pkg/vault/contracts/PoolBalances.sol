@@ -15,14 +15,14 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@balancer-labs/v2-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import "@balancer-labs/v2-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
-import "@balancer-labs/v2-interfaces/contracts/vault/IBasePool.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/vault/IBasePool.sol";
 
-import "@balancer-labs/v2-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/helpers/InputHelpers.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/math/Math.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
 
 import "./Fees.sol";
 import "./PoolTokens.sol";

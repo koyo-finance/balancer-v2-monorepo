@@ -2,13 +2,13 @@ import { expect } from 'chai';
 import { ethers } from 'hardhat';
 import { Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-import { fp } from '@balancer-labs/v2-helpers/src/numbers';
-import TokensDeployer from '@balancer-labs/v2-helpers/src/models/tokens/TokensDeployer';
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { actionId } from '@balancer-labs/v2-helpers/src/models/misc/actions';
-import { ANY_ADDRESS, ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
-import { MONTH } from '@balancer-labs/v2-helpers/src/time';
+import { fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import TokensDeployer from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokensDeployer';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { actionId } from '@koyofinance/exchange-vault-helpers/src/models/misc/actions';
+import { ANY_ADDRESS, ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
+import { MONTH } from '@koyofinance/exchange-vault-helpers/src/time';
 
 describe('AumProtocolFeeCache', () => {
   const FIXED_PROTOCOL_FEE = fp(0.1); // 10%

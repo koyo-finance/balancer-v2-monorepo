@@ -3,17 +3,17 @@ import { expect } from 'chai';
 import { Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
-import TokenList from '@balancer-labs/v2-helpers/src/models/tokens/TokenList';
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
-import { encodeExit, encodeJoin } from '@balancer-labs/v2-helpers/src/models/pools/mockPool';
+import TokenList from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokenList';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
+import { encodeExit, encodeJoin } from '@koyofinance/exchange-vault-helpers/src/models/pools/mockPool';
 
-import { bn } from '@balancer-labs/v2-helpers/src/numbers';
-import { MONTH } from '@balancer-labs/v2-helpers/src/time';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { MAX_UINT256, ZERO_ADDRESS, ZERO_BYTES32 } from '@balancer-labs/v2-helpers/src/constants';
+import { bn } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { MONTH } from '@koyofinance/exchange-vault-helpers/src/time';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { MAX_UINT256, ZERO_ADDRESS, ZERO_BYTES32 } from '@koyofinance/exchange-vault-helpers/src/constants';
 import { PoolSpecialization } from '@balancer-labs/balancer-js';
-import TokensDeployer from '@balancer-labs/v2-helpers/src/models/tokens/TokensDeployer';
-import { lastBlockNumber } from '@balancer-labs/v2-helpers/src/time';
+import TokensDeployer from '@koyofinance/exchange-vault-helpers/src/models/tokens/TokensDeployer';
+import { lastBlockNumber } from '@koyofinance/exchange-vault-helpers/src/time';
 
 describe('PoolRegistry', () => {
   let admin: SignerWithAddress, lp: SignerWithAddress, other: SignerWithAddress;

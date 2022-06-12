@@ -1,5 +1,5 @@
 {
-  "name": "@balancer-labs/v2-common",
+  "name": "@koyofinance/exchange-vault-common",
   "description": "Common configuration",
   "private": true,
   "version": "1.0.0",
@@ -9,7 +9,7 @@
     "lint:typescript": "eslint . --ext .ts --ignore-path ../../.eslintignore  --max-warnings 0"
   },
   "dependencies": {
-    "@balancer-labs/v2-helpers": "workspace:*"
+    "@koyofinance/exchange-vault-helpers": "workspace:*"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.1.1",

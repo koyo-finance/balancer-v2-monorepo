@@ -15,14 +15,14 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@balancer-labs/v2-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import "@balancer-labs/v2-interfaces/contracts/vault/IVault.sol";
-import "@balancer-labs/v2-interfaces/contracts/vault/IAuthorizer.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/vault/IAuthorizer.sol";
 
-import "@balancer-labs/v2-solidity-utils/contracts/helpers/Authentication.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/helpers/SignaturesValidator.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/helpers/TemporarilyPausable.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/Authentication.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/SignaturesValidator.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/TemporarilyPausable.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
 
 /**
  * @dev Manages access control of Vault permissioned functions by relying on the Authorizer and signature validation.

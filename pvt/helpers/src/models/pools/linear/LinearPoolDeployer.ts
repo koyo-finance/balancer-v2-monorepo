@@ -1,6 +1,6 @@
 import { Contract } from 'ethers';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { fp } from '@balancer-labs/v2-helpers/src/numbers';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
 
 import { RawLinearPoolDeployment, LinearPoolDeployment } from './types';
 

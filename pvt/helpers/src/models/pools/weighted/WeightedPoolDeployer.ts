@@ -15,8 +15,8 @@ import {
   WeightedPoolDeployment,
   WeightedPoolType,
 } from './types';
-import { ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
-import { DAY } from '@balancer-labs/v2-helpers/src/time';
+import { ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
+import { DAY } from '@koyofinance/exchange-vault-helpers/src/time';
 
 const NAME = 'Balancer Pool Token';
 const SYMBOL = 'BPT';

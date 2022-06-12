@@ -15,18 +15,18 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@balancer-labs/v2-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import "@balancer-labs/v2-interfaces/contracts/solidity-utils/misc/IWETH.sol";
-import "@balancer-labs/v2-interfaces/contracts/vault/IVault.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/misc/IWETH.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
 
-import "@balancer-labs/v2-vault/contracts/balances/BalanceAllocation.sol";
-import "@balancer-labs/v2-vault/contracts/AssetHelpers.sol";
+import "@koyofinance/exchange-vault/contracts/balances/BalanceAllocation.sol";
+import "@koyofinance/exchange-vault/contracts/AssetHelpers.sol";
 
-import "@balancer-labs/v2-pool-utils/contracts/BasePool.sol";
+import "@koyofinance/exchange-vault-pool-utils/contracts/BasePool.sol";
 
-import "@balancer-labs/v2-solidity-utils/contracts/math/Math.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/math/FixedPoint.sol";
-import "@balancer-labs/v2-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
 
 /**
  * @dev This contract simply builds on top of the Balancer V2 architecture to provide useful helpers to users.

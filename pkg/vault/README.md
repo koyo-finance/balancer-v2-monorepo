@@ -2,7 +2,7 @@
 
 # Balancer V2 Vault
 
-[![NPM Package](https://img.shields.io/npm/v/@balancer-labs/v2-vault.svg)](https://www.npmjs.org/package/@balancer-labs/v2-vault)
+[![NPM Package](https://img.shields.io/npm/v/@koyofinance/exchange-vault.svg)](https://www.npmjs.org/package/@koyofinance/exchange-vault)
 [![Docs](https://img.shields.io/badge/docs-%F0%9F%93%84-blue)](https://docs.balancer.fi/developers/smart-contracts/apis/vault)
 
 This package contains the source code of Balancer V2's main contract, the [`Vault`](./contracts/Vault.sol), as well as all [core interfaces](./contracts/interfaces).
@@ -18,7 +18,7 @@ The [Vault interface](./contracts/interfaces/IVault.sol) itself is required for 
 ### Installation
 
 ```console
-$ npm install @balancer-labs/v2-vault
+$ npm install @koyofinance/exchange-vault
 ```
 
 ### Usage
@@ -32,7 +32,7 @@ Sample contract that performs Internal Balance deposits:
 ```solidity
 pragma solidity ^0.7.0;
 
-import "@balancer-labs/v2-vault/contracts/interfaces/IVault.sol";
+import "@koyofinance/exchange-vault/contracts/interfaces/IVault.sol";
 
 contract SimpleDepositor {
     IVault private constant vault = "0xBA12222222228d8Ba445958a75a0704d566BF2C8";
@@ -63,8 +63,8 @@ Sample contract that performs Flash Loans:
 ```solidity
 pragma solidity ^0.7.0;
 
-import "@balancer-labs/v2-vault/contracts/interfaces/IVault.sol";
-import "@balancer-labs/v2-vault/contracts/interfaces/IFlashLoanRecipient.sol";
+import "@koyofinance/exchange-vault/contracts/interfaces/IVault.sol";
+import "@koyofinance/exchange-vault/contracts/interfaces/IFlashLoanRecipient.sol";
 
 contract FlashLoanRecipient is IFlashLoanRecipient {
     IVault private constant vault = "0xBA12222222228d8Ba445958a75a0704d566BF2C8";

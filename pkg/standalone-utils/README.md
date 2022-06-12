@@ -2,7 +2,7 @@
 
 # Balancer V2 Standalone Utilities
 
-[![NPM Package](https://img.shields.io/npm/v/@balancer-labs/v2-standalone-utils.svg)](https://www.npmjs.org/package/@balancer-labs/v2-standalone-utils)
+[![NPM Package](https://img.shields.io/npm/v/@koyofinance/exchange-vault-standalone-utils.svg)](https://www.npmjs.org/package/@koyofinance/exchange-vault-standalone-utils)
 
 This package contains standalone Solidity utilities that can be used to perform advanced actions in the Balancer V2 protocol.
 
@@ -13,7 +13,7 @@ This package contains standalone Solidity utilities that can be used to perform 
 ### Installation
 
 ```console
-$ npm install @balancer-labs/v2-standalone-utils
+$ npm install @koyofinance/exchange-vault-standalone-utils
 ```
 
 ### Usage

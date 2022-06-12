@@ -1,7 +1,7 @@
 import { ethers } from 'hardhat';
 import { Interface } from 'ethers/lib/utils';
 import { BigNumber, Contract, ContractTransaction } from 'ethers';
-import { getSigner } from '@balancer-labs/v2-deployments/dist/src/signers';
+import { getSigner } from '@koyofinance/exchange-vault-deployments/dist/src/signers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
 import * as expectEvent from '../../test/expectEvent';

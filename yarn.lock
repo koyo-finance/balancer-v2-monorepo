@@ -41,250 +41,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@balancer-labs/v2-common@workspace:*, @balancer-labs/v2-common@workspace:pvt/common":
-  version: 0.0.0-use.local
-  resolution: "@balancer-labs/v2-common@workspace:pvt/common"
-  dependencies:
-    "@balancer-labs/v2-helpers": "workspace:*"
-    "@typescript-eslint/eslint-plugin": ^4.1.1
-    "@typescript-eslint/parser": ^4.1.1
-    eslint: ^7.9.0
-    eslint-plugin-prettier: ^3.1.4
-  languageName: unknown
-  linkType: soft
-
-"@balancer-labs/v2-deployments@workspace:pkg/deployments":
-  version: 0.0.0-use.local
-  resolution: "@balancer-labs/v2-deployments@workspace:pkg/deployments"
-  dependencies:
-    "@balancer-labs/v2-helpers": "workspace:*"
-    "@nomiclabs/hardhat-ethers": ^2.0.1
-    "@nomiclabs/hardhat-etherscan": latest
-    "@solidity-parser/parser": ^0.14.0
-    "@types/lodash": ^4.14.181
-    "@types/lodash.range": ^3
-    "@types/node": ^14.6.0
-    "@typescript-eslint/eslint-plugin": ^4.1.1
-    "@typescript-eslint/parser": ^4.1.1
-    chalk: ^4.1.1
-    eslint: ^7.9.0
-    eslint-plugin-prettier: ^3.1.4
-    ethers: ^5.4.1
-    hardhat: ^2.8.3
-    hardhat-local-networks-config-plugin: 0.0.5
-    lodash.range: ^3.2.0
-    node-fetch: ^2.6.1
-    prettier: ^2.1.2
-    ts-node: ^8.10.2
-    typescript: ^4.6.4
-  peerDependencies:
-    "@nomiclabs/hardhat-ethers": ^2.0.1
-    hardhat: ^2.8.3
-  languageName: unknown
-  linkType: soft
-
-"@balancer-labs/v2-helpers@workspace:*, @balancer-labs/v2-helpers@workspace:pvt/helpers":
-  version: 0.0.0-use.local
-  resolution: "@balancer-labs/v2-helpers@workspace:pvt/helpers"
-  dependencies:
-    "@nomiclabs/hardhat-ethers": ^2.0.1
-    "@types/lodash": ^4.14.161
-    "@typescript-eslint/eslint-plugin": ^4.1.1
-    "@typescript-eslint/parser": ^4.1.1
-    decimal.js: ^10.2.1
-    eslint: ^7.9.0
-    eslint-plugin-prettier: ^3.1.4
-    ethers: ^5.4.1
-    hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    ts-node: ^8.10.2
-  languageName: unknown
-  linkType: soft
-
-"@balancer-labs/v2-interfaces@workspace:*, @balancer-labs/v2-interfaces@workspace:pkg/interfaces":
-  version: 0.0.0-use.local
-  resolution: "@balancer-labs/v2-interfaces@workspace:pkg/interfaces"
-  dependencies:
-    "@nomiclabs/hardhat-ethers": ^2.0.1
-    "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
-    "@types/node": ^14.6.0
-    "@typescript-eslint/eslint-plugin": ^4.1.1
-    "@typescript-eslint/parser": ^4.1.1
-    chai: ^4.2.0
-    decimal.js: ^10.2.1
-    eslint: ^7.9.0
-    eslint-plugin-mocha-no-only: ^1.1.1
-    eslint-plugin-prettier: ^3.1.4
-    ethereum-waffle: ^3.0.2
-    ethers: ^5.4.1
-    hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
-    mocha: ^8.2.1
-    nodemon: ^2.0.4
-    prettier: ^2.1.2
-    prettier-plugin-solidity: v1.0.0-alpha.59
-    solhint: ^3.2.0
-    solhint-plugin-prettier: ^0.0.4
-    ts-node: ^8.10.2
-    typescript: ^4.6.4
-  languageName: unknown
-  linkType: soft
-
-"@balancer-labs/v2-pool-utils@workspace:*, @balancer-labs/v2-pool-utils@workspace:pkg/pool-utils":
-  version: 0.0.0-use.local
-  resolution: "@balancer-labs/v2-pool-utils@workspace:pkg/pool-utils"
-  dependencies:
-    "@balancer-labs/v2-common": "workspace:*"
-    "@balancer-labs/v2-helpers": "workspace:*"
-    "@balancer-labs/v2-interfaces": "workspace:*"
-    "@balancer-labs/v2-solidity-utils": "workspace:*"
-    "@balancer-labs/v2-vault": "workspace:*"
-    "@nomiclabs/hardhat-ethers": ^2.0.1
-    "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
-    "@types/node": ^14.6.0
-    "@typescript-eslint/eslint-plugin": ^4.1.1
-    "@typescript-eslint/parser": ^4.1.1
-    chai: ^4.2.0
-    decimal.js: ^10.2.1
-    eslint: ^7.9.0
-    eslint-plugin-mocha-no-only: ^1.1.1
-    eslint-plugin-prettier: ^3.1.4
-    ethereum-waffle: ^3.0.2
-    ethers: ^5.4.1
-    hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
-    mocha: ^8.2.1
-    nodemon: ^2.0.4
-    prettier: ^2.1.2
-    prettier-plugin-solidity: v1.0.0-alpha.59
-    solhint: ^3.2.0
-    solhint-plugin-prettier: ^0.0.4
-    ts-node: ^8.10.2
-    typescript: ^4.6.4
-  languageName: unknown
-  linkType: soft
-
-"@balancer-labs/v2-solidity-utils@workspace:*, @balancer-labs/v2-solidity-utils@workspace:pkg/solidity-utils":
-  version: 0.0.0-use.local
-  resolution: "@balancer-labs/v2-solidity-utils@workspace:pkg/solidity-utils"
-  dependencies:
-    "@balancer-labs/v2-common": "workspace:*"
-    "@balancer-labs/v2-helpers": "workspace:*"
-    "@balancer-labs/v2-interfaces": "workspace:*"
-    "@nomiclabs/hardhat-ethers": ^2.0.1
-    "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
-    "@typescript-eslint/eslint-plugin": ^4.1.1
-    "@typescript-eslint/parser": ^4.1.1
-    chai: ^4.2.0
-    decimal.js: ^10.2.1
-    eslint: ^7.9.0
-    eslint-plugin-mocha-no-only: ^1.1.1
-    eslint-plugin-prettier: ^3.1.4
-    ethereum-waffle: ^3.0.2
-    ethers: ^5.4.1
-    hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
-    mocha: ^8.2.1
-    nodemon: ^2.0.4
-    prettier-plugin-solidity: v1.0.0-alpha.59
-    solhint: ^3.2.0
-    solhint-plugin-prettier: ^0.0.4
-    ts-node: ^8.10.2
-  languageName: unknown
-  linkType: soft
-
-"@balancer-labs/v2-standalone-utils@workspace:pkg/standalone-utils":
-  version: 0.0.0-use.local
-  resolution: "@balancer-labs/v2-standalone-utils@workspace:pkg/standalone-utils"
-  dependencies:
-    "@balancer-labs/v2-common": "workspace:*"
-    "@balancer-labs/v2-helpers": "workspace:*"
-    "@balancer-labs/v2-interfaces": "workspace:*"
-    "@balancer-labs/v2-pool-utils": "workspace:*"
-    "@balancer-labs/v2-solidity-utils": "workspace:*"
-    "@balancer-labs/v2-vault": "workspace:*"
-    "@nomiclabs/hardhat-ethers": ^2.0.1
-    "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.176
-    "@types/mocha": ^8.0.3
-    "@typescript-eslint/eslint-plugin": ^4.1.1
-    "@typescript-eslint/parser": ^4.1.1
-    chai: ^4.2.0
-    eslint: ^7.9.0
-    eslint-plugin-mocha-no-only: ^1.1.1
-    eslint-plugin-prettier: ^3.1.4
-    ethereum-waffle: ^3.0.2
-    ethers: ^5.4.1
-    hardhat: ^2.8.3
-    lodash: ^4.17.21
-    mocha: ^8.2.1
-    nodemon: ^2.0.4
-    prettier-plugin-solidity: v1.0.0-alpha.59
-    solhint: ^3.2.0
-    solhint-plugin-prettier: ^0.0.4
-    ts-node: ^8.10.2
-  languageName: unknown
-  linkType: soft
-
-"@balancer-labs/v2-vault@workspace:*, @balancer-labs/v2-vault@workspace:pkg/vault":
-  version: 0.0.0-use.local
-  resolution: "@balancer-labs/v2-vault@workspace:pkg/vault"
-  dependencies:
-    "@balancer-labs/v2-common": "workspace:*"
-    "@balancer-labs/v2-helpers": "workspace:*"
-    "@balancer-labs/v2-interfaces": "workspace:*"
-    "@balancer-labs/v2-solidity-utils": "workspace:*"
-    "@nomiclabs/hardhat-ethers": ^2.0.1
-    "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
-    "@typescript-eslint/eslint-plugin": ^4.1.1
-    "@typescript-eslint/parser": ^4.1.1
-    chai: ^4.2.0
-    decimal.js: ^10.2.1
-    eslint: ^7.9.0
-    eslint-plugin-mocha-no-only: ^1.1.1
-    eslint-plugin-prettier: ^3.1.4
-    ethereum-waffle: ^3.0.2
-    ethers: ^5.4.1
-    hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
-    mocha: ^8.2.1
-    nodemon: ^2.0.4
-    prettier-plugin-solidity: v1.0.0-alpha.59
-    solhint: ^3.2.0
-    solhint-plugin-prettier: ^0.0.4
-    ts-node: ^8.10.2
-  languageName: unknown
-  linkType: soft
-
 "@ensdomains/ens@npm:^0.4.4":
   version: 0.4.5
   resolution: "@ensdomains/ens@npm:0.4.5"
@@ -909,6 +665,102 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@koyofinance/exchange-vault-common@workspace:*, @koyofinance/exchange-vault-common@workspace:pvt/common":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/exchange-vault-common@workspace:pvt/common"
+  dependencies:
+    "@koyofinance/exchange-vault-helpers": "workspace:*"
+    "@typescript-eslint/eslint-plugin": ^4.1.1
+    "@typescript-eslint/parser": ^4.1.1
+    eslint: ^7.9.0
+    eslint-plugin-prettier: ^3.1.4
+  languageName: unknown
+  linkType: soft
+
+"@koyofinance/exchange-vault-deployments@workspace:pkg/deployments":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/exchange-vault-deployments@workspace:pkg/deployments"
+  dependencies:
+    "@koyofinance/exchange-vault-helpers": "workspace:*"
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    "@nomiclabs/hardhat-etherscan": latest
+    "@solidity-parser/parser": ^0.14.0
+    "@types/lodash": ^4.14.181
+    "@types/lodash.range": ^3
+    "@types/node": ^14.6.0
+    "@typescript-eslint/eslint-plugin": ^4.1.1
+    "@typescript-eslint/parser": ^4.1.1
+    chalk: ^4.1.1
+    eslint: ^7.9.0
+    eslint-plugin-prettier: ^3.1.4
+    ethers: ^5.4.1
+    hardhat: ^2.8.3
+    hardhat-local-networks-config-plugin: 0.0.5
+    lodash.range: ^3.2.0
+    node-fetch: ^2.6.1
+    prettier: ^2.1.2
+    ts-node: ^8.10.2
+    typescript: ^4.6.4
+  peerDependencies:
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    hardhat: ^2.8.3
+  languageName: unknown
+  linkType: soft
+
+"@koyofinance/exchange-vault-helpers@workspace:*, @koyofinance/exchange-vault-helpers@workspace:pvt/helpers":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/exchange-vault-helpers@workspace:pvt/helpers"
+  dependencies:
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    "@types/lodash": ^4.14.161
+    "@typescript-eslint/eslint-plugin": ^4.1.1
+    "@typescript-eslint/parser": ^4.1.1
+    decimal.js: ^10.2.1
+    eslint: ^7.9.0
+    eslint-plugin-prettier: ^3.1.4
+    ethers: ^5.4.1
+    hardhat: ^2.8.3
+    lodash.frompairs: ^4.0.1
+    ts-node: ^8.10.2
+  languageName: unknown
+  linkType: soft
+
+"@koyofinance/exchange-vault-interfaces@workspace:*, @koyofinance/exchange-vault-interfaces@workspace:pkg/interfaces":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/exchange-vault-interfaces@workspace:pkg/interfaces"
+  dependencies:
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    "@nomiclabs/hardhat-waffle": ^2.0.0
+    "@types/chai": ^4.2.12
+    "@types/lodash": ^4.14.161
+    "@types/mocha": ^8.0.3
+    "@types/node": ^14.6.0
+    "@typescript-eslint/eslint-plugin": ^4.1.1
+    "@typescript-eslint/parser": ^4.1.1
+    chai: ^4.2.0
+    decimal.js: ^10.2.1
+    eslint: ^7.9.0
+    eslint-plugin-mocha-no-only: ^1.1.1
+    eslint-plugin-prettier: ^3.1.4
+    ethereum-waffle: ^3.0.2
+    ethers: ^5.4.1
+    hardhat: ^2.8.3
+    lodash.frompairs: ^4.0.1
+    lodash.pick: ^4.4.0
+    lodash.range: ^3.2.0
+    lodash.times: ^4.3.2
+    lodash.zip: ^4.2.0
+    mocha: ^8.2.1
+    nodemon: ^2.0.4
+    prettier: ^2.1.2
+    prettier-plugin-solidity: v1.0.0-alpha.59
+    solhint: ^3.2.0
+    solhint-plugin-prettier: ^0.0.4
+    ts-node: ^8.10.2
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
 "@koyofinance/exchange-vault-monorepo@workspace:.":
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-monorepo@workspace:."
@@ -918,6 +770,154 @@ __metadata:
     prettier: ^2.6.2
     turbo: ^1.2.16
     typescript: ^4.7.3
+  languageName: unknown
+  linkType: soft
+
+"@koyofinance/exchange-vault-pool-utils@workspace:*, @koyofinance/exchange-vault-pool-utils@workspace:pkg/pool-utils":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/exchange-vault-pool-utils@workspace:pkg/pool-utils"
+  dependencies:
+    "@koyofinance/exchange-vault": "workspace:*"
+    "@koyofinance/exchange-vault-common": "workspace:*"
+    "@koyofinance/exchange-vault-helpers": "workspace:*"
+    "@koyofinance/exchange-vault-interfaces": "workspace:*"
+    "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    "@nomiclabs/hardhat-waffle": ^2.0.0
+    "@types/chai": ^4.2.12
+    "@types/lodash": ^4.14.161
+    "@types/mocha": ^8.0.3
+    "@types/node": ^14.6.0
+    "@typescript-eslint/eslint-plugin": ^4.1.1
+    "@typescript-eslint/parser": ^4.1.1
+    chai: ^4.2.0
+    decimal.js: ^10.2.1
+    eslint: ^7.9.0
+    eslint-plugin-mocha-no-only: ^1.1.1
+    eslint-plugin-prettier: ^3.1.4
+    ethereum-waffle: ^3.0.2
+    ethers: ^5.4.1
+    hardhat: ^2.8.3
+    lodash.frompairs: ^4.0.1
+    lodash.pick: ^4.4.0
+    lodash.range: ^3.2.0
+    lodash.times: ^4.3.2
+    lodash.zip: ^4.2.0
+    mocha: ^8.2.1
+    nodemon: ^2.0.4
+    prettier: ^2.1.2
+    prettier-plugin-solidity: v1.0.0-alpha.59
+    solhint: ^3.2.0
+    solhint-plugin-prettier: ^0.0.4
+    ts-node: ^8.10.2
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
+"@koyofinance/exchange-vault-solidity-utils@workspace:*, @koyofinance/exchange-vault-solidity-utils@workspace:pkg/solidity-utils":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/exchange-vault-solidity-utils@workspace:pkg/solidity-utils"
+  dependencies:
+    "@koyofinance/exchange-vault-common": "workspace:*"
+    "@koyofinance/exchange-vault-helpers": "workspace:*"
+    "@koyofinance/exchange-vault-interfaces": "workspace:*"
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    "@nomiclabs/hardhat-waffle": ^2.0.0
+    "@types/chai": ^4.2.12
+    "@types/lodash": ^4.14.161
+    "@types/mocha": ^8.0.3
+    "@typescript-eslint/eslint-plugin": ^4.1.1
+    "@typescript-eslint/parser": ^4.1.1
+    chai: ^4.2.0
+    decimal.js: ^10.2.1
+    eslint: ^7.9.0
+    eslint-plugin-mocha-no-only: ^1.1.1
+    eslint-plugin-prettier: ^3.1.4
+    ethereum-waffle: ^3.0.2
+    ethers: ^5.4.1
+    hardhat: ^2.8.3
+    lodash.frompairs: ^4.0.1
+    lodash.pick: ^4.4.0
+    lodash.range: ^3.2.0
+    lodash.times: ^4.3.2
+    lodash.zip: ^4.2.0
+    mocha: ^8.2.1
+    nodemon: ^2.0.4
+    prettier-plugin-solidity: v1.0.0-alpha.59
+    solhint: ^3.2.0
+    solhint-plugin-prettier: ^0.0.4
+    ts-node: ^8.10.2
+  languageName: unknown
+  linkType: soft
+
+"@koyofinance/exchange-vault-standalone-utils@workspace:pkg/standalone-utils":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/exchange-vault-standalone-utils@workspace:pkg/standalone-utils"
+  dependencies:
+    "@koyofinance/exchange-vault": "workspace:*"
+    "@koyofinance/exchange-vault-common": "workspace:*"
+    "@koyofinance/exchange-vault-helpers": "workspace:*"
+    "@koyofinance/exchange-vault-interfaces": "workspace:*"
+    "@koyofinance/exchange-vault-pool-utils": "workspace:*"
+    "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    "@nomiclabs/hardhat-waffle": ^2.0.0
+    "@types/chai": ^4.2.12
+    "@types/lodash": ^4.14.176
+    "@types/mocha": ^8.0.3
+    "@typescript-eslint/eslint-plugin": ^4.1.1
+    "@typescript-eslint/parser": ^4.1.1
+    chai: ^4.2.0
+    eslint: ^7.9.0
+    eslint-plugin-mocha-no-only: ^1.1.1
+    eslint-plugin-prettier: ^3.1.4
+    ethereum-waffle: ^3.0.2
+    ethers: ^5.4.1
+    hardhat: ^2.8.3
+    lodash: ^4.17.21
+    mocha: ^8.2.1
+    nodemon: ^2.0.4
+    prettier-plugin-solidity: v1.0.0-alpha.59
+    solhint: ^3.2.0
+    solhint-plugin-prettier: ^0.0.4
+    ts-node: ^8.10.2
+  languageName: unknown
+  linkType: soft
+
+"@koyofinance/exchange-vault@workspace:*, @koyofinance/exchange-vault@workspace:pkg/vault":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/exchange-vault@workspace:pkg/vault"
+  dependencies:
+    "@koyofinance/exchange-vault-common": "workspace:*"
+    "@koyofinance/exchange-vault-helpers": "workspace:*"
+    "@koyofinance/exchange-vault-interfaces": "workspace:*"
+    "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    "@nomiclabs/hardhat-waffle": ^2.0.0
+    "@types/chai": ^4.2.12
+    "@types/lodash": ^4.14.161
+    "@types/mocha": ^8.0.3
+    "@typescript-eslint/eslint-plugin": ^4.1.1
+    "@typescript-eslint/parser": ^4.1.1
+    chai: ^4.2.0
+    decimal.js: ^10.2.1
+    eslint: ^7.9.0
+    eslint-plugin-mocha-no-only: ^1.1.1
+    eslint-plugin-prettier: ^3.1.4
+    ethereum-waffle: ^3.0.2
+    ethers: ^5.4.1
+    hardhat: ^2.8.3
+    lodash.frompairs: ^4.0.1
+    lodash.pick: ^4.4.0
+    lodash.range: ^3.2.0
+    lodash.times: ^4.3.2
+    lodash.zip: ^4.2.0
+    mocha: ^8.2.1
+    nodemon: ^2.0.4
+    prettier-plugin-solidity: v1.0.0-alpha.59
+    solhint: ^3.2.0
+    solhint-plugin-prettier: ^0.0.4
+    ts-node: ^8.10.2
   languageName: unknown
   linkType: soft
 

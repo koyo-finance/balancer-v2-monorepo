@@ -3,10 +3,10 @@ import { ethers } from 'hardhat';
 import { Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 
-import * as expectEvent from '@balancer-labs/v2-helpers/src/test/expectEvent';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
-import { BigNumberish, bn } from '@balancer-labs/v2-helpers/src/numbers';
-import { MAX_UINT256, ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
+import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
+import { BigNumberish, bn } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { MAX_UINT256, ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
 
 describe('BalancerPoolToken', () => {
   let token: Contract;

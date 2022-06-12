@@ -1,5 +1,5 @@
 {
-  "name": "@balancer-labs/v2-deployments",
+  "name": "@koyofinance/exchange-vault-deployments",
   "version": "2.3.0",
   "description": "Addresses and ABIs of all Balancer V2 deployed contracts",
   "license": "GPL-3.0-only",
@@ -30,7 +30,7 @@
     "ci:prepare-config": "ts-node ci/prepare-config.ts"
   },
   "devDependencies": {
-    "@balancer-labs/v2-helpers": "workspace:*",
+    "@koyofinance/exchange-vault-helpers": "workspace:*",
     "@nomiclabs/hardhat-ethers": "^2.0.1",
     "@nomiclabs/hardhat-etherscan": "latest",
     "@solidity-parser/parser": "^0.14.0",

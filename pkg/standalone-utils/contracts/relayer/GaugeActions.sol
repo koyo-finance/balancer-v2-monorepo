@@ -15,11 +15,11 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@balancer-labs/v2-interfaces/contracts/liquidity-mining/IBalancerMinter.sol";
-import "@balancer-labs/v2-interfaces/contracts/liquidity-mining/IStakingLiquidityGauge.sol";
-import "@balancer-labs/v2-interfaces/contracts/vault/IVault.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/liquidity-mining/IBalancerMinter.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/liquidity-mining/IStakingLiquidityGauge.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
 
-import "@balancer-labs/v2-solidity-utils/contracts/openzeppelin/Address.sol";
+import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/Address.sol";
 
 import "./IBaseRelayerLibrary.sol";
 

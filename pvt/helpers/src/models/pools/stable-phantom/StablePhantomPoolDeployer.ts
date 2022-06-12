@@ -1,5 +1,5 @@
 import { Contract } from 'ethers';
-import { deploy } from '@balancer-labs/v2-helpers/src/contract';
+import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
 
 import { RawStablePhantomPoolDeployment, StablePhantomPoolDeployment } from './types';
 
