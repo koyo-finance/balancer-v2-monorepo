@@ -24,7 +24,7 @@ async function runForkTests(args: any, hre: HardhatRuntimeEnvironment, run: RunS
   });
 
   const config = hre.network.config as HardhatNetworkConfig;
-  config.forking = { enabled: true, blockNumber: args.blockNumber, url: forkingNetworkConfig.url };
+  config.forking = { enabled: true, blockNumber: args.blockNumber, url: forkingNetworkConfig.url, httpHeaders: {} };
 
   await run(args);
 }

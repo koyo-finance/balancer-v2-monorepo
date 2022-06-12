@@ -4,7 +4,6 @@ import chai, { expect } from 'chai';
 
 import { NAry } from '@balancer-labs/v2-helpers/src/models/types/types';
 import { ZERO_ADDRESS } from '@balancer-labs/v2-helpers/src/constants';
-import { BalancerErrors } from '@balancer-labs/balancer-js';
 import { BigNumberish, bn, fp } from '@balancer-labs/v2-helpers/src/numbers';
 import { expectEqualWithError, expectLessThanOrEqualWithError } from '@balancer-labs/v2-helpers/src/test/relativeError';
 
@@ -115,44 +114,31 @@ chai.use(function (chai, utils) {
           const catchResult = await assertion.catch(revert);
           // If the catch function didn't throw, then return it because it did match what we were expecting
           return catchResult;
-        } catch (error) {
+        } catch (error: any) {
           // If the catch didn't throw because another reason was expected, re-throw the error
           if (!error.message.includes('but other exception was thrown')) throw error;
 
           // Decode the actual revert reason and look for it in the balancer errors list
-          const regExp = /(Expected transaction to be reverted with )(.*)(, but other exception was thrown: .*Error: VM Exception while processing transaction: reverted with reason string ')(.*)(')/;
+          const regExp =
+            /(Expected transaction to be reverted with )(.*)(, but other exception was thrown: .*Error: VM Exception while processing transaction: reverted with reason string ')(.*)(')/;
           const matches = error.message.match(regExp);
           if (!matches || matches.length !== 6) throw error;
 
-          const expectedReason: string = matches[2];
           const actualErrorCode: string = matches[4];
 
           let actualReason: string;
-          if (BalancerErrors.isErrorCode(actualErrorCode)) {
-            actualReason = BalancerErrors.parseErrorCode(actualErrorCode);
+          if (actualErrorCode.includes('BAL#')) {
+            // If we failed to decode the error but it looks like a Balancer error code
+            // then it might be a Balancer error we don't know about yet.
+            actualReason = 'Could not match a Balancer error message';
           } else {
-            if (actualErrorCode.includes('BAL#')) {
-              // If we failed to decode the error but it looks like a Balancer error code
-              // then it might be a Balancer error we don't know about yet.
-              actualReason = 'Could not match a Balancer error message';
-            } else {
-              // If it's not a Balancer error then rethrow
-              throw error;
-            }
-          }
-
-          let expectedErrorCode: string;
-          if (BalancerErrors.isBalancerError(expectedReason)) {
-            expectedErrorCode = BalancerErrors.encodeError(expectedReason);
-          } else {
-            // If there is no balancer error matching the expected revert reason re-throw the error
-            error.message = `${error.message} (${actualReason})`;
+            // If it's not a Balancer error then rethrow
             throw error;
           }
 
-          // Assert the error code matched the actual reason
-          const message = `Expected transaction to be reverted with ${expectedErrorCode} (${expectedReason}), but other exception was thrown: Error: VM Exception while processing transaction: revert ${actualErrorCode} (${actualReason})`;
-          expect(actualErrorCode).to.be.equal(expectedErrorCode, message);
+          // If there is no balancer error matching the expected revert reason re-throw the error
+          error.message = `${error.message} (${actualReason})`;
+          throw error;
         }
       }
     };

@@ -50,8 +50,6 @@ __metadata:
     "@typescript-eslint/parser": ^4.1.1
     eslint: ^7.9.0
     eslint-plugin-prettier: ^3.1.4
-    prettier: ^2.1.2
-    typescript: ^4.6.4
   languageName: unknown
   linkType: soft
 
@@ -91,7 +89,6 @@ __metadata:
   dependencies:
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@types/lodash": ^4.14.161
-    "@types/node": ^14.6.0
     "@typescript-eslint/eslint-plugin": ^4.1.1
     "@typescript-eslint/parser": ^4.1.1
     decimal.js: ^10.2.1
@@ -100,9 +97,7 @@ __metadata:
     ethers: ^5.4.1
     hardhat: ^2.8.3
     lodash.frompairs: ^4.0.1
-    prettier: ^2.1.2
     ts-node: ^8.10.2
-    typescript: ^4.6.4
   languageName: unknown
   linkType: soft
 
@@ -195,7 +190,6 @@ __metadata:
     "@types/chai": ^4.2.12
     "@types/lodash": ^4.14.161
     "@types/mocha": ^8.0.3
-    "@types/node": ^14.6.0
     "@typescript-eslint/eslint-plugin": ^4.1.1
     "@typescript-eslint/parser": ^4.1.1
     chai: ^4.2.0
@@ -213,12 +207,10 @@ __metadata:
     lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
-    prettier: ^2.1.2
     prettier-plugin-solidity: v1.0.0-alpha.59
     solhint: ^3.2.0
     solhint-plugin-prettier: ^0.0.4
     ts-node: ^8.10.2
-    typescript: ^4.6.4
   languageName: unknown
   linkType: soft
 
@@ -237,7 +229,6 @@ __metadata:
     "@types/chai": ^4.2.12
     "@types/lodash": ^4.14.176
     "@types/mocha": ^8.0.3
-    "@types/node": ^14.6.0
     "@typescript-eslint/eslint-plugin": ^4.1.1
     "@typescript-eslint/parser": ^4.1.1
     chai: ^4.2.0
@@ -250,12 +241,10 @@ __metadata:
     lodash: ^4.17.21
     mocha: ^8.2.1
     nodemon: ^2.0.4
-    prettier: ^2.1.2
     prettier-plugin-solidity: v1.0.0-alpha.59
     solhint: ^3.2.0
     solhint-plugin-prettier: ^0.0.4
     ts-node: ^8.10.2
-    typescript: ^4.6.4
   languageName: unknown
   linkType: soft
 
@@ -272,7 +261,6 @@ __metadata:
     "@types/chai": ^4.2.12
     "@types/lodash": ^4.14.161
     "@types/mocha": ^8.0.3
-    "@types/node": ^14.6.0
     "@typescript-eslint/eslint-plugin": ^4.1.1
     "@typescript-eslint/parser": ^4.1.1
     chai: ^4.2.0
@@ -290,12 +278,10 @@ __metadata:
     lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
-    prettier: ^2.1.2
     prettier-plugin-solidity: v1.0.0-alpha.59
     solhint: ^3.2.0
     solhint-plugin-prettier: ^0.0.4
     ts-node: ^8.10.2
-    typescript: ^4.6.4
   languageName: unknown
   linkType: soft
 
@@ -927,7 +913,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-monorepo@workspace:."
   dependencies:
+    "@types/node": ^17.0.42
+    "@types/prettier": ^2
+    prettier: ^2.6.2
     turbo: ^1.2.16
+    typescript: ^4.7.3
   languageName: unknown
   linkType: soft
 
@@ -1329,7 +1319,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:^17.0.42":
   version: 17.0.42
   resolution: "@types/node@npm:17.0.42"
   checksum: a200cd87e4f12d4d5682a893ad6e1140720c6c074a2cd075f254b3b8306d6174f5a3630e5d2347efb5e9b80d420404b5fafc8fe3c7d4c81998cd914c50b19f75
@@ -1359,7 +1349,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:^2.1.1":
+"@types/prettier@npm:^2, @types/prettier@npm:^2.1.1":
   version: 2.6.3
   resolution: "@types/prettier@npm:2.6.3"
   checksum: e1836699ca189fff6d2a73dc22e028b6a6f693ed1180d5998ac29fa197caf8f85aa92cb38db642e4a370e616b451cb5722ad2395dab11c78e025a1455f37d1f0
@@ -9677,7 +9667,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.0.5, prettier@npm:^2.1.2":
+"prettier@npm:^2.0.5, prettier@npm:^2.1.2, prettier@npm:^2.6.2":
   version: 2.6.2
   resolution: "prettier@npm:2.6.2"
   bin:
@@ -12014,7 +12004,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.6.4":
+"typescript@npm:^4.6.4, typescript@npm:^4.7.3":
   version: 4.7.3
   resolution: "typescript@npm:4.7.3"
   bin:
@@ -12024,7 +12014,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.6.4#~builtin<compat/typescript>, typescript@patch:typescript@^4.7.3#~builtin<compat/typescript>":
   version: 4.7.3
   resolution: "typescript@patch:typescript@npm%3A4.7.3#~builtin<compat/typescript>::version=4.7.3&hash=7ad353"
   bin:

@@ -11,20 +11,16 @@
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.1",
     "@types/lodash": "^4.14.161",
-    "@types/node": "^14.6.0",
     "decimal.js": "^10.2.1",
     "ethers": "^5.4.1",
     "hardhat": "^2.8.3",
     "lodash.frompairs": "^4.0.1",
-    "prettier": "^2.1.2",
-    "ts-node": "^8.10.2",
-    "typescript": "^4.6.4"
+    "ts-node": "^8.10.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
     "eslint": "^7.9.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.1.2"
+    "eslint-plugin-prettier": "^3.1.4"
   }
 }
