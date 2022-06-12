@@ -23,12 +23,17 @@
     "Tom French <tom@balancer.finance>"
   ],
   "scripts": {
-    "build": "yarn workspaces foreach --parallel --verbose  run build",
-    "lint": "yarn workspaces foreach --parallel --verbose run lint",
-    "test": "yarn workspaces foreach --parallel --verbose run test"
+    "build": "turbo run build",
+    "generate": "turbo run generate",
+    "lint": "turbo run lint",
+    "test": "turbo run test"
   },
   "workspaces": [
     "pkg/*",
     "pvt/*"
-  ]
+  ],
+  "devDependencies": {
+    "turbo": "^1.2.16"
+  },
+  "packageManager": "yarn@3.2.1"
 }
