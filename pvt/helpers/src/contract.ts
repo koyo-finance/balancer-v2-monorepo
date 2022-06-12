@@ -1,11 +1,10 @@
-import { ethers } from 'hardhat';
-import { Contract } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-
+import { Contract } from 'ethers';
+import { ethers } from 'hardhat';
 import { Artifacts } from 'hardhat/internal/artifacts';
 import { Artifact } from 'hardhat/types';
-import path from 'path';
 import { Dictionary } from 'lodash';
+import path from 'path';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 

@@ -1,7 +1,6 @@
+import _BN from 'bn.js';
 import { Decimal } from 'decimal.js';
 import { BigNumber } from 'ethers';
-
-import _BN from 'bn.js';
 
 export { BigNumber };
 

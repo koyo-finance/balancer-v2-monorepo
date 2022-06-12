@@ -1,23 +1,20 @@
-import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
-import { defaultAbiCoder } from '@ethersproject/abi';
-import { BigNumber, Contract, ContractTransaction } from 'ethers';
-
 import { SwapKind } from '@balancer-labs/balancer-js';
-import { actionId } from '../../misc/actions';
-import { BigNumberish } from '@koyofinance/exchange-vault-helpers/src/numbers';
+import { defaultAbiCoder } from '@ethersproject/abi';
 import { ZERO_ADDRESS } from '@koyofinance/exchange-vault-helpers/src/constants';
+import { BigNumberish } from '@koyofinance/exchange-vault-helpers/src/numbers';
 import * as expectEvent from '@koyofinance/exchange-vault-helpers/src/test/expectEvent';
-
-import { GeneralSwap } from '../../vault/types';
-import { Account, TxParams } from '../../types/types';
-import { SwapLinearPool, RawLinearPoolDeployment, MultiExitGivenInLinearPool, ExitResult } from './types';
-
-import Vault from '../../vault/Vault';
+import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
+import { BigNumber, Contract, ContractTransaction } from 'ethers';
+import { deployedAt } from '../../../contract';
+import { actionId } from '../../misc/actions';
 import Token from '../../tokens/Token';
 import TokenList from '../../tokens/TokenList';
+import { Account, TxParams } from '../../types/types';
 import TypesConverter from '../../types/TypesConverter';
+import { GeneralSwap } from '../../vault/types';
+import Vault from '../../vault/Vault';
 import LinearPoolDeployer from './LinearPoolDeployer';
-import { deployedAt } from '../../../contract';
+import { ExitResult, MultiExitGivenInLinearPool, RawLinearPoolDeployment, SwapLinearPool } from './types';
 
 export default class LinearPool {
   instance: Contract;

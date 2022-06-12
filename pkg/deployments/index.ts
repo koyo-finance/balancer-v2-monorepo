@@ -6,9 +6,9 @@ import { Contract } from 'ethers';
  * @param contract Name of the contract to be fetched
  * @param network Name of the network looking the deployment for (e.g. mainnet, rinkeby, ropsten, etc)
  */
-export async function getBalancerContract(task: string, contract: string, network: string): Promise<Contract> {
-  const address = await getBalancerContractAddress(task, contract, network);
-  return getBalancerContractAt(task, contract, address);
+export async function getKoyoContract(task: string, contract: string, network: string): Promise<Contract> {
+  const address = await getKoyoContractAddress(task, contract, network);
+  return getKoyoContractAt(task, contract, address);
 }
 
 /**
@@ -17,8 +17,8 @@ export async function getBalancerContract(task: string, contract: string, networ
  * @param contract Name of the contract to be fetched
  * @param address Address of the contract to be fetched
  */
-export async function getBalancerContractAt(task: string, contract: string, address: string): Promise<Contract> {
-  const abi = await getBalancerContractAbi(task, contract);
+export async function getKoyoContractAt(task: string, contract: string, address: string): Promise<Contract> {
+  const abi = await getKoyoContractAbi(task, contract);
   const { ethers } = await import('hardhat');
   return ethers.getContractAt(abi, address);
 }
@@ -28,8 +28,8 @@ export async function getBalancerContractAt(task: string, contract: string, addr
  * @param task ID of the task to look the ABI of the required contract
  * @param contract Name of the contract to looking the ABI of
  */
-export async function getBalancerContractAbi(task: string, contract: string): Promise<unknown[]> {
-  return require(getBalancerContractAbiPath(task, contract));
+export async function getKoyoContractAbi(task: string, contract: string): Promise<unknown[]> {
+  return require(getKoyoContractAbiPath(task, contract));
 }
 
 /**
@@ -37,9 +37,9 @@ export async function getBalancerContractAbi(task: string, contract: string): Pr
  * @param task ID of the task to look the creation code of the required contract
  * @param contract Name of the contract to looking the creation code of
  */
-export async function getBalancerContractBytecode(task: string, contract: string): Promise<string> {
+export async function getKoyoContractBytecode(task: string, contract: string): Promise<string> {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  return require(getBalancerContractBytecodePath(task, contract)).creationCode;
+  return require(getKoyoContractBytecodePath(task, contract)).creationCode;
 }
 
 /**
@@ -48,8 +48,8 @@ export async function getBalancerContractBytecode(task: string, contract: string
  * @param contract Name of the contract to fetched the address of
  * @param network Name of the network looking the deployment for (e.g. mainnet, rinkeby, ropsten, etc)
  */
-export async function getBalancerContractAddress(task: string, contract: string, network: string): Promise<string> {
-  const output = await getBalancerDeployment(task, network);
+export async function getKoyoContractAddress(task: string, contract: string, network: string): Promise<string> {
+  const output = await getKoyoDeployment(task, network);
   return output[contract];
 }
 
@@ -58,8 +58,8 @@ export async function getBalancerContractAddress(task: string, contract: string,
  * @param task ID of the task to look the deployment output of the required network
  * @param network Name of the network looking the deployment output for (e.g. mainnet, rinkeby, ropsten, etc)
  */
-export async function getBalancerDeployment(task: string, network: string): Promise<{ [key: string]: string }> {
-  return require(getBalancerDeploymentPath(task, network));
+export async function getKoyoDeployment(task: string, network: string): Promise<{ [key: string]: string }> {
+  return require(getKoyoDeploymentPath(task, network));
 }
 
 /**
@@ -67,7 +67,7 @@ export async function getBalancerDeployment(task: string, network: string): Prom
  * @param task ID of the task to look the path of the ABI of the required contract
  * @param contract Name of the contract to look the path of it's ABI
  */
-function getBalancerContractAbiPath(task: string, contract: string): string {
+function getKoyoContractAbiPath(task: string, contract: string): string {
   return `@koyofinance/exchange-vault-deployments/dist/tasks/${task}/abi/${contract}.json`;
 }
 
@@ -76,7 +76,7 @@ function getBalancerContractAbiPath(task: string, contract: string): string {
  * @param task ID of the task to look the path of the creation code of the required contract
  * @param contract Name of the contract to look the path of it's creation code
  */
-function getBalancerContractBytecodePath(task: string, contract: string): string {
+function getKoyoContractBytecodePath(task: string, contract: string): string {
   return `@koyofinance/exchange-vault-deployments/dist/tasks/${task}/bytecode/${contract}.json`;
 }
 
@@ -85,6 +85,6 @@ function getBalancerContractBytecodePath(task: string, contract: string): string
  * @param task ID of the task to look the deployment path for the required network
  * @param network Name of the network looking the deployment path for (e.g. mainnet, rinkeby, ropsten, etc)
  */
-function getBalancerDeploymentPath(task: string, network: string): string {
+function getKoyoDeploymentPath(task: string, network: string): string {
   return `@koyofinance/exchange-vault-deployments/dist/tasks/${task}/output/${network}.json`;
 }

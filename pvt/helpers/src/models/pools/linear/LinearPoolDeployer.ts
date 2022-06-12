@@ -1,14 +1,12 @@
-import { Contract } from 'ethers';
 import { deploy } from '@koyofinance/exchange-vault-helpers/src/contract';
 import { fp } from '@koyofinance/exchange-vault-helpers/src/numbers';
-
-import { RawLinearPoolDeployment, LinearPoolDeployment } from './types';
-
-import Vault from '../../vault/Vault';
+import { Contract } from 'ethers';
 import Token from '../../tokens/Token';
-import LinearPool from './LinearPool';
-import VaultDeployer from '../../vault/VaultDeployer';
 import TypesConverter from '../../types/TypesConverter';
+import Vault from '../../vault/Vault';
+import VaultDeployer from '../../vault/VaultDeployer';
+import LinearPool from './LinearPool';
+import { LinearPoolDeployment, RawLinearPoolDeployment } from './types';
 
 const NAME = 'Balancer Pool Token';
 const SYMBOL = 'BPT';
@@ -47,15 +45,8 @@ export default {
   },
 
   async _deployStandalone(params: LinearPoolDeployment, vault: Vault): Promise<Contract> {
-    const {
-      mainToken,
-      wrappedToken,
-      upperTarget,
-      swapFeePercentage,
-      pauseWindowDuration,
-      bufferPeriodDuration,
-      from,
-    } = params;
+    const { mainToken, wrappedToken, upperTarget, swapFeePercentage, pauseWindowDuration, bufferPeriodDuration, from } =
+      params;
 
     const owner = TypesConverter.toAddress(params.owner);
 

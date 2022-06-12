@@ -1,16 +1,14 @@
-import { ethers } from 'hardhat';
-import { Interface } from 'ethers/lib/utils';
-import { BigNumber, Contract, ContractTransaction } from 'ethers';
 import { getSigner } from '@koyofinance/exchange-vault-deployments/dist/src/signers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-
-import * as expectEvent from '../../test/expectEvent';
-import { BigNumberish } from '../../numbers';
+import { BigNumber, Contract, ContractTransaction } from 'ethers';
+import { Interface } from 'ethers/lib/utils';
+import { ethers } from 'hardhat';
 import { ANY_ADDRESS, ONES_BYTES32 } from '../../constants';
-
+import { BigNumberish } from '../../numbers';
+import * as expectEvent from '../../test/expectEvent';
+import { Account, NAry, TxParams } from '../types/types';
 import TimelockAuthorizerDeployer from './TimelockAuthorizerDeployer';
 import { TimelockAuthorizerDeployment } from './types';
-import { Account, NAry, TxParams } from '../types/types';
 
 export default class TimelockAuthorizer {
   static WHATEVER = ONES_BYTES32;
@@ -68,9 +66,7 @@ export default class TimelockAuthorizer {
     return this.instance.getActionIdDelay(action);
   }
 
-  async getScheduledExecution(
-    id: BigNumberish
-  ): Promise<{
+  async getScheduledExecution(id: BigNumberish): Promise<{
     executed: boolean;
     cancelled: boolean;
     protected: boolean;

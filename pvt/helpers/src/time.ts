@@ -1,6 +1,5 @@
 import { BigNumber } from 'ethers';
 import { ethers, network } from 'hardhat';
-
 import { BigNumberish, bn } from './numbers';
 
 export const currentTimestamp = async (): Promise<BigNumber> => {

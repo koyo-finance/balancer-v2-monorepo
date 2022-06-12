@@ -1,11 +1,8 @@
-import { BigNumber } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-
+import { BigNumber } from 'ethers';
 import { getForkedNetwork } from './test';
 
-const WHALES: { [key: string]: string } = {
-  mainnet: '0x47ac0fb4f2d84898e4d9e7b4dab3c24507a6d503',
-};
+const WHALES: { [key: string]: string } = {};
 
 export async function getSigners(): Promise<SignerWithAddress[]> {
   const { ethers } = await import('hardhat');

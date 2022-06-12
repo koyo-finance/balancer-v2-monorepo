@@ -1,10 +1,9 @@
-import { Contract, BigNumber } from 'ethers';
-import { CompilerOutputBytecode } from 'hardhat/types';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-
+import { BigNumber, Contract } from 'ethers';
+import { CompilerOutputBytecode } from 'hardhat/types';
 import Task from './task';
 
-export const NETWORKS = ['goerli', 'kovan', 'mainnet', 'rinkeby', 'ropsten', 'polygon', 'arbitrum', 'optimism'];
+export const NETWORKS = ['boba'];
 
 export type Network = typeof NETWORKS[number];
 

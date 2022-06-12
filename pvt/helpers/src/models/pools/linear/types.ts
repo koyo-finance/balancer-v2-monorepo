@@ -1,11 +1,9 @@
-import { BigNumber } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-
-import { Account } from '../../types/types';
+import { BigNumber } from 'ethers';
 import { BigNumberish } from '../../../numbers';
-
-import Vault from '../../vault/Vault';
 import Token from '../../tokens/Token';
+import { Account } from '../../types/types';
+import Vault from '../../vault/Vault';
 
 export type RawLinearPoolDeployment = {
   mainToken: Token;

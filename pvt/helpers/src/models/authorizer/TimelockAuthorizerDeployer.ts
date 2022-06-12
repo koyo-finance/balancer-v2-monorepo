@@ -1,11 +1,9 @@
 import { ethers } from 'hardhat';
-
-import { MONTH } from '../../time';
 import { deploy } from '../../contract';
-import { TimelockAuthorizerDeployment } from './types';
-
-import TimelockAuthorizer from './TimelockAuthorizer';
+import { MONTH } from '../../time';
 import TypesConverter from '../types/TypesConverter';
+import TimelockAuthorizer from './TimelockAuthorizer';
+import { TimelockAuthorizerDeployment } from './types';
 
 export default {
   async deploy(deployment: TimelockAuthorizerDeployment): Promise<TimelockAuthorizer> {
