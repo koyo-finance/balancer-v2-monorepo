@@ -1,21 +1,16 @@
+import '@balancer-labs/v2-common/setupTests';
 import '@nomiclabs/hardhat-ethers';
 import '@nomiclabs/hardhat-waffle';
-import 'hardhat-local-networks-config-plugin';
-
-import '@balancer-labs/v2-common/setupTests';
-
-import { task, types } from 'hardhat/config';
-import { TASK_TEST } from 'hardhat/builtin-tasks/task-names';
-import { HardhatRuntimeEnvironment } from 'hardhat/types';
-
-import path from 'path';
 import { existsSync, readdirSync, statSync } from 'fs';
-
+import 'hardhat-local-networks-config-plugin';
+import { TASK_TEST } from 'hardhat/builtin-tasks/task-names';
+import { task, types } from 'hardhat/config';
+import { HardhatRuntimeEnvironment } from 'hardhat/types';
+import path from 'path';
 import { checkArtifact, extractArtifact } from './src/artifact';
-import test from './src/test';
-import Task, { TaskMode } from './src/task';
-import Verifier from './src/verifier';
 import { Logger } from './src/logger';
+import Task, { TaskMode } from './src/task';
+import test from './src/test';
 
 task('deploy', 'Run deployment task')
   .addParam('id', 'Deployment task ID')
@@ -26,34 +21,7 @@ task('deploy', 'Run deployment task')
       Logger.setDefaults(false, args.verbose || false);
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const apiKey = args.key ?? (hre.config.networks[hre.network.name] as any).verificationAPIKey;
-      const verifier = apiKey ? new Verifier(hre.network, apiKey) : undefined;
-      await new Task(args.id, TaskMode.LIVE, hre.network.name, verifier).run(args);
-    }
-  );
-
-task('verify-contract', `Verify a task's deployment on a block explorer`)
-  .addParam('id', 'Deployment task ID')
-  .addParam('name', 'Contract name')
-  .addParam('address', 'Contract address')
-  .addParam('args', 'ABI-encoded constructor arguments')
-  .addOptionalParam('key', 'Etherscan API key to verify contracts')
-  .setAction(
-    async (
-      args: { id: string; name: string; address: string; key: string; args: string; verbose?: boolean },
-      hre: HardhatRuntimeEnvironment
-    ) => {
-      Logger.setDefaults(false, args.verbose || false);
-
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const apiKey = args.key ?? (hre.config.networks[hre.network.name] as any).verificationAPIKey;
-      const verifier = apiKey ? new Verifier(hre.network, apiKey) : undefined;
-
-      await new Task(args.id, TaskMode.READ_ONLY, hre.network.name, verifier).verify(
-        args.name,
-        args.address,
-        args.args
-      );
+      await new Task(args.id, TaskMode.LIVE, hre.network.name).run(args);
     }
   );
 

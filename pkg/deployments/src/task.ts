@@ -1,27 +1,24 @@
-import fs from 'fs';
-import path, { extname } from 'path';
-import { BuildInfo, CompilerOutputContract } from 'hardhat/types';
-import { Contract } from 'ethers';
 import { getContractAddress } from '@ethersproject/address';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
-
-import logger from './logger';
-import Verifier from './verifier';
+import { Contract } from 'ethers';
+import fs from 'fs';
+import { BuildInfo, CompilerOutputContract } from 'hardhat/types';
+import path, { extname } from 'path';
 import { deploy, deploymentTxData, instanceAt } from './contracts';
-
+import logger from './logger';
+import { getContractDeploymentTransactionHash, saveContractDeploymentTransactionHash } from './network';
 import {
-  NETWORKS,
-  Network,
-  Libraries,
   Artifact,
   Input,
+  Libraries,
+  Network,
+  NETWORKS,
   Output,
   Param,
   RawInputKeyValue,
   RawOutput,
   TaskRunOptions,
 } from './types';
-import { getContractDeploymentTransactionHash, saveContractDeploymentTransactionHash } from './network';
 
 const TASKS_DIRECTORY = path.resolve(__dirname, '../tasks');
 
@@ -39,14 +36,12 @@ export default class Task {
   mode: TaskMode;
 
   _network?: Network;
-  _verifier?: Verifier;
 
-  constructor(idAlias: string, mode: TaskMode, network?: Network, verifier?: Verifier) {
+  constructor(idAlias: string, mode: TaskMode, network?: Network) {
     if (network && !NETWORKS.includes(network)) throw Error(`Unknown network ${network}`);
     this.id = this._findTaskId(idAlias);
     this.mode = mode;
     this._network = network;
-    this._verifier = verifier;
   }
 
   get network(): string {
@@ -92,11 +87,9 @@ export default class Task {
     const output = this.output({ ensure: false });
     if (force || !output[name]) {
       const instance = await this.deploy(name, args, from, libs);
-      await this.verify(name, instance.address, args, libs);
       return instance;
     } else {
       logger.info(`${name} already deployed at ${output[name]}`);
-      await this.verify(name, output[name], args, libs);
       return this.instanceAt(name, output[name]);
     }
   }
@@ -118,25 +111,6 @@ export default class Task {
       await saveContractDeploymentTransactionHash(instance.address, instance.deployTransaction.hash, this.network);
     }
     return instance;
-  }
-
-  async verify(
-    name: string,
-    address: string,
-    constructorArguments: string | unknown[],
-    libs?: Libraries
-  ): Promise<void> {
-    if (this.mode !== TaskMode.LIVE) {
-      return;
-    }
-
-    try {
-      if (!this._verifier) return logger.warn('Skipping contract verification, no verifier defined');
-      const url = await this._verifier.call(this, name, address, constructorArguments, libs);
-      logger.success(`Verified contract ${name} at ${url}`);
-    } catch (error) {
-      logger.error(`Failed trying to verify ${name} at ${address}: ${error}`);
-    }
   }
 
   async check(name: string, args: Array<Param> = [], libs?: Libraries): Promise<Contract> {
