@@ -24,3 +24,5 @@ pkg/balancer-js/src/typechain/*
 
 # Ignore Turbo caching
 .turbo
+
+.DS_Store

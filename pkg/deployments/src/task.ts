@@ -73,27 +73,6 @@ export default class Task {
     return task.instanceAt(artifactName, address);
   }
 
-  async deployAndVerify(
-    name: string,
-    args: Array<Param> = [],
-    from?: SignerWithAddress,
-    force?: boolean,
-    libs?: Libraries
-  ): Promise<Contract> {
-    if (this.mode == TaskMode.CHECK) {
-      return await this.check(name, args, libs);
-    }
-
-    const output = this.output({ ensure: false });
-    if (force || !output[name]) {
-      const instance = await this.deploy(name, args, from, libs);
-      return instance;
-    } else {
-      logger.info(`${name} already deployed at ${output[name]}`);
-      return this.instanceAt(name, output[name]);
-    }
-  }
-
   async deploy(name: string, args: Array<Param> = [], from?: SignerWithAddress, libs?: Libraries): Promise<Contract> {
     if (this.mode == TaskMode.CHECK) {
       return await this.check(name, args, libs);
