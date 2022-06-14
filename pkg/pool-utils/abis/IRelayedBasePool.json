@@ -1,0 +1,15 @@
+[
+  {
+    "inputs": [],
+    "name": "getRelayer",
+    "outputs": [
+      {
+        "internalType": "contract IBasePoolRelayer",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

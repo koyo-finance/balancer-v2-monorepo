@@ -56,3 +56,11 @@ export const overrides = (packageName: string): Record<string, SolcConfig> => {
 
   return overrides;
 };
+
+export const abiExporter = {
+  path: './abis',
+  runOnCompile: false,
+  clear: true,
+  flat: true,
+  except: ['test/'],
+};

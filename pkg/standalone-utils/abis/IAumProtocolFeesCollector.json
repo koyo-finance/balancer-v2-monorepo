@@ -1,0 +1,41 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newAumFeePercentage",
+        "type": "uint256"
+      }
+    ],
+    "name": "AumFeePercentageChanged",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "getAumFeePercentage",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "newSwapFeePercentage",
+        "type": "uint256"
+      }
+    ],
+    "name": "setAumFeePercentage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
