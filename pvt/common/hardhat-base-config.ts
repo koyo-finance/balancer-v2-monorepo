@@ -11,23 +11,7 @@ const contractSettings: ContractSettings = {
     version: '0.7.1',
     runs: 1500,
   },
-  '@koyofinance/exchange-vault-pool-weighted/contracts/OracleWeightedPoolFactory.sol': {
-    version: '0.7.1',
-    runs: 200,
-  },
-  '@koyofinance/exchange-vault-pool-weighted/contracts/LiquidityBootstrappingPoolFactory.sol': {
-    version: '0.7.1',
-    runs: 200,
-  },
-  '@koyofinance/exchange-vault-pool-stable/contracts/meta/MetaStablePool.sol': {
-    version: '0.7.1',
-    runs: 200,
-  },
-  '@koyofinance/exchange-vault-pool-stable/contracts/meta/MetaStablePoolFactory.sol': {
-    version: '0.7.1',
-    runs: 200,
-  },
-  '@koyofinance/exchange-vault-pool-weighted/contracts/smart/ManagedPoolFactory.sol': {
+  '@koyofinance/exchange-vault-pool-oracle/contracts/oracle/OracleWeightedPoolFactory.sol': {
     version: '0.7.1',
     runs: 200,
   },
