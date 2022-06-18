@@ -1,5 +1,6 @@
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
 import { Contract, utils } from 'ethers';
+import logger from './logger';
 import { getSigner } from './signers';
 import { Artifact, Libraries, Param } from './types';
 
@@ -15,6 +16,11 @@ export async function deploy(
 
   const { ethers } = await import('hardhat');
   const factory = await ethers.getContractFactory(artifact.abi, artifact.evm.bytecode.object as utils.BytesLike);
+
+  const deploymentData = factory.interface.encodeDeploy(args);
+  const deploymentEstimatedGas = await ethers.provider.estimateGas({ data: deploymentData, from: from.address });
+  logger.info(`Gas to deploy contract: ${deploymentEstimatedGas}`);
+
   const deployment = await factory.connect(from).deploy(...args);
   return deployment.deployed();
 }
