@@ -3,14 +3,14 @@
   "version": "2.0.0",
   "description": "Balancer V2 Vault contract and core interfaces",
   "license": "GPL-3.0-only",
-  "homepage": "https://github.com/balancer-labs/balancer-v2-monorepo/tree/master/pkg/vault#readme",
+  "homepage": "https://github.com/koyo-finance/exchange-vault-monorepo/tree/master/pkg/vault#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/balancer-labs/balancer-v2-monorepo.git",
+    "url": "https://github.com/koyo-finance/exchange-vault-monorepo.git",
     "directory": "pkg/vault"
   },
   "bugs": {
-    "url": "https://github.com/balancer-labs/balancer-v2-monorepo/issues"
+    "url": "https://github.com/koyo-finance/exchange-vault-monorepo/issues"
   },
   "files": [
     "contracts/**/*",
