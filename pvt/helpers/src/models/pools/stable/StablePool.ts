@@ -1,49 +1,47 @@
+import { StablePoolEncoder, SwapKind } from '@koyofinance/vault-js';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 import { BigNumber, Contract, ContractFunction, ContractTransaction } from 'ethers';
-
-import { currentTimestamp, DAY } from '../../../time';
-import { BigNumberish, bn, fp } from '../../../numbers';
 import { MAX_UINT256, ZERO_ADDRESS } from '../../../constants';
-
+import { BigNumberish, bn, fp } from '../../../numbers';
 import * as expectEvent from '../../../test/expectEvent';
-import Vault from '../../vault/Vault';
+import { currentTimestamp, DAY } from '../../../time';
 import Token from '../../tokens/Token';
 import TokenList from '../../tokens/TokenList';
-import TypesConverter from '../../types/TypesConverter';
-import StablePoolDeployer from './StablePoolDeployer';
 import { TxParams } from '../../types/types';
-import { SwapKind, StablePoolEncoder } from '@balancer-labs/balancer-js';
+import TypesConverter from '../../types/TypesConverter';
+import { Swap } from '../../vault/types';
+import Vault from '../../vault/Vault';
+import BasePool from '../base/BasePool';
 import {
-  Sample,
-  MiscData,
-  JoinExitStablePool,
-  InitStablePool,
-  JoinGivenInStablePool,
-  JoinGivenOutStablePool,
-  JoinResult,
-  RawStablePoolDeployment,
-  ExitResult,
-  SingleExitGivenInStablePool,
-  MultiExitGivenInStablePool,
-  ExitGivenOutStablePool,
-  SwapStablePool,
-  ExitQueryResult,
-  JoinQueryResult,
-  PoolQueryResult,
-} from './types';
-import {
-  calculateInvariant,
   calcBptOutGivenExactTokensIn,
+  calcInGivenOut,
+  calcOutGivenIn,
   calcTokenInGivenExactBptOut,
   calcTokenOutGivenExactBptIn,
-  calcOutGivenIn,
-  calculateOneTokenSwapFeeAmount,
-  calcInGivenOut,
-  calculateSpotPrice,
   calculateBptPrice,
+  calculateInvariant,
+  calculateOneTokenSwapFeeAmount,
+  calculateSpotPrice,
 } from './math';
-import { Swap } from '../../vault/types';
-import BasePool from '../base/BasePool';
+import StablePoolDeployer from './StablePoolDeployer';
+import {
+  ExitGivenOutStablePool,
+  ExitQueryResult,
+  ExitResult,
+  InitStablePool,
+  JoinExitStablePool,
+  JoinGivenInStablePool,
+  JoinGivenOutStablePool,
+  JoinQueryResult,
+  JoinResult,
+  MiscData,
+  MultiExitGivenInStablePool,
+  PoolQueryResult,
+  RawStablePoolDeployment,
+  Sample,
+  SingleExitGivenInStablePool,
+  SwapStablePool,
+} from './types';
 
 export enum SWAP_INTERFACE {
   DEFAULT,
@@ -366,7 +364,8 @@ export default class StablePool extends BasePool {
   }
 
   async setInvariantFailure(invariantFailsToConverge: boolean): Promise<void> {
-    await this.instance.setInvariantFailure(invariantFailsToConverge);
+    await this.instance.setFailureCode(0, 0);
+    await this.instance.setFailureMode(0, invariantFailsToConverge);
   }
 
   private async _executeQuery(params: JoinExitStablePool, fn: ContractFunction): Promise<PoolQueryResult> {

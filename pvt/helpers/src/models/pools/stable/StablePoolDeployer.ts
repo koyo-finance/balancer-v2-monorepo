@@ -1,12 +1,10 @@
 import { Contract } from 'ethers';
-
-import * as expectEvent from '../../../test/expectEvent';
 import { deploy, deployedAt } from '../../../contract';
-
-import Vault from '../../vault/Vault';
-import StablePool from './StablePool';
-import VaultDeployer from '../../vault/VaultDeployer';
+import * as expectEvent from '../../../test/expectEvent';
 import TypesConverter from '../../types/TypesConverter';
+import Vault from '../../vault/Vault';
+import VaultDeployer from '../../vault/VaultDeployer';
+import StablePool from './StablePool';
 import { RawStablePoolDeployment, StablePoolDeployment } from './types';
 
 const NAME = 'Balancer Pool Token';
@@ -39,7 +37,7 @@ export default {
     const priceRateCacheDuration = params.priceRateCacheDuration || [];
 
     return params.meta
-      ? deploy('v2-pool-stable/MockMetaStablePool', {
+      ? deploy('exchange-vault-pool-stable/MockMetaStablePool', {
           args: [
             {
               vault: vault.address,
@@ -59,7 +57,7 @@ export default {
           from,
           libraries: { QueryProcessor: (await deploy('QueryProcessor')).address },
         })
-      : deploy('v2-pool-stable/MockStablePool', {
+      : deploy('exchange-vault-pool-stable/MockStablePool', {
           args: [
             vault.address,
             NAME,
@@ -78,7 +76,7 @@ export default {
   async _deployFromFactory(params: StablePoolDeployment, vault: Vault): Promise<Contract> {
     const { tokens, amplificationParameter, swapFeePercentage, owner, from } = params;
 
-    const factory = await deploy('v2-pool-stable/StablePoolFactory', { args: [vault.address], from });
+    const factory = await deploy('exchange-vault-pool-stable/StablePoolFactory', { args: [vault.address], from });
     const tx = await factory.create(
       NAME,
       SYMBOL,
@@ -89,6 +87,6 @@ export default {
     );
     const receipt = await tx.wait();
     const event = expectEvent.inReceipt(receipt, 'PoolCreated');
-    return deployedAt('v2-pool-stable/StablePool', event.args.pool);
+    return deployedAt('exchange-vault-pool-stable/StablePool', event.args.pool);
   },
 };

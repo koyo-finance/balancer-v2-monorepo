@@ -1,10 +1,8 @@
 import { ethers } from 'hardhat';
-
 import { deploy } from '../../contract';
-
+import TypesConverter from '../types/TypesConverter';
 import Token from './Token';
 import TokenList from './TokenList';
-import TypesConverter from '../types/TypesConverter';
 import { RawTokenDeployment, RawTokensDeployment, TokenDeployment, TokensDeploymentOptions } from './types';
 
 class TokensDeployer {
@@ -30,12 +28,12 @@ class TokensDeployer {
 
     let instance;
     if (symbol !== 'WETH') {
-      instance = await deploy('v2-standalone-utils/TestToken', {
+      instance = await deploy('exchange-vault-standalone-utils/TestToken', {
         from: sender,
         args: [name, symbol, decimals],
       });
     } else {
-      instance = await deploy('v2-standalone-utils/TestWETH', {
+      instance = await deploy('exchange-vault-standalone-utils/TestWETH', {
         from: sender,
         args: [],
       });

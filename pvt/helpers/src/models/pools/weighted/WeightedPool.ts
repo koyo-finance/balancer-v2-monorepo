@@ -1,55 +1,53 @@
+import { SwapKind, WeightedPoolEncoder } from '@koyofinance/vault-js';
+import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
 import { BigNumber, Contract, ContractFunction, ContractTransaction } from 'ethers';
-
-import { actionId } from '../../misc/actions';
-import { BigNumberish, bn, fp, FP_SCALING_FACTOR } from '../../../numbers';
 import { MAX_UINT256, ZERO_ADDRESS } from '../../../constants';
-
+import { BigNumberish, bn, fp, FP_SCALING_FACTOR } from '../../../numbers';
 import * as expectEvent from '../../../test/expectEvent';
-import Vault from '../../vault/Vault';
+import { actionId } from '../../misc/actions';
 import Token from '../../tokens/Token';
 import TokenList from '../../tokens/TokenList';
-import TypesConverter from '../../types/TypesConverter';
-import WeightedPoolDeployer from './WeightedPoolDeployer';
-import { MinimalSwap } from '../../vault/types';
 import { Account, TxParams } from '../../types/types';
+import TypesConverter from '../../types/TypesConverter';
+import { MinimalSwap } from '../../vault/types';
+import Vault from '../../vault/Vault';
 import {
-  JoinExitWeightedPool,
-  InitWeightedPool,
-  JoinGivenInWeightedPool,
-  JoinGivenOutWeightedPool,
-  JoinAllGivenOutWeightedPool,
-  JoinResult,
-  RawWeightedPoolDeployment,
-  ExitResult,
-  SwapResult,
-  SingleExitGivenInWeightedPool,
-  MultiExitGivenInWeightedPool,
-  ExitGivenOutWeightedPool,
-  SwapWeightedPool,
-  ExitQueryResult,
-  JoinQueryResult,
-  PoolQueryResult,
-  MiscData,
-  Sample,
-  GradualWeightUpdateParams,
-  GradualSwapFeeUpdateParams,
-  WeightedPoolType,
-  VoidResult,
-} from './types';
-import {
-  calculateInvariant,
   calcBptOutGivenExactTokensIn,
+  calcInGivenOut,
+  calcOutGivenIn,
   calcTokenInGivenExactBptOut,
   calcTokenOutGivenExactBptIn,
-  calcOutGivenIn,
-  calculateOneTokenSwapFeeAmount,
-  calcInGivenOut,
-  calculateMaxOneTokenSwapFeeAmount,
-  calculateSpotPrice,
   calculateBPTPrice,
+  calculateInvariant,
+  calculateMaxOneTokenSwapFeeAmount,
+  calculateOneTokenSwapFeeAmount,
+  calculateSpotPrice,
 } from './math';
-import { SwapKind, WeightedPoolEncoder } from '@balancer-labs/balancer-js';
-import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
+import {
+  ExitGivenOutWeightedPool,
+  ExitQueryResult,
+  ExitResult,
+  GradualSwapFeeUpdateParams,
+  GradualWeightUpdateParams,
+  InitWeightedPool,
+  JoinAllGivenOutWeightedPool,
+  JoinExitWeightedPool,
+  JoinGivenInWeightedPool,
+  JoinGivenOutWeightedPool,
+  JoinQueryResult,
+  JoinResult,
+  MiscData,
+  MultiExitGivenInWeightedPool,
+  PoolQueryResult,
+  RawWeightedPoolDeployment,
+  Sample,
+  SingleExitGivenInWeightedPool,
+  SwapResult,
+  SwapWeightedPool,
+  VoidResult,
+  WeightedPoolType,
+} from './types';
+import WeightedPoolDeployer from './WeightedPoolDeployer';
 
 const MAX_IN_RATIO = fp(0.3);
 const MAX_OUT_RATIO = fp(0.3);

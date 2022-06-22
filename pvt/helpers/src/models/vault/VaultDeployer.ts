@@ -28,14 +28,14 @@ export default {
     const { from, pauseWindowDuration, bufferPeriodDuration } = deployment;
     const weth = await TokensDeployer.deployToken({ symbol: 'WETH' });
     const args = [authorizer.address, weth.address, pauseWindowDuration, bufferPeriodDuration];
-    return deploy('v2-vault/Vault', { args, from });
+    return deploy('exchange-vault/Vault', { args, from });
   },
 
   async _deployMocked({ from }: VaultDeployment, authorizer: Contract): Promise<Contract> {
-    return deploy('v2-pool-utils/MockVault', { from, args: [authorizer.address] });
+    return deploy('exchange-vault-pool-utils/MockVault', { from, args: [authorizer.address] });
   },
 
   async _deployAuthorizer(admin: SignerWithAddress, from?: SignerWithAddress): Promise<Contract> {
-    return deploy('v2-vault/TimelockAuthorizer', { args: [admin.address, ZERO_ADDRESS, MONTH], from });
+    return deploy('exchange-vault/TimelockAuthorizer', { args: [admin.address, ZERO_ADDRESS, MONTH], from });
   },
 };

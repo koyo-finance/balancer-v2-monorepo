@@ -1,31 +1,28 @@
+import { toNormalizedWeights } from '@koyofinance/vault-js';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-import { toNormalizedWeights } from '@balancer-labs/balancer-js';
 import { ethers } from 'ethers';
-
+import { MAX_UINT256, ZERO_ADDRESS } from '../../constants';
 import { BigNumberish, bn, fp } from '../../numbers';
 import { DAY, MONTH } from '../../time';
-import { MAX_UINT256, ZERO_ADDRESS } from '../../constants';
-import TokenList from '../tokens/TokenList';
-import { Account } from './types';
-import { RawVaultDeployment, VaultDeployment } from '../vault/types';
 import { RawStablePoolDeployment, StablePoolDeployment } from '../pools/stable/types';
-import { RawLinearPoolDeployment, LinearPoolDeployment } from '../pools/linear/types';
-import { RawStablePhantomPoolDeployment, StablePhantomPoolDeployment } from '../pools/stable-phantom/types';
 import {
+  BasePoolRights,
   RawWeightedPoolDeployment,
   WeightedPoolDeployment,
   WeightedPoolType,
-  BasePoolRights,
 } from '../pools/weighted/types';
+import TokenList from '../tokens/TokenList';
 import {
   RawTokenApproval,
+  RawTokenDeployment,
   RawTokenMint,
   RawTokensDeployment,
   TokenApproval,
-  TokenMint,
   TokenDeployment,
-  RawTokenDeployment,
+  TokenMint,
 } from '../tokens/types';
+import { RawVaultDeployment, VaultDeployment } from '../vault/types';
+import { Account } from './types';
 
 export function computeDecimalsFromIndex(i: number): number {
   // Produces repeating series (18..0)
@@ -72,7 +69,7 @@ export default {
     if (!params.owner) params.owner = ZERO_ADDRESS;
     if (!tokens) tokens = new TokenList();
     if (!weights) weights = Array(tokens.length).fill(fp(1));
-    weights = toNormalizedWeights(weights.map(bn));
+    weights = toNormalizedWeights(weights.map(bn)) as BigNumberish[];
     if (!swapFeePercentage) swapFeePercentage = bn(1e16);
     if (!pauseWindowDuration) pauseWindowDuration = 3 * MONTH;
     if (!bufferPeriodDuration) bufferPeriodDuration = MONTH;
@@ -140,56 +137,6 @@ export default {
       bufferPeriodDuration,
       oracleEnabled,
       meta,
-      owner: params.owner,
-    };
-  },
-
-  toLinearPoolDeployment(params: RawLinearPoolDeployment): LinearPoolDeployment {
-    let { upperTarget, swapFeePercentage, pauseWindowDuration, bufferPeriodDuration } = params;
-
-    if (!upperTarget) upperTarget = bn(0);
-    if (!swapFeePercentage) swapFeePercentage = bn(1e12);
-    if (!pauseWindowDuration) pauseWindowDuration = 3 * MONTH;
-    if (!bufferPeriodDuration) bufferPeriodDuration = MONTH;
-
-    return {
-      mainToken: params.mainToken,
-      wrappedToken: params.wrappedToken,
-      upperTarget,
-      swapFeePercentage,
-      pauseWindowDuration,
-      bufferPeriodDuration,
-      owner: params.owner,
-    };
-  },
-
-  toStablePhantomPoolDeployment(params: RawStablePhantomPoolDeployment): StablePhantomPoolDeployment {
-    let {
-      tokens,
-      rateProviders,
-      tokenRateCacheDurations,
-      amplificationParameter,
-      swapFeePercentage,
-      pauseWindowDuration,
-      bufferPeriodDuration,
-    } = params;
-
-    if (!tokens) tokens = new TokenList();
-    if (!rateProviders) rateProviders = Array(tokens.length).fill(ZERO_ADDRESS);
-    if (!tokenRateCacheDurations) tokenRateCacheDurations = Array(tokens.length).fill(DAY);
-    if (!amplificationParameter) amplificationParameter = bn(200);
-    if (!swapFeePercentage) swapFeePercentage = bn(1e12);
-    if (!pauseWindowDuration) pauseWindowDuration = 3 * MONTH;
-    if (!bufferPeriodDuration) bufferPeriodDuration = MONTH;
-
-    return {
-      tokens,
-      rateProviders,
-      tokenRateCacheDurations,
-      amplificationParameter,
-      swapFeePercentage,
-      pauseWindowDuration,
-      bufferPeriodDuration,
       owner: params.owner,
     };
   },

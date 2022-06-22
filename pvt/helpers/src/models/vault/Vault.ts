@@ -1,19 +1,18 @@
-import { ethers } from 'hardhat';
-import { SwapKind } from '@balancer-labs/balancer-js';
-import { BigNumber, Contract, ContractTransaction } from 'ethers';
+import { Interface } from '@ethersproject/abi';
+import { SwapKind } from '@koyofinance/vault-js';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-
-import Token from '../tokens/Token';
-import TokenList from '../tokens/TokenList';
-import VaultDeployer from './VaultDeployer';
-import TypesConverter from '../types/TypesConverter';
-import { actionId } from '../misc/actions';
+import { BigNumber, Contract, ContractTransaction } from 'ethers';
+import { ethers } from 'hardhat';
+import { ANY_ADDRESS, MAX_UINT256, ZERO_ADDRESS } from '../../constants';
 import { deployedAt } from '../../contract';
 import { BigNumberish } from '../../numbers';
+import { actionId } from '../misc/actions';
+import Token from '../tokens/Token';
+import TokenList from '../tokens/TokenList';
 import { Account, NAry, TxParams } from '../types/types';
-import { ANY_ADDRESS, MAX_UINT256, ZERO_ADDRESS } from '../../constants';
-import { ExitPool, JoinPool, RawVaultDeployment, MinimalSwap, GeneralSwap } from './types';
-import { Interface } from '@ethersproject/abi';
+import TypesConverter from '../types/TypesConverter';
+import { ExitPool, GeneralSwap, JoinPool, MinimalSwap, RawVaultDeployment } from './types';
+import VaultDeployer from './VaultDeployer';
 
 export default class Vault {
   mocked: boolean;
@@ -210,7 +209,7 @@ export default class Vault {
   async getFeesCollector(): Promise<Contract> {
     if (!this.feesCollector) {
       const instance = await this.instance.getProtocolFeesCollector();
-      this.feesCollector = await deployedAt('v2-vault/ProtocolFeesCollector', instance);
+      this.feesCollector = await deployedAt('exchange-vault/ProtocolFeesCollector', instance);
     }
     return this.feesCollector;
   }

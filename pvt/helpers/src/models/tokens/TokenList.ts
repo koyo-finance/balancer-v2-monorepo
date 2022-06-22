@@ -1,11 +1,9 @@
 import { BigNumber } from 'ethers';
-
+import { ZERO_ADDRESS } from '../../constants';
+import { Account } from '../types/types';
+import TypesConverter from '../types/TypesConverter';
 import Token from './Token';
 import TokensDeployer from './TokensDeployer';
-import TypesConverter from '../types/TypesConverter';
-
-import { Account } from '../types/types';
-import { ZERO_ADDRESS } from '../../constants';
 import {
   RawTokenApproval,
   RawTokenMint,

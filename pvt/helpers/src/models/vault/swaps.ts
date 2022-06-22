@@ -1,7 +1,7 @@
+import { BatchSwapStep } from '@koyofinance/vault-js';
 import { BigNumberish } from '../../numbers';
-import { BatchSwapStep } from '@balancer-labs/balancer-js';
-import TokenList from '../tokens/TokenList';
 import Token from '../tokens/Token';
+import TokenList from '../tokens/TokenList';
 
 export type Trade = {
   poolId: string;

@@ -23,3 +23,5 @@ export const ONES_BYTES32 = '0xfffffffffffffffffffffffffffffffffffffffffffffffff
 
 export const MAX_GAS_LIMIT = 8e6;
 export const MAX_WEIGHTED_TOKENS = 100;
+
+export const ORG_BASE = '@koyofinance';

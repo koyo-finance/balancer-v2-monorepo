@@ -5,6 +5,7 @@ import { Artifacts } from 'hardhat/internal/artifacts';
 import { Artifact } from 'hardhat/types';
 import { Dictionary } from 'lodash';
 import path from 'path';
+import { ORG_BASE } from './constants';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -48,7 +49,7 @@ export async function getArtifact(contract: string): Promise<Artifact> {
   if (!contract.includes('/')) {
     artifactsPath = path.resolve('./artifacts');
   } else {
-    const packageName = `@balancer-labs/${contract.split('/')[0]}`;
+    const packageName = `${ORG_BASE}/${contract.split('/')[0]}`;
     const packagePath = path.dirname(require.resolve(`${packageName}/package.json`));
     artifactsPath = `${packagePath}/artifacts`;
   }

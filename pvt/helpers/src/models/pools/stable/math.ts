@@ -1,7 +1,6 @@
 import { Decimal } from 'decimal.js';
 import { BigNumber } from 'ethers';
-
-import { BigNumberish, decimal, bn, fp, fromFp, toFp } from '../../../numbers';
+import { BigNumberish, bn, decimal, fp, fromFp, toFp } from '../../../numbers';
 
 export function calculateInvariant(fpRawBalances: BigNumberish[], amplificationParameter: BigNumberish): BigNumber {
   return calculateApproxInvariant(fpRawBalances, amplificationParameter);

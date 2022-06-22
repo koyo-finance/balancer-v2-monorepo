@@ -1,17 +1,16 @@
-import { BigNumber, Contract, ContractTransaction } from 'ethers';
+import { BasePoolEncoder } from '@koyofinance/vault-js';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers';
-import { BasePoolEncoder } from '@balancer-labs/balancer-js';
+import { BigNumber, Contract, ContractTransaction } from 'ethers';
 import { ZERO_ADDRESS } from '../../../constants';
-import * as expectEvent from '../../../test/expectEvent';
-import TypesConverter from '../../types/TypesConverter';
 import { BigNumberish, bn, fp } from '../../../numbers';
-import { Account } from '../../types/types';
-import TokenList from '../../tokens/TokenList';
+import * as expectEvent from '../../../test/expectEvent';
 import { actionId } from '../../misc/actions';
 import Token from '../../tokens/Token';
+import TokenList from '../../tokens/TokenList';
+import { Account } from '../../types/types';
+import TypesConverter from '../../types/TypesConverter';
 import Vault from '../../vault/Vault';
-
-import { RecoveryModeExit, ExitResult, MultiExitGivenIn, JoinExitBasePool } from './types';
+import { ExitResult, JoinExitBasePool, MultiExitGivenIn, RecoveryModeExit } from './types';
 
 export default class BasePool {
   instance: Contract;
@@ -118,7 +117,7 @@ export default class BasePool {
       from: params.from,
       recipient: params.recipient,
       currentBalances: params.currentBalances,
-      data: BasePoolEncoder.exitRecoveryMode(params.bptIn),
+      data: BasePoolEncoder.recoveryModeExit(params.bptIn),
     };
   }
 

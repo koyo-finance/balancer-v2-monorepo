@@ -1,8 +1,6 @@
-import { BigNumber, ContractReceipt } from 'ethers';
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-
+import { BigNumber, ContractReceipt } from 'ethers';
 import { BigNumberish } from '../../../numbers';
-
 import Token from '../../tokens/Token';
 import TokenList from '../../tokens/TokenList';
 import { Account, NAry } from '../../types/types';

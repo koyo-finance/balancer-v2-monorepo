@@ -1,13 +1,11 @@
 import { BigNumber, Contract, ContractTransaction } from 'ethers';
-
 import { MAX_UINT256 } from '../../constants';
-import { BigNumberish } from '../../numbers';
-
-import TokensDeployer from './TokensDeployer';
-import TypesConverter from '../types/TypesConverter';
-import { Account, TxParams } from '../types/types';
-import { RawTokenDeployment } from './types';
 import { deployedAt } from '../../contract';
+import { BigNumberish } from '../../numbers';
+import { Account, TxParams } from '../types/types';
+import TypesConverter from '../types/TypesConverter';
+import TokensDeployer from './TokensDeployer';
+import { RawTokenDeployment } from './types';
 
 export default class Token {
   name: string;
@@ -20,10 +18,10 @@ export default class Token {
   }
 
   static async deployedAt(address: string): Promise<Token> {
-    const instance = await deployedAt('v2-standalone-utils/TestToken', address);
+    const instance = await deployedAt('exchange-vault-standalone-utils/TestToken', address);
     const [name, symbol, decimals] = await Promise.all([instance.name(), instance.symbol(), instance.decimals()]);
     if (symbol === 'WETH') {
-      return new Token(name, symbol, decimals, await deployedAt('v2-standalone-utils/TestWETH', address));
+      return new Token(name, symbol, decimals, await deployedAt('exchange-vault-standalone-utils/TestWETH', address));
     }
     return new Token(name, symbol, decimals, instance);
   }

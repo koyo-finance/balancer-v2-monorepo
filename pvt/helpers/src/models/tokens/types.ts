@@ -1,8 +1,6 @@
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-
 import { BigNumberish } from '../../numbers';
-
-import { NAry, Account } from '../types/types';
+import { Account, NAry } from '../types/types';
 
 export type RawTokensDeployment = number | NAry<RawTokenDeployment>;
 
