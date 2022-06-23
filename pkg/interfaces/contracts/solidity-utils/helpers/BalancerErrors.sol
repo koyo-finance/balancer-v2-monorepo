@@ -99,6 +99,7 @@ library Errors {
     uint256 internal constant UNSORTED_TOKENS = 102;
     uint256 internal constant INPUT_LENGTH_MISMATCH = 103;
     uint256 internal constant ZERO_TOKEN = 104;
+    uint256 internal constant INPUT_LENGTH_INSUFFICIENT = 105;
 
     // Shared pools
     uint256 internal constant MIN_TOKENS = 200;
@@ -210,6 +211,16 @@ library Errors {
     uint256 internal constant IN_RECOVERY_MODE = 437;
     uint256 internal constant NOT_IN_RECOVERY_MODE = 438;
     uint256 internal constant INDUCED_FAILURE = 439;
+    uint256 internal constant ERC721_INVALID_OWNER_ADDRESS_ZERO = 440;
+    uint256 internal constant ERC721_INVALID_TOKEN_ID = 441;
+    uint256 internal constant ERC721_APPROVAL_TO_CURRENT_OWNER = 442;
+    uint256 internal constant ERC721_APPROVE_CALLER_NOT_AUTHORISED = 443;
+    uint256 internal constant ERC721_TRANSFER_TO_NON_RECEIVER_IMPLEMENTER = 444;
+    uint256 internal constant ERC721_MINT_TO_ZERO_ADDRESS = 445;
+    uint256 internal constant ERC721_ALREADY_MINTED = 446;
+    uint256 internal constant ERC721_TRANSFER_FROM_INCORRECT_OWNER = 447;
+    uint256 internal constant ERC721_TRANSFER_TO_ADDRESS_ZERO = 448;
+    uint256 internal constant ERC721_APPROVE_TO_CALLER = 449;
 
     // Vault
     uint256 internal constant INVALID_POOL_ID = 500;
