@@ -28,14 +28,17 @@ import {
     IProtocolFeesCollector
 } from "@koyofinance/exchange-vault-interfaces/contracts/vault/IProtocolFeesCollector.sol";
 import { IAssetManager } from "@koyofinance/exchange-vault-interfaces/contracts/asset-manager-utils/IAssetManager.sol";
+import { IAuthorizer } from "@koyofinance/exchange-vault-interfaces/contracts/vault/IAuthorizer.sol";
 
 import { WordCodec } from "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/WordCodec.sol";
 import { FixedPoint } from "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
+import { Math } from "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
 import { InputHelpers } from "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
 import {
     _require,
     Errors
 } from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import { ERC20 } from "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ERC20.sol";
 
 abstract contract BaseTokenlessPool is IBasePool, BasePoolAuthorization, TemporarilyPausable {
     using WordCodec for bytes32;
@@ -92,7 +95,6 @@ abstract contract BaseTokenlessPool is IBasePool, BasePoolAuthorization, Tempora
         _poolId = poolId;
         _protocolFeesCollector = vault.getProtocolFeesCollector();
     }
-
 
     function getVault() public view returns (IVault) {
         return _vault;
@@ -213,5 +215,74 @@ abstract contract BaseTokenlessPool is IBasePool, BasePoolAuthorization, Tempora
         _require(msg.sender == address(getVault()), Errors.CALLER_NOT_VAULT);
         _require(poolId == getPoolId(), Errors.INVALID_POOL_ID);
         _;
+    }
+
+    /**
+     * @dev Adds swap fee amount to `amount`, returning a higher value.
+     */
+    function _addSwapFeeAmount(uint256 amount) internal view returns (uint256) {
+        // This returns amount + fee amount, so we round up (favoring a higher fee amount).
+        return amount.divUp(FixedPoint.ONE.sub(getSwapFeePercentage()));
+    }
+
+    /**
+     * @dev Subtracts swap fee amount from `amount`, returning a lower value.
+     */
+    function _subtractSwapFeeAmount(uint256 amount) internal view returns (uint256) {
+        // This returns amount - fee amount, so we round up (favoring a higher fee amount).
+        uint256 feeAmount = amount.mulUp(getSwapFeePercentage());
+        return amount.sub(feeAmount);
+    }
+
+    // Scaling
+
+    /**
+     * @dev Returns a scaling factor that, when multiplied to a token amount for `token`, normalizes its balance as if
+     * it had 18 decimals.
+     */
+    function _computeScalingFactor(IERC20 token) internal view returns (uint256) {
+        if (address(token) == address(this)) {
+            return FixedPoint.ONE;
+        }
+
+        // Tokens that don't implement the `decimals` method are not supported.
+        uint256 tokenDecimals = ERC20(address(token)).decimals();
+
+        // Tokens with more than 18 decimals are not supported.
+        uint256 decimalsDifference = Math.sub(18, tokenDecimals);
+        return FixedPoint.ONE * 10**decimalsDifference;
+    }
+
+    /**
+     * @dev Returns the scaling factor for one of the Pool's tokens. Reverts if `token` is not a token registered by the
+     * Pool.
+     *
+     * All scaling factors are fixed-point values with 18 decimals, to allow for this function to be overridden by
+     * derived contracts that need to apply further scaling, making these factors potentially non-integer.
+     *
+     * The largest 'base' scaling factor (i.e. in tokens with less than 18 decimals) is 10**18, which in fixed-point is
+     * 10**36. This value can be multiplied with a 112 bit Vault balance with no overflow by a factor of ~1e7, making
+     * even relatively 'large' factors safe to use.
+     *
+     * The 1e7 figure is the result of 2**256 / (1e18 * 1e18 * 2**112).
+     */
+    function _scalingFactor(IERC20 token) internal view virtual returns (uint256);
+
+    /**
+     * @dev Same as `_scalingFactor()`, except for all registered tokens (in the same order as registered). The Vault
+     * will always pass balances in this order when calling any of the Pool hooks.
+     */
+    function _scalingFactors() internal view virtual returns (uint256[] memory);
+
+    function getScalingFactors() external view returns (uint256[] memory) {
+        return _scalingFactors();
+    }
+
+    function _getAuthorizer() internal view override returns (IAuthorizer) {
+        // Access control management is delegated to the Vault's Authorizer. This lets Balancer Governance manage which
+        // accounts can call permissioned functions: for example, to perform emergency pauses.
+        // If the owner is delegated, then *all* permissioned functions, including `setSwapFeePercentage`, will be under
+        // Governance control.
+        return getVault().getAuthorizer();
     }
 }
