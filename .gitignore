@@ -26,3 +26,5 @@ pkg/balancer-js/src/typechain/*
 .turbo
 
 .DS_Store
+
+pkg/typechain/temp
