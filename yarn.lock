@@ -827,6 +827,37 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@koyofinance/exchange-vault-pool-metas@workspace:pkg/pools/metas":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/exchange-vault-pool-metas@workspace:pkg/pools/metas"
+  dependencies:
+    "@koyofinance/exchange-vault-common": "workspace:*"
+    "@koyofinance/exchange-vault-helpers": "workspace:*"
+    "@koyofinance/exchange-vault-interfaces": "workspace:*"
+    "@koyofinance/exchange-vault-pool-stable": "workspace:^"
+    "@koyofinance/exchange-vault-pool-utils": "workspace:*"
+    "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    "@nomiclabs/hardhat-waffle": ^2.0.0
+    "@types/chai": ^4.2.12
+    "@types/lodash": ^4.14.161
+    "@types/mocha": ^8.0.3
+    chai: ^4.2.0
+    decimal.js: ^10.2.1
+    eslint-plugin-mocha-no-only: ^1.1.1
+    ethereum-waffle: ^3.0.2
+    ethers: ^5.4.1
+    hardhat: ^2.8.3
+    lodash.frompairs: ^4.0.1
+    lodash.pick: ^4.4.0
+    lodash.range: ^3.2.0
+    lodash.times: ^4.3.2
+    lodash.zip: ^4.2.0
+    mocha: ^8.2.1
+    nodemon: ^2.0.4
+  languageName: unknown
+  linkType: soft
+
 "@koyofinance/exchange-vault-pool-oracle@workspace:pkg/pools/oracle":
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-pool-oracle@workspace:pkg/pools/oracle"
@@ -858,7 +889,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@koyofinance/exchange-vault-pool-stable@workspace:pkg/pools/stable":
+"@koyofinance/exchange-vault-pool-stable@workspace:^, @koyofinance/exchange-vault-pool-stable@workspace:pkg/pools/stable":
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-pool-stable@workspace:pkg/pools/stable"
   dependencies:
