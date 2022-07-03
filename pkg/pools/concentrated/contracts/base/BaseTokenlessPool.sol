@@ -17,16 +17,12 @@ pragma experimental ABIEncoderV2;
 
 import { Authentication } from "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/Authentication.sol";
 import { BasePoolAuthorization } from "@koyofinance/exchange-vault-pool-utils/contracts/BasePoolAuthorization.sol";
-import {
-    TemporarilyPausable
-} from "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/TemporarilyPausable.sol";
+import { TemporarilyPausable } from "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/TemporarilyPausable.sol";
 
 import { IERC20 } from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 import { IBasePool } from "@koyofinance/exchange-vault-interfaces/contracts/vault/IBasePool.sol";
 import { IVault } from "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
-import {
-    IProtocolFeesCollector
-} from "@koyofinance/exchange-vault-interfaces/contracts/vault/IProtocolFeesCollector.sol";
+import { IProtocolFeesCollector } from "@koyofinance/exchange-vault-interfaces/contracts/vault/IProtocolFeesCollector.sol";
 import { IAssetManager } from "@koyofinance/exchange-vault-interfaces/contracts/asset-manager-utils/IAssetManager.sol";
 import { IAuthorizer } from "@koyofinance/exchange-vault-interfaces/contracts/vault/IAuthorizer.sol";
 
@@ -34,10 +30,7 @@ import { WordCodec } from "@koyofinance/exchange-vault-solidity-utils/contracts/
 import { FixedPoint } from "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
 import { Math } from "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
 import { InputHelpers } from "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
-import {
-    _require,
-    Errors
-} from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import { _require, Errors } from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 import { ERC20 } from "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ERC20.sol";
 
 abstract contract BaseTokenlessPool is IBasePool, BasePoolAuthorization, TemporarilyPausable {
@@ -216,6 +209,14 @@ abstract contract BaseTokenlessPool is IBasePool, BasePoolAuthorization, Tempora
         _require(poolId == getPoolId(), Errors.INVALID_POOL_ID);
         _;
     }
+
+    function _onInitializePool(
+        bytes32 poolId,
+        address sender,
+        address recipient,
+        uint256[] memory scalingFactors,
+        bytes memory userData
+    ) internal virtual;
 
     /**
      * @dev Adds swap fee amount to `amount`, returning a higher value.

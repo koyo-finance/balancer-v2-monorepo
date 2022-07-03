@@ -104,7 +104,7 @@ contract ConcentratedPool is BaseTokenlessPool {
         return _tickSpacing;
     }
 
-    function getMaxLiquidityPerTick() external view returns (int24) {
+    function getMaxLiquidityPerTick() external view returns (uint128) {
         return _maxLiquidityPerTick;
     }
 
@@ -117,8 +117,9 @@ contract ConcentratedPool is BaseTokenlessPool {
         uint256 protocolSwapFeePercentage,
         bytes memory userData
     ) public virtual override onlyVault(poolId) returns (uint256[] memory, uint256[] memory) {
-        // uint256[] memory scalingFactors = _scalingFactors();
-        (sqrtPriceX96) = getMiscData();
+        uint256[] memory scalingFactors = _scalingFactors();
+        bytes32 miscData = _getMiscData();
+        uint160 sqrtPriceX96 = miscData.sqrtPriceX96();
 
         if (sqrtPriceX96 == 0) {
             _onInitializePool(poolId, sender, recipient, scalingFactors, userData);

@@ -37,19 +37,19 @@ library ConcentratedPoolMiscData {
     uint256 private constant _TICK_LENGTH = 24;
     uint256 private constant _SQRT_PRICE_X96_LENGTH = 160;
 
-    function tick(bytes32 data) internal pure returns (int256) {
-        return data.decodeInt(_TICK_OFFSET, _TICK_LENGTH);
+    function tick(bytes32 data) internal pure returns (int24) {
+        return int24(data.decodeInt(_TICK_OFFSET, _TICK_LENGTH));
     }
 
-    function sqrtPriceX96(bytes32 data) internal pure returns (int256) {
-        return data.decodeUint(_SQRT_PRICE_X96_OFFSET, _SQRT_PRICE_X96_LENGTH);
+    function sqrtPriceX96(bytes32 data) internal pure returns (uint160) {
+        return uint160(data.decodeUint(_SQRT_PRICE_X96_OFFSET, _SQRT_PRICE_X96_LENGTH));
     }
 
     function setTick(bytes32 data, int24 _tick) internal pure returns (bytes32) {
         return data.insertInt(_tick, _TICK_OFFSET, _TICK_LENGTH);
     }
 
-    function setSqrtPriceX96(bytes32 data, int24 _sqrtPriceX96) internal pure returns (bytes32) {
+    function setSqrtPriceX96(bytes32 data, uint160 _sqrtPriceX96) internal pure returns (bytes32) {
         return data.insertUint(_sqrtPriceX96, _SQRT_PRICE_X96_OFFSET, _SQRT_PRICE_X96_LENGTH);
     }
 }
