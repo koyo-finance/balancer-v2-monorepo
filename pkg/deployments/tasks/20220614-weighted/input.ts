@@ -11,6 +11,9 @@ const input: { [network in Network]: WeightedPoolFactoryDeployment } = {
   boba: {
     Vault: Vault as unknown as string,
   },
+  aurora: {
+    Vault: Vault as unknown as string,
+  },
 };
 
 export default input;

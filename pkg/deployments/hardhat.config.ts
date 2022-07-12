@@ -25,7 +25,9 @@ task('deploy', 'Run deployment task')
       Logger.setDefaults(false, args.verbose || false);
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      await new Task(args.id, TaskMode.LIVE, hre.network.name).run(args);
+      const apiKey = args.key ?? (hre.config.networks[hre.network.name] as any).verificationAPIKey;
+      const verifier = apiKey ? new Verifier(hre.network, apiKey, hre.config.etherscan.customChains) : undefined;
+      await new Task(args.id, TaskMode.LIVE, hre.network.name, verifier).run(args);
     }
   );
 
@@ -149,6 +151,14 @@ const config: HardhatUserConfig = {
         urls: {
           browserURL: 'https://bobascan.com',
           apiURL: 'https://api.bobascan.com/api',
+        },
+      },
+      {
+        network: 'aurora',
+        chainId: 1313161554,
+        urls: {
+          browserURL: 'https://aurorascan.dev',
+          apiURL: 'https://api.aurorascan.dev/api',
         },
       },
     ],

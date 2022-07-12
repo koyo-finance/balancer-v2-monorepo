@@ -8,7 +8,8 @@ export async function deploy(
   artifact: Artifact,
   args: Array<Param> = [],
   from?: SignerWithAddress,
-  libs?: Libraries
+  libs?: Libraries,
+  wait?: number
 ): Promise<Contract> {
   if (!args) args = [];
   if (!from) from = await getSigner();
@@ -22,6 +23,7 @@ export async function deploy(
   logger.info(`Gas to deploy contract: ${deploymentEstimatedGas}`);
 
   const deployment = await factory.connect(from).deploy(...args);
+  await deployment.deployTransaction.wait(wait || 1);
   return deployment.deployed();
 }
 

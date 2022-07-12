@@ -76,7 +76,32 @@ export default class Task {
     return task.instanceAt(artifactName, address);
   }
 
-  async deploy(name: string, args: Array<Param> = [], from?: SignerWithAddress, libs?: Libraries): Promise<Contract> {
+  async deployAndVerify(
+    name: string,
+    args: Array<Param> = [],
+    from?: SignerWithAddress,
+    force?: boolean,
+    libs?: Libraries,
+    wait?: number
+  ): Promise<Contract> {
+    if (this.mode == TaskMode.CHECK) {
+      return await this.check(name, args, libs);
+    }
+
+    const instance = await this.deploy(name, args, from, force, libs, wait);
+
+    await this.verify(name, instance.address, args, libs);
+    return instance;
+  }
+
+  async deploy(
+    name: string,
+    args: Array<Param> = [],
+    from?: SignerWithAddress,
+    force?: boolean,
+    libs?: Libraries,
+    wait?: number
+  ): Promise<Contract> {
     if (this.mode == TaskMode.CHECK) {
       return await this.check(name, args, libs);
     }
@@ -85,13 +110,21 @@ export default class Task {
       throw Error(`Cannot deploy in tasks of mode ${TaskMode[this.mode]}`);
     }
 
-    const instance = await deploy(this.artifact(name), args, from, libs);
-    this.save({ [name]: instance });
-    logger.success(`Deployed ${name} at ${instance.address}`);
+    let instance: Contract;
+    const output = this.output({ ensure: false });
+    if (force || !output[name]) {
+      instance = await deploy(this.artifact(name), args, from, libs, wait);
+      this.save({ [name]: instance });
+      logger.success(`Deployed ${name} at ${instance.address}`);
 
-    if (this.mode === TaskMode.LIVE) {
-      await saveContractDeploymentTransactionHash(instance.address, instance.deployTransaction.hash, this.network);
+      if (this.mode === TaskMode.LIVE) {
+        await saveContractDeploymentTransactionHash(instance.address, instance.deployTransaction.hash, this.network);
+      }
+    } else {
+      logger.info(`${name} already deployed at ${output[name]}`);
+      instance = await this.instanceAt(name, output[name]);
     }
+
     return instance;
   }
 

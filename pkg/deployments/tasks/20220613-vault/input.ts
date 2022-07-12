@@ -18,6 +18,12 @@ const input: { [network in Network]: VaultDeployment } = {
     pauseWindowDuration: 3 * MONTH,
     bufferPeriodDuration: MONTH,
   },
+  aurora: {
+    Authorizer: Authorizer as unknown as string,
+    weth: '0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB',
+    pauseWindowDuration: 3 * MONTH,
+    bufferPeriodDuration: MONTH,
+  },
 };
 
 export default input;
