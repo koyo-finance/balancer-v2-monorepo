@@ -706,7 +706,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@koyofinance/exchange-vault-common@workspace:*, @koyofinance/exchange-vault-common@workspace:pvt/common":
+"@koyofinance/exchange-vault-common@workspace:*, @koyofinance/exchange-vault-common@workspace:^, @koyofinance/exchange-vault-common@workspace:pvt/common":
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-common@workspace:pvt/common"
   dependencies:
@@ -718,9 +718,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-deployments@workspace:pkg/deployments"
   dependencies:
+    "@koyofinance/exchange-vault-common": "workspace:^"
     "@koyofinance/exchange-vault-helpers": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
-    "@nomiclabs/hardhat-etherscan": latest
+    "@nomiclabs/hardhat-etherscan": ^3.1.0
     "@solidity-parser/parser": ^0.14.0
     "@types/lodash": ^4.14.181
     "@types/lodash.range": ^3
@@ -1154,7 +1155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomiclabs/hardhat-etherscan@npm:latest":
+"@nomiclabs/hardhat-etherscan@npm:^3.1.0":
   version: 3.1.0
   resolution: "@nomiclabs/hardhat-etherscan@npm:3.1.0"
   dependencies:

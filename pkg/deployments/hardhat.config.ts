@@ -1,16 +1,20 @@
+import networks from '@koyofinance/exchange-vault-common/hardhat-networks';
 import '@koyofinance/exchange-vault-common/setupTests';
 import '@nomiclabs/hardhat-ethers';
+import '@nomiclabs/hardhat-etherscan';
+import { TASK_VERIFY_GET_LIBRARIES } from '@nomiclabs/hardhat-etherscan/dist/src/constants';
 import '@nomiclabs/hardhat-waffle';
 import { existsSync, readdirSync, statSync } from 'fs';
 import 'hardhat-local-networks-config-plugin';
 import { TASK_TEST } from 'hardhat/builtin-tasks/task-names';
 import { task, types } from 'hardhat/config';
-import { HardhatRuntimeEnvironment } from 'hardhat/types';
+import { HardhatRuntimeEnvironment, HardhatUserConfig, Libraries } from 'hardhat/types';
 import path from 'path';
 import { checkArtifact, extractArtifact } from './src/artifact';
 import { Logger } from './src/logger';
 import Task, { TaskMode } from './src/task';
 import test from './src/test';
+import Verifier from './src/verifier';
 
 task('deploy', 'Run deployment task')
   .addParam('id', 'Deployment task ID')
@@ -22,6 +26,46 @@ task('deploy', 'Run deployment task')
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       await new Task(args.id, TaskMode.LIVE, hre.network.name).run(args);
+    }
+  );
+
+task('verify-contract', `Verify a task's deployment on a block explorer`)
+  .addParam('id', 'Deployment task ID')
+  .addParam('name', 'Contract name')
+  .addParam('address', 'Contract address')
+  .addParam('args', 'ABI-encoded constructor arguments')
+  .addOptionalParam('key', 'Etherscan API key to verify contracts')
+  .addOptionalParam('libraries', 'KV file of libraries', undefined, types.inputFile)
+  .setAction(
+    async (
+      args: {
+        id: string;
+        name: string;
+        address: string;
+        key: string;
+        args: string;
+        libraries: string;
+        verbose?: boolean;
+      },
+      hre: HardhatRuntimeEnvironment
+    ) => {
+      Logger.setDefaults(false, args.verbose || false);
+
+      const libraries: Libraries = await hre.run(TASK_VERIFY_GET_LIBRARIES, {
+        librariesModule: args.libraries,
+      });
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const apiKey = args.key ?? (hre.config.networks[hre.network.name] as any).verificationAPIKey;
+      const verifier = apiKey ? new Verifier(hre.network, apiKey, hre.config.etherscan.customChains) : undefined;
+
+      // Contracts can only be verified in Live mode
+      await new Task(args.id, TaskMode.LIVE, hre.network.name, verifier).verify(
+        args.name,
+        args.address,
+        args.args,
+        libraries
+      );
     }
   );
 
@@ -92,8 +136,23 @@ task(TASK_TEST)
   .addOptionalParam('blockNumber', 'Optional block number to fork in case of running fork tests.', undefined, types.int)
   .setAction(test);
 
-export default {
+const config: HardhatUserConfig = {
+  networks,
   mocha: {
     timeout: 600000,
   },
+  etherscan: {
+    customChains: [
+      {
+        network: 'boba',
+        chainId: 288,
+        urls: {
+          browserURL: 'https://bobascan.com',
+          apiURL: 'https://api.bobascan.com/api',
+        },
+      },
+    ],
+  },
 };
+
+export default config;

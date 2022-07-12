@@ -19,6 +19,7 @@ import {
   RawOutput,
   TaskRunOptions,
 } from './types';
+import Verifier from './verifier';
 
 const TASKS_DIRECTORY = path.resolve(__dirname, '../tasks');
 
@@ -36,12 +37,14 @@ export default class Task {
   mode: TaskMode;
 
   _network?: Network;
+  _verifier?: Verifier;
 
-  constructor(idAlias: string, mode: TaskMode, network?: Network) {
+  constructor(idAlias: string, mode: TaskMode, network?: Network, verifier?: Verifier) {
     if (network && !NETWORKS.includes(network)) throw Error(`Unknown network ${network}`);
     this.id = this._findTaskId(idAlias);
     this.mode = mode;
     this._network = network;
+    this._verifier = verifier;
   }
 
   get network(): string {
@@ -90,6 +93,25 @@ export default class Task {
       await saveContractDeploymentTransactionHash(instance.address, instance.deployTransaction.hash, this.network);
     }
     return instance;
+  }
+
+  async verify(
+    name: string,
+    address: string,
+    constructorArguments: string | unknown[],
+    libs?: Libraries
+  ): Promise<void> {
+    if (this.mode !== TaskMode.LIVE) {
+      return;
+    }
+
+    try {
+      if (!this._verifier) return logger.warn('Skipping contract verification, no verifier defined');
+      const url = await this._verifier.call(this, name, address, constructorArguments, libs);
+      logger.success(`Verified contract ${name} at ${url}`);
+    } catch (error) {
+      logger.error(`Failed trying to verify ${name} at ${address}: ${error}`);
+    }
   }
 
   async check(name: string, args: Array<Param> = [], libs?: Libraries): Promise<Contract> {

@@ -1,7 +1,7 @@
 {
   "name": "@koyofinance/exchange-vault-deployments",
   "version": "2.3.0",
-  "description": "Addresses and ABIs of all Balancer V2 deployed contracts",
+  "description": "Addresses and ABIs of all Kōyō vault deployed contracts",
   "license": "GPL-3.0-only",
   "homepage": "https://github.com/koyo-finance/exchange-vault-monorepo/tree/master/pkg/deployments#readme",
   "repository": {
@@ -26,13 +26,14 @@
     "check-deployments": "hardhat check-deployments --network mainnet && hardhat check-deployments --network polygon && hardhat check-deployments --network arbitrum && hardhat check-deployments --network optimism",
     "lint": "eslint . --ext .ts --ignore-path ../../.eslintignore  --max-warnings 0",
     "prepack": "yarn build",
-    "test": "hardhat test ./**/test/*.ts --fork mainnet --block-number 14850000",
+    "test": "hardhat test ./**/test/*.ts --fork mainnet",
     "ci:prepare-config": "ts-node ci/prepare-config.ts"
   },
   "devDependencies": {
+    "@koyofinance/exchange-vault-common": "workspace:^",
     "@koyofinance/exchange-vault-helpers": "workspace:*",
     "@nomiclabs/hardhat-ethers": "^2.0.1",
-    "@nomiclabs/hardhat-etherscan": "latest",
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
     "@solidity-parser/parser": "^0.14.0",
     "@types/lodash": "^4.14.181",
     "@types/lodash.range": "^3",
