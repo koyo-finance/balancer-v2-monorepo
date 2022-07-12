@@ -1,5 +1,5 @@
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/dist/src/signer-with-address';
-import { Contract, utils } from 'ethers';
+import { Contract, Overrides, utils } from 'ethers';
 import logger from './logger';
 import { getSigner } from './signers';
 import { Artifact, Libraries, Param } from './types';
@@ -15,14 +15,21 @@ export async function deploy(
   if (!from) from = await getSigner();
   if (libs) artifact = linkBytecode(artifact, libs);
 
+  let overrides: Overrides = {};
+
   const { ethers } = await import('hardhat');
   const factory = await ethers.getContractFactory(artifact.abi, artifact.evm.bytecode.object as utils.BytesLike);
+
+  // If 1 extra parameter was passed in, it contains overrides
+  if (args.length === factory.interface.deploy.inputs.length + 1) {
+    overrides = args.pop();
+  }
 
   const deploymentData = factory.interface.encodeDeploy(args);
   const deploymentEstimatedGas = await ethers.provider.estimateGas({ data: deploymentData, from: from.address });
   logger.info(`Gas to deploy contract: ${deploymentEstimatedGas}`);
 
-  const deployment = await factory.connect(from).deploy(...args);
+  const deployment = await factory.connect(from).deploy(...args, overrides);
   await deployment.deployTransaction.wait(wait || 1);
   return deployment.deployed();
 }
