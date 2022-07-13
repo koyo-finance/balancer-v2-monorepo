@@ -14,6 +14,9 @@ const input: { [network in Network]: HelpersDeployment } = {
   aurora: {
     Vault: Vault as unknown as string,
   },
+  moonriver: {
+    Vault: Vault as unknown as string,
+  },
 };
 
 export default input;

@@ -19,6 +19,14 @@ const networks: NetworksUserConfig = {
     chainId: 288,
     url: 'https://mainnet.boba.network',
   },
+  aurora: {
+    chainId: 1313161554,
+    url: 'https://mainnet.aurora.dev/6WoudEf5WzicBP8H7XP2yBZbTRGAwFGbmm4S62b5hAu',
+  },
+  moonriver: {
+    chainId: 1285,
+    url: 'https://moonriver.public.blastapi.io',
+  },
 };
 
 export default networks;

@@ -3,7 +3,7 @@ import { BigNumber, Contract } from 'ethers';
 import { CompilerOutputBytecode } from 'hardhat/types';
 import Task from './task';
 
-export const NETWORKS = ['boba', 'aurora'];
+export const NETWORKS = ['boba', 'aurora', 'moonriver'];
 
 export type Network = typeof NETWORKS[number];
 

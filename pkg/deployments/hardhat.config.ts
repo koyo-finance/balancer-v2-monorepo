@@ -161,6 +161,14 @@ const config: HardhatUserConfig = {
           apiURL: 'https://api.aurorascan.dev/api',
         },
       },
+      {
+        network: 'moonriver',
+        chainId: 1285,
+        urls: {
+          browserURL: 'https://moonriver.moonscan.io',
+          apiURL: 'https://api-moonriver.moonscan.io/api',
+        },
+      },
     ],
   },
 };
