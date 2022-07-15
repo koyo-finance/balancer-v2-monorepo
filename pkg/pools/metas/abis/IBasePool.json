@@ -1,99 +1,5 @@
 [
   {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "paused",
-        "type": "bool"
-      }
-    ],
-    "name": "PausedStateChanged",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "swapFeePercentage",
-        "type": "uint256"
-      }
-    ],
-    "name": "SwapFeePercentageChanged",
-    "type": "event"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "bytes4",
-        "name": "selector",
-        "type": "bytes4"
-      }
-    ],
-    "name": "getActionId",
-    "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getAuthorizer",
-    "outputs": [
-      {
-        "internalType": "contract IAuthorizer",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getOwner",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getPausedState",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "paused",
-        "type": "bool"
-      },
-      {
-        "internalType": "uint256",
-        "name": "pauseWindowEndTime",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "bufferPeriodEndTime",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "getPoolId",
     "outputs": [
@@ -108,12 +14,12 @@
   },
   {
     "inputs": [],
-    "name": "getProtocolFeesCollector",
+    "name": "getScalingFactors",
     "outputs": [
       {
-        "internalType": "contract IProtocolFeesCollector",
+        "internalType": "uint256[]",
         "name": "",
-        "type": "address"
+        "type": "uint256[]"
       }
     ],
     "stateMutability": "view",
@@ -127,19 +33,6 @@
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getVault",
-    "outputs": [
-      {
-        "internalType": "contract IVault",
-        "name": "",
-        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -254,48 +147,111 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "pause",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
-        "internalType": "contract IERC20",
-        "name": "token",
+        "internalType": "bytes32",
+        "name": "poolId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "sender",
         "type": "address"
       },
       {
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "balances",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "uint256",
+        "name": "lastChangeBlock",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "protocolSwapFeePercentage",
+        "type": "uint256"
+      },
+      {
         "internalType": "bytes",
-        "name": "poolConfig",
+        "name": "userData",
         "type": "bytes"
       }
     ],
-    "name": "setAssetManagerPoolConfig",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "name": "queryExit",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "bptIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "amountsOut",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
     "inputs": [
       {
+        "internalType": "bytes32",
+        "name": "poolId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "balances",
+        "type": "uint256[]"
+      },
+      {
         "internalType": "uint256",
-        "name": "swapFeePercentage",
+        "name": "lastChangeBlock",
         "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "protocolSwapFeePercentage",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "userData",
+        "type": "bytes"
       }
     ],
-    "name": "setSwapFeePercentage",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "unpause",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "name": "queryJoin",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "bptOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "amountsIn",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   }
 ]

@@ -18,10 +18,11 @@ pragma experimental ABIEncoderV2;
 import { IVault } from "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
 import { IERC20 } from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 import { IRateProvider } from "@koyofinance/exchange-vault-interfaces/contracts/pool-utils/IRateProvider.sol";
-import { Errors, _revert, _require } from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import { Errors, _revert, _require } //
+    from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 
 import { LogCompression } from "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/LogCompression.sol";
-import { WordCodec } from "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/WordCodec.sol";
+import { WordCodecExternal } from "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/WordCodecExternal.sol";
 import { InputHelpers } from "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
 import { FixedPoint } from "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
 
@@ -38,7 +39,7 @@ import { StableOracleMath } from "../math/StableOracleMath.sol";
  * It additionally features a price oracle.
  */
 contract MetaStablePool is StablePool, PoolPriceOracle {
-    using WordCodec for bytes32;
+    using WordCodecExternal for bytes32;
     using FixedPoint for uint256;
     using MetaStablePoolOracleMiscData for bytes32;
 
@@ -333,7 +334,10 @@ contract MetaStablePool is StablePool, PoolPriceOracle {
      *
      * Note that the Oracle can only be enabled - it can never be disabled.
      */
-    function enableOracle() external whenNotPaused authenticate {
+    function enableOracle() external authenticate {
+        // Block enabling oracle when paused
+        _ensureNotPaused();
+
         _setOracleEnabled(true);
 
         // Cache log invariant and supply only if the pool was initialized
@@ -369,9 +373,8 @@ contract MetaStablePool is StablePool, PoolPriceOracle {
             );
 
             uint256 oracleCurrentIndex = miscData.oracleIndex();
-            uint256 oracleCurrentSampleInitialTimestamp = miscData.oracleSampleCreationTimestamp();
             uint256 oracleUpdatedIndex = _processPriceData(
-                oracleCurrentSampleInitialTimestamp,
+                miscData.oracleSampleCreationTimestamp(),
                 oracleCurrentIndex,
                 logSpotPrice,
                 logBptPrice,
@@ -416,10 +419,8 @@ contract MetaStablePool is StablePool, PoolPriceOracle {
      * Note that it may update the price rate cache if necessary.
      */
     function _scalingFactor(IERC20 token) internal view virtual override returns (uint256) {
-        uint256 baseScalingFactor = super._scalingFactor(token);
-        uint256 priceRate = _priceRate(token);
         // Given there is no generic direction for this rounding, it simply follows the same strategy as the BasePool.
-        return baseScalingFactor.mulDown(priceRate);
+        return super._scalingFactor(token).mulDown(_priceRate(token));
     }
 
     /**
@@ -606,9 +607,9 @@ contract MetaStablePool is StablePool, PoolPriceOracle {
         _require(rate >> 128 == 0, Errors.PRICE_RATE_OVERFLOW);
 
         cache =
-            WordCodec.encodeUint(rate, _PRICE_RATE_CACHE_VALUE_OFFSET, 128) |
-            WordCodec.encodeUint(duration, _PRICE_RATE_CACHE_DURATION_OFFSET, 64) |
-            WordCodec.encodeUint(block.timestamp + duration, _PRICE_RATE_CACHE_EXPIRES_OFFSET, 64);
+            WordCodecExternal.encodeUint(rate, _PRICE_RATE_CACHE_VALUE_OFFSET, 128) |
+            WordCodecExternal.encodeUint(duration, _PRICE_RATE_CACHE_DURATION_OFFSET, 64) |
+            WordCodecExternal.encodeUint(block.timestamp + duration, _PRICE_RATE_CACHE_EXPIRES_OFFSET, 64);
     }
 
     function _isToken0WithRateProvider(IERC20 token) internal view returns (bool) {

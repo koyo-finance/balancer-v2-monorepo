@@ -31,7 +31,7 @@ library StableOracleMath {
         uint256 balanceX,
         uint256 balanceY,
         int256 logBptTotalSupply
-    ) internal pure returns (int256 logSpotPrice, int256 logBptPrice) {
+    ) external pure returns (int256 logSpotPrice, int256 logBptPrice) {
         uint256 spotPrice = calcSpotPrice(amplificationParameter, balanceX, balanceY);
         logBptPrice = calcLogBptPrice(spotPrice, balanceX, balanceY, logBptTotalSupply);
         logSpotPrice = LogCompression.toLowResLog(spotPrice);
@@ -44,7 +44,7 @@ library StableOracleMath {
         uint256 amplificationParameter,
         uint256 balanceX,
         uint256 balanceY
-    ) internal pure returns (uint256) {
+    ) public pure returns (uint256) {
         /**************************************************************************************************************
         //                                                                                                           //
         //                             2.a.x.y + a.y^2 + b.y                                                         //
@@ -58,7 +58,7 @@ library StableOracleMath {
         // S = sum of balances but x,y = 0 since x  and y are the only tokens                                        //
         **************************************************************************************************************/
 
-        uint256 invariant = StableMath._calculateInvariant(amplificationParameter, _balances(balanceX, balanceY));
+        uint256 invariant = StableMath._calculateInvariant(amplificationParameter, formBalances(balanceX, balanceY));
 
         uint256 a = (amplificationParameter * 2) / StableMath._AMP_PRECISION;
         uint256 b = Math.mul(invariant, a).sub(invariant);
@@ -66,15 +66,19 @@ library StableOracleMath {
         uint256 axy2 = Math.mul(a * 2, balanceX).mulDown(balanceY); // n = 2
 
         // dx = a.x.y.2 + a.y^2 - b.y
-        uint256 derivativeX = axy2.add(Math.mul(a, balanceY).mulDown(balanceY)).sub(b.mulDown(balanceY));
+        // uint256 derivativeX = axy2.add(Math.mul(a, balanceY).mulDown(balanceY)).sub(b.mulDown(balanceY));
 
         // dy = a.x.y.2 + a.x^2 - b.x
-        uint256 derivativeY = axy2.add(Math.mul(a, balanceX).mulDown(balanceX)).sub(b.mulDown(balanceX));
+        // uint256 derivativeY = axy2.add(Math.mul(a, balanceX).mulDown(balanceX)).sub(b.mulDown(balanceX));
 
         // The rounding direction is irrelevant as we're about to introduce a much larger error when converting to log
         // space. We use `divUp` as it prevents the result from being zero, which would make the logarithm revert. A
         // result of zero is therefore only possible with zero balances, which are prevented via other means.
-        return derivativeX.divUp(derivativeY);
+        // return derivativeX.divUp(derivativeY);
+        return
+            axy2.add(Math.mul(a, balanceY).mulDown(balanceY)).sub(b.mulDown(balanceY)).divUp(
+                axy2.add(Math.mul(a, balanceX).mulDown(balanceX)).sub(b.mulDown(balanceX))
+            );
     }
 
     /**
@@ -90,7 +94,7 @@ library StableOracleMath {
         uint256 balanceX,
         uint256 balanceY,
         int256 logBptTotalSupply
-    ) internal pure returns (int256) {
+    ) public pure returns (int256) {
         /**************************************************************************************************************
         //                                                                                                           //
         //              balance X + (spot price Y/X * balance Y)                                                     //
@@ -103,15 +107,15 @@ library StableOracleMath {
         // The rounding direction is irrelevant as we're about to introduce a much larger error when converting to log
         // space. We use `mulUp` as it prevents the result from being zero, which would make the logarithm revert. A
         // result of zero is therefore only possible with zero balances, which are prevented via other means.
-        uint256 totalBalanceX = balanceX.add(spotPrice.mulUp(balanceY));
-        int256 logTotalBalanceX = LogCompression.toLowResLog(totalBalanceX);
+        // uint256 totalBalanceX = balanceX.add(spotPrice.mulUp(balanceY));
+        int256 logTotalBalanceX = LogCompression.toLowResLog(balanceX.add(spotPrice.mulUp(balanceY)));
 
         // Because we're subtracting two values in log space, this value has a larger error (+-0.0001 instead of
         // +-0.00005), which results in a final larger relative error of around 0.1%.
         return logTotalBalanceX - logBptTotalSupply;
     }
 
-    function _balances(uint256 balanceX, uint256 balanceY) private pure returns (uint256[] memory balances) {
+    function formBalances(uint256 balanceX, uint256 balanceY) public pure returns (uint256[] memory balances) {
         balances = new uint256[](2);
         balances[0] = balanceX;
         balances[1] = balanceY;

@@ -302,6 +302,19 @@
   },
   {
     "inputs": [],
+    "name": "getProtocolFeesCollector",
+    "outputs": [
+      {
+        "internalType": "contract IProtocolFeesCollector",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "getScalingFactors",
     "outputs": [
       {

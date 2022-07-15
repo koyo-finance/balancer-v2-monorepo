@@ -22,7 +22,7 @@ import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol
 import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
 import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/WordCodec.sol";
 
-import "@koyofinance/exchange-vault-pool-utils/contracts/BaseGeneralPool.sol";
+import "@koyofinance/exchange-vault-pool-utils/contracts/LegacyBaseGeneralPool.sol";
 import "@koyofinance/exchange-vault-pool-utils/contracts/LegacyBaseMinimalSwapInfoPool.sol";
 
 import "../math/StableMath.sol";
@@ -34,7 +34,7 @@ import "../math/StableMath.sol";
  * popularized by Curve) which allows for significantly larger trades before encountering substantial price impact,
  * vastly increasing capital efficiency for like-kind swaps.
  */
-contract StablePool is BaseGeneralPool, LegacyBaseMinimalSwapInfoPool, IRateProvider {
+contract StablePool is LegacyBaseGeneralPool, LegacyBaseMinimalSwapInfoPool, IRateProvider {
     using WordCodec for bytes32;
     using FixedPoint for uint256;
     using StablePoolUserData for bytes;

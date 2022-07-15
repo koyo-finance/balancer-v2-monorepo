@@ -15,7 +15,7 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/asset-manager-utils/IAssetManager.sol";
+import "@koyofinance/exchange-vault-interfaces/contracts/pool-utils/IAssetManager.sol";
 import "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
 import "@koyofinance/exchange-vault-interfaces/contracts/vault/IBasePool.sol";
 
@@ -141,7 +141,7 @@ abstract contract LegacyBasePool is IBasePool, BalancerPoolToken, TemporarilyPau
      * @notice Return the current value of the swap fee percentage.
      * @dev This is stored in the MSB 64 bits of the `_miscData`.
      */
-    function getSwapFeePercentage() public view returns (uint256) {
+    function getSwapFeePercentage() public view override returns (uint256) {
         return _miscData.decodeUint(_SWAP_FEE_PERCENTAGE_OFFSET, 64);
     }
 
@@ -376,7 +376,7 @@ abstract contract LegacyBasePool is IBasePool, BalancerPoolToken, TemporarilyPau
         uint256 lastChangeBlock,
         uint256 protocolSwapFeePercentage,
         bytes memory userData
-    ) external returns (uint256 bptOut, uint256[] memory amountsIn) {
+    ) external override returns (uint256 bptOut, uint256[] memory amountsIn) {
         InputHelpers.ensureInputLengthMatch(balances.length, _getTotalTokens());
 
         _queryAction(
@@ -415,7 +415,7 @@ abstract contract LegacyBasePool is IBasePool, BalancerPoolToken, TemporarilyPau
         uint256 lastChangeBlock,
         uint256 protocolSwapFeePercentage,
         bytes memory userData
-    ) external returns (uint256 bptIn, uint256[] memory amountsOut) {
+    ) external override returns (uint256 bptIn, uint256[] memory amountsOut) {
         InputHelpers.ensureInputLengthMatch(balances.length, _getTotalTokens());
 
         _queryAction(
@@ -594,7 +594,7 @@ abstract contract LegacyBasePool is IBasePool, BalancerPoolToken, TemporarilyPau
      * For instance, an 18-decimal token has a scaling factor of 1, while a 6-decimal token has a scaling factor of
      * 10^12.
      */
-    function getScalingFactors() external view returns (uint256[] memory) {
+    function getScalingFactors() external view override returns (uint256[] memory) {
         return _scalingFactors();
     }
 

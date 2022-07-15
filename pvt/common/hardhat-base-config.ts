@@ -15,6 +15,22 @@ const contractSettings: ContractSettings = {
     version: '0.7.1',
     runs: 200,
   },
+  '@koyofinance/exchange-vault-pool-metas/contracts/stable/MetaStablePoolFactory.sol': {
+    version: '0.7.1',
+    runs: 1,
+  },
+  '@koyofinance/exchange-vault-pool-metas/contracts/stable/MetaStablePool.sol': {
+    version: '0.7.1',
+    runs: 1,
+  },
+  '@koyofinance/exchange-vault-pool-weighted/contracts/weighted/WeightedPoolFactory.sol': {
+    version: '0.7.1',
+    runs: 200,
+  },
+  '@koyofinance/exchange-vault-pool-weighted/contracts/weighted/WeightedPool.sol': {
+    version: '0.7.1',
+    runs: 200,
+  },
 };
 
 type SolcConfig = {

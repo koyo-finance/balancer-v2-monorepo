@@ -19,8 +19,10 @@ import { IVault } from "@koyofinance/exchange-vault-interfaces/contracts/vault/I
 import { IERC20 } from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 import { IRateProvider } from "@koyofinance/exchange-vault-interfaces/contracts/pool-utils/IRateProvider.sol";
 
-import { BasePoolSplitCodeFactory } from "@koyofinance/exchange-vault-pool-utils/contracts/factories/BasePoolSplitCodeFactory.sol";
-import { FactoryWidePauseWindow } from "@koyofinance/exchange-vault-pool-utils/contracts/factories/FactoryWidePauseWindow.sol";
+import { BasePoolSplitCodeFactory } //
+    from "@koyofinance/exchange-vault-pool-utils/contracts/factories/BasePoolSplitCodeFactory.sol";
+import { FactoryWidePauseWindow } //
+    from "@koyofinance/exchange-vault-pool-utils/contracts/factories/FactoryWidePauseWindow.sol";
 
 import { MetaStablePool } from "./MetaStablePool.sol";
 
