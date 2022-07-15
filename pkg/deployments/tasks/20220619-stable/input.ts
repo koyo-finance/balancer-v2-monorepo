@@ -17,6 +17,9 @@ const input: { [network in Network]: WeightedPoolFactoryDeployment } = {
   moonriver: {
     Vault: Vault as unknown as string,
   },
+  polygon: {
+    Vault: Vault as unknown as string,
+  },
 };
 
 export default input;

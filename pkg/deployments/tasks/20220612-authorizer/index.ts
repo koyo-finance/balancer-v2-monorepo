@@ -6,5 +6,5 @@ export default async (task: Task, { force, from }: TaskRunOptions = {}): Promise
   const input = task.input() as AuthorizerDeployment;
   const args = [input.admin];
 
-  await task.deployAndVerify('Authorizer', args, from, force);
+  await task.deployAndVerify('Authorizer', args, from, force, undefined, task._network === 'polygon' ? 20 : undefined);
 };

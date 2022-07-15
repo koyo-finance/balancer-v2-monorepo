@@ -6,5 +6,12 @@ export default async (task: Task, { from, force }: TaskRunOptions = {}): Promise
   const input = task.input() as WeightedPoolFactoryDeployment;
   const args = [input.Vault];
 
-  await task.deployAndVerify('WeightedPoolFactory', args, from, force, undefined, 10);
+  await task.deployAndVerify(
+    'WeightedPoolFactory',
+    args,
+    from,
+    force,
+    undefined,
+    task._network === 'polygon' ? 20 : undefined
+  );
 };

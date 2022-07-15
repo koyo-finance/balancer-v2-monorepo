@@ -169,6 +169,14 @@ const config: HardhatUserConfig = {
           apiURL: 'https://api-moonriver.moonscan.io/api',
         },
       },
+      {
+        network: 'polygon',
+        chainId: 137,
+        urls: {
+          browserURL: 'https://polygonscan.com/',
+          apiURL: 'https://api.polygonscan.com/api',
+        },
+      },
     ],
   },
 };

@@ -12,6 +12,6 @@ export default async (task: Task, { from, force }: TaskRunOptions = {}): Promise
     from,
     force,
     { QueryProcessor: input.QueryProcessor },
-    10
+    task._network === 'polygon' ? 20 : undefined
   );
 };

@@ -30,6 +30,12 @@ const input: { [network in Network]: VaultDeployment } = {
     pauseWindowDuration: 3 * MONTH,
     bufferPeriodDuration: MONTH,
   },
+  polygon: {
+    Authorizer: Authorizer as unknown as string,
+    weth: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+    pauseWindowDuration: 3 * MONTH,
+    bufferPeriodDuration: MONTH,
+  },
 };
 
 export default input;
