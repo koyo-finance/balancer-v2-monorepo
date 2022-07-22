@@ -36,6 +36,12 @@ const input: { [network in Network]: VaultDeployment } = {
     pauseWindowDuration: 3 * MONTH,
     bufferPeriodDuration: MONTH,
   },
+  moonbeam: {
+    Authorizer: Authorizer as unknown as string,
+    weth: '0xAcc15dC74880C9944775448304B263D191c6077F',
+    pauseWindowDuration: 3 * MONTH,
+    bufferPeriodDuration: MONTH,
+  },
 };
 
 export default input;

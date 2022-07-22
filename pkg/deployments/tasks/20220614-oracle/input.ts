@@ -26,6 +26,10 @@ const input: { [network in Network]: OracleWeightedPoolFactoryDeployment } = {
     Vault: Vault as unknown as string,
     QueryProcessor: QueryProcessor as unknown as string,
   },
+  moonbeam: {
+    Vault: Vault as unknown as string,
+    QueryProcessor: QueryProcessor as unknown as string,
+  },
 };
 
 export default input;

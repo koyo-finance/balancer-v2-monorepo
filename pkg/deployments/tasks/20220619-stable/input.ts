@@ -20,6 +20,9 @@ const input: { [network in Network]: WeightedPoolFactoryDeployment } = {
   polygon: {
     Vault: Vault as unknown as string,
   },
+  moonbeam: {
+    Vault: Vault as unknown as string,
+  },
 };
 
 export default input;

@@ -173,8 +173,16 @@ const config: HardhatUserConfig = {
         network: 'polygon',
         chainId: 137,
         urls: {
-          browserURL: 'https://polygonscan.com/',
+          browserURL: 'https://polygonscan.com',
           apiURL: 'https://api.polygonscan.com/api',
+        },
+      },
+      {
+        network: 'moonbeam',
+        chainId: 1284,
+        urls: {
+          browserURL: 'https://moonscan.io',
+          apiURL: 'https://api-moonbeam.moonscan.io/api',
         },
       },
     ],

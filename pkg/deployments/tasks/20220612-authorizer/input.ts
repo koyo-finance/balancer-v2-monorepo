@@ -17,6 +17,9 @@ const input: { [network in Network]: AuthorizerDeployment } = {
   polygon: {
     admin: '0xC4d54E7e94B68d88Ad7b00d0689669d520cce2fB',
   },
+  moonbeam: {
+    admin: '0xC4d54E7e94B68d88Ad7b00d0689669d520cce2fB',
+  },
 };
 
 export default input;
