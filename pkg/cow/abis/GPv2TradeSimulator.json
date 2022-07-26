@@ -1,0 +1,131 @@
+[
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "receiver",
+            "type": "address"
+          },
+          {
+            "internalType": "contract IERC20",
+            "name": "sellToken",
+            "type": "address"
+          },
+          {
+            "internalType": "contract IERC20",
+            "name": "buyToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "sellAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "buyAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "sellTokenBalance",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "buyTokenBalance",
+            "type": "bytes32"
+          }
+        ],
+        "internalType": "struct GPv2TradeSimulator.Trade",
+        "name": "trade",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "target",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "value",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes",
+            "name": "callData",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct GPv2Interaction.Data[][3]",
+        "name": "interactions",
+        "type": "tuple[][3]"
+      }
+    ],
+    "name": "simulateTrade",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "gasUsed",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "executedBuyAmount",
+            "type": "uint256"
+          },
+          {
+            "components": [
+              {
+                "internalType": "int256",
+                "name": "sellTokenDelta",
+                "type": "int256"
+              },
+              {
+                "internalType": "int256",
+                "name": "buyTokenDelta",
+                "type": "int256"
+              }
+            ],
+            "internalType": "struct GPv2TradeSimulator.BalanceDelta",
+            "name": "contractBalance",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "int256",
+                "name": "sellTokenDelta",
+                "type": "int256"
+              },
+              {
+                "internalType": "int256",
+                "name": "buyTokenDelta",
+                "type": "int256"
+              }
+            ],
+            "internalType": "struct GPv2TradeSimulator.BalanceDelta",
+            "name": "ownerBalance",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct GPv2TradeSimulator.Result",
+        "name": "result",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
