@@ -36,14 +36,14 @@ abstract contract GPv2Signing {
         );
 
     /// @dev The EIP-712 domain name used for computing the domain separator.
-    bytes32 private constant DOMAIN_NAME = keccak256("Gnosis Protocol");
+    bytes32 private constant DOMAIN_NAME = keccak256("Koyo Finance");
 
     /// @dev The EIP-712 domain version used for computing the domain separator.
-    bytes32 private constant DOMAIN_VERSION = keccak256("v2");
+    bytes32 private constant DOMAIN_VERSION = keccak256("v1");
 
     /// @dev Marker value indicating an order is pre-signed.
     uint256 private constant PRE_SIGNED =
-        uint256(keccak256("GPv2Signing.Scheme.PreSign"));
+        uint256(keccak256("KCoWv1Signing.Scheme.PreSign"));
 
     /// @dev The domain separator used for signing orders that gets mixed in
     /// making signatures for different domains incompatible. This domain
