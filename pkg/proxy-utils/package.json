@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "license": "MIT",
-  "homepage": "https://github.com/koyo-finance/exchange-vault-monorepo/tree/master/pkg/proxy-utils#readme",
+  "homepage": "https://github.com/koyo-finance/contracts-monorepo/tree/master/pkg/proxy-utils#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/koyo-finance/exchange-vault-monorepo.git",
+    "url": "https://github.com/koyo-finance/contracts-monorepo.git",
     "directory": "pkg/proxy-utils"
   },
   "bugs": {
-    "url": "https://github.com/koyo-finance/exchange-vault-monorepo/issues"
+    "url": "https://github.com/koyo-finance/contracts-monorepo/issues"
   },
   "files": [
     "contracts/**/*",

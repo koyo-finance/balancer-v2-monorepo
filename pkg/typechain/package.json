@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Typechain bindings for Balancer Protocol V2 contracts",
   "license": "GPL-3.0-only",
-  "homepage": "https://github.com/koyo-finance/exchange-vault-monorepo/tree/master/pkg/typechain#readme",
+  "homepage": "https://github.com/koyo-finance/contracts-monorepo/tree/master/pkg/typechain#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/koyo-finance/exchange-vault-monorepo.git",
+    "url": "https://github.com/koyo-finance/contracts-monorepo.git",
     "directory": "pkg/typechain"
   },
   "bugs": {
-    "url": "https://github.com/koyo-finance/exchange-vault-monorepo/issues"
+    "url": "https://github.com/koyo-finance/contracts-monorepo/issues"
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

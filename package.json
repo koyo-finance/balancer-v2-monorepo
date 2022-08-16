@@ -1,5 +1,5 @@
 {
-  "name": "@koyofinance/exchange-vault-monorepo",
+  "name": "@koyofinance/contracts-monorepo",
   "private": true,
   "description": "Balancer v2 Monorepo",
   "license": "GPL-3.0-only",
@@ -31,10 +31,10 @@
     "turbo": "^1.2.16",
     "typescript": "^4.7.3"
   },
-  "homepage": "https://github.com/koyo-finance/exchange-vault-monoreporeadme",
-  "repository": "git@github.com:koyo-finance/exchange-vault-monorepo.git",
+  "homepage": "https://github.com/koyo-finance/contracts-monorepo#readme",
+  "repository": "git@github.com:koyo-finance/contracts-monorepo.git",
   "bugs": {
-    "url": "https://github.com/koyo-finance/exchange-vault-monorepoissues"
+    "url": "https://github.com/koyo-finance/contracts-monorepo/issues"
   },
   "engines": {
     "node": ">=12.10"

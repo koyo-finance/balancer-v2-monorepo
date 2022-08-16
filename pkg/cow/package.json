@@ -7,14 +7,14 @@
   "contributors": [
     "Gnosis Developers <developers@gnosis.io>"
   ],
-  "homepage": "https://github.com/koyo-finance/exchange-vault-monorepo/tree/master/pkg/cow#readme",
+  "homepage": "https://github.com/koyo-finance/contracts-monorepo/tree/master/pkg/cow#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/koyo-finance/exchange-vault-monorepo.git",
+    "url": "https://github.com/koyo-finance/contracts-monorepo.git",
     "directory": "pkg/cow"
   },
   "bugs": {
-    "url": "https://github.com/koyo-finance/exchange-vault-monorepo/issues"
+    "url": "https://github.com/koyo-finance/contracts-monorepo/issues"
   },
   "files": [
     "contracts/**/*",

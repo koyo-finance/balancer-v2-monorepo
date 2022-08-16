@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "description": "V2 Interfaces",
   "license": "GPL-3.0-only",
-  "homepage": "https://github.com/koyo-finance/exchange-vault-monorepo/tree/master/pkg/interfaces#readme",
+  "homepage": "https://github.com/koyo-finance/contracts-monorepo/tree/master/pkg/interfaces#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/koyo-finance/exchange-vault-monorepo.git",
+    "url": "https://github.com/koyo-finance/contracts-monorepo.git",
     "directory": "pkg/interfaces"
   },
   "bugs": {
-    "url": "https://github.com/koyo-finance/exchange-vault-monorepo/issues"
+    "url": "https://github.com/koyo-finance/contracts-monorepo/issues"
   },
   "files": [
     "contracts/**/*"
