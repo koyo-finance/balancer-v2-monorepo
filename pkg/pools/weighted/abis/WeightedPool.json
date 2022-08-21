@@ -98,6 +98,19 @@
     "inputs": [
       {
         "indexed": false,
+        "internalType": "bool",
+        "name": "recoveryMode",
+        "type": "bool"
+      }
+    ],
+    "name": "RecoveryModeStateChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
         "internalType": "uint256",
         "name": "swapFeePercentage",
         "type": "uint256"
@@ -245,6 +258,20 @@
         "type": "bool"
       }
     ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "enterRecoveryMode",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "exitRecoveryMode",
+    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -428,6 +455,19 @@
         "internalType": "contract IVault",
         "name": "",
         "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "inRecoveryMode",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
     "stateMutability": "view",
