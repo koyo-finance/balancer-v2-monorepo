@@ -35,13 +35,10 @@
     "@nomiclabs/hardhat-ethers": "^2.0.1",
     "@nomiclabs/hardhat-etherscan": "^3.1.0",
     "@solidity-parser/parser": "^0.14.0",
-    "@types/lodash": "^4.14.181",
-    "@types/lodash.range": "^3",
     "chalk": "^4.1.1",
     "ethers": "^5.4.1",
     "hardhat": "^2.8.3",
     "hardhat-local-networks-config-plugin": "0.0.5",
-    "lodash.range": "^3.2.0",
     "node-fetch": "^2.6.1"
   },
   "peerDependencies": {

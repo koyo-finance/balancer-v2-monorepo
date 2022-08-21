@@ -712,20 +712,12 @@ __metadata:
   dependencies:
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     decimal.js: ^10.2.1
     eslint-plugin-mocha-no-only: ^1.1.1
     ethereum-waffle: ^3.0.2
     ethers: ^5.4.1
     hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
   languageName: unknown
@@ -735,7 +727,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/contracts-monorepo@workspace:."
   dependencies:
+    "@types/chai": ^4.3.3
     "@types/eslint": ^8
+    "@types/lodash.frompairs": ^4
+    "@types/lodash.pick": ^4
+    "@types/lodash.range": ^3
+    "@types/lodash.times": ^4
+    "@types/lodash.zip": ^4
+    "@types/mocha": ^9.1.1
     "@types/node": ^17.0.42
     "@types/prettier": ^2
     "@typescript-eslint/eslint-plugin": ^5.27.1
@@ -743,6 +742,11 @@ __metadata:
     eslint: ^8.17.0
     eslint-plugin-prettier: ^4.0.0
     hardhat-abi-exporter: ^2.9.0
+    lodash.frompairs: ^4.0.1
+    lodash.pick: ^4.4.0
+    lodash.range: ^3.2.0
+    lodash.times: ^4.3.2
+    lodash.zip: ^4.2.0
     prettier: ^2.6.2
     prettier-plugin-solidity: ^1.0.0-beta.19
     solhint-plugin-prettier: ^0.0.5
@@ -759,20 +763,12 @@ __metadata:
     "@koyofinance/contracts-interfaces": "workspace:^"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     decimal.js: ^10.2.1
     eslint-plugin-mocha-no-only: ^1.1.1
     ethereum-waffle: ^3.0.2
     ethers: ^5.4.1
     hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
   languageName: unknown
@@ -795,13 +791,10 @@ __metadata:
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-etherscan": ^3.1.0
     "@solidity-parser/parser": ^0.14.0
-    "@types/lodash": ^4.14.181
-    "@types/lodash.range": ^3
     chalk: ^4.1.1
     ethers: ^5.4.1
     hardhat: ^2.8.3
     hardhat-local-networks-config-plugin: 0.0.5
-    lodash.range: ^3.2.0
     node-fetch: ^2.6.1
   peerDependencies:
     "@nomiclabs/hardhat-ethers": ^2.0.1
@@ -815,7 +808,6 @@ __metadata:
   dependencies:
     "@koyofinance/vault-js": "workspace:^"
     "@nomiclabs/hardhat-ethers": ^2.0.1
-    "@types/lodash": ^4.14.161
     decimal.js: ^10.2.1
     ethers: ^5.4.1
     hardhat: ^2.8.3
@@ -836,20 +828,12 @@ __metadata:
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     decimal.js: ^10.2.1
     eslint-plugin-mocha-no-only: ^1.1.1
     ethereum-waffle: ^3.0.2
     ethers: ^5.4.1
     hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
   languageName: unknown
@@ -866,20 +850,12 @@ __metadata:
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     decimal.js: ^10.2.1
     eslint-plugin-mocha-no-only: ^1.1.1
     ethereum-waffle: ^3.0.2
     ethers: ^5.4.1
     hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
   languageName: unknown
@@ -896,20 +872,12 @@ __metadata:
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     decimal.js: ^10.2.1
     eslint-plugin-mocha-no-only: ^1.1.1
     ethereum-waffle: ^3.0.2
     ethers: ^5.4.1
     hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
   languageName: unknown
@@ -926,20 +894,12 @@ __metadata:
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     decimal.js: ^10.2.1
     eslint-plugin-mocha-no-only: ^1.1.1
     ethereum-waffle: ^3.0.2
     ethers: ^5.4.1
     hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
   languageName: unknown
@@ -952,20 +912,12 @@ __metadata:
     "@koyofinance/exchange-vault-common": "workspace:^"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     decimal.js: ^10.2.1
     eslint-plugin-mocha-no-only: ^1.1.1
     ethereum-waffle: ^3.0.2
     ethers: ^5.4.1
     hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
   languageName: unknown
@@ -980,20 +932,12 @@ __metadata:
     "@koyofinance/exchange-vault-helpers": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     decimal.js: ^10.2.1
     eslint-plugin-mocha-no-only: ^1.1.1
     ethereum-waffle: ^3.0.2
     ethers: ^5.4.1
     hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
   languageName: unknown
@@ -1011,15 +955,11 @@ __metadata:
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.176
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     eslint-plugin-mocha-no-only: ^1.1.1
     ethereum-waffle: ^3.0.2
     ethers: ^5.4.1
     hardhat: ^2.8.3
-    lodash: ^4.17.21
     mocha: ^8.2.1
     nodemon: ^2.0.4
   languageName: unknown
@@ -1050,20 +990,12 @@ __metadata:
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     decimal.js: ^10.2.1
     eslint-plugin-mocha-no-only: ^1.1.1
     ethereum-waffle: ^3.0.2
     ethers: ^5.4.1
     hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
   languageName: unknown
@@ -1076,20 +1008,12 @@ __metadata:
     "@koyofinance/contracts-interfaces": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     decimal.js: ^10.2.1
     eslint-plugin-mocha-no-only: ^1.1.1
     ethereum-waffle: ^3.0.2
     ethers: ^5.4.1
     hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
     mocha: ^8.2.1
     nodemon: ^2.0.4
   languageName: unknown
@@ -1111,8 +1035,6 @@ __metadata:
     "@rollup/plugin-node-resolve": ^13.0.0
     "@rollup/plugin-typescript": ^8.2.1
     "@typechain/ethers-v5": ^7.0.1
-    "@types/chai": ^4.2.12
-    "@types/mocha": ^8.0.3
     chai: ^4.2.0
     mocha: ^8.2.1
     rollup: ^2.52.8
@@ -1531,10 +1453,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:*, @types/chai@npm:^4.2.12":
+"@types/chai@npm:*":
   version: 4.3.1
   resolution: "@types/chai@npm:4.3.1"
   checksum: 2ee246b76c469cd620a7a1876a73bc597074361b67d547b4bd96a0c1adb43597ede2d8589ab626192e14349d83cbb646cc11e2c179eeeb43ff11596de94d82c4
+  languageName: node
+  linkType: hard
+
+"@types/chai@npm:^4.3.3":
+  version: 4.3.3
+  resolution: "@types/chai@npm:4.3.3"
+  checksum: 20cd094753e137cfc35939cae7f0ed78ecda7861e5c94704efab6979b9121a63807e9b631bdcf3a2792d6c6dba44050b13387262f9e63ebb040741c01c345f0a
   languageName: node
   linkType: hard
 
@@ -1596,6 +1525,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash.frompairs@npm:^4":
+  version: 4.0.7
+  resolution: "@types/lodash.frompairs@npm:4.0.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: b422ca3cc0099c7ac132b259877a45d2d2f7925dd1704004a1333a3b75becc35e74d0871c8dcb588a33d675ca3c3ec18bbd2a79a8807009b35d6d52b2eaf7b58
+  languageName: node
+  linkType: hard
+
+"@types/lodash.pick@npm:^4":
+  version: 4.4.7
+  resolution: "@types/lodash.pick@npm:4.4.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 78428a83b5d85e75bd13fb632030f9adb08dfc5bde3a9b6a302434fe7ac98e62919f87a7337e0ba674017d63bc57a8855ef863f5fcecd25e63b1d39eba2e4697
+  languageName: node
+  linkType: hard
+
 "@types/lodash.range@npm:^3":
   version: 3.2.7
   resolution: "@types/lodash.range@npm:3.2.7"
@@ -1605,7 +1552,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:*, @types/lodash@npm:^4.14.161, @types/lodash@npm:^4.14.176, @types/lodash@npm:^4.14.181":
+"@types/lodash.times@npm:^4":
+  version: 4.3.7
+  resolution: "@types/lodash.times@npm:4.3.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: f31e67c17124614afd392b10e26a5af38f0975edbe4e128c60affa0890a1f2fea502daa4839aee4b1f66b690f925254eff3e9dfcea5d7d3ace7315dba430335f
+  languageName: node
+  linkType: hard
+
+"@types/lodash.zip@npm:^4":
+  version: 4.2.7
+  resolution: "@types/lodash.zip@npm:4.2.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 841c86482a94cd39228dceb7974d4094f5afbaf3077c1ffa02ead680acb7cd097e78d64ede10ee6bfd4e81c9020daa8c28e456abd0202eb4bccdd93681d94216
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*":
   version: 4.14.182
   resolution: "@types/lodash@npm:4.14.182"
   checksum: 7dd137aa9dbabd632408bd37009d984655164fa1ecc3f2b6eb94afe35bf0a5852cbab6183148d883e9c73a958b7fec9a9bcf7c8e45d41195add6a18c34958209
@@ -1628,10 +1593,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mocha@npm:^8.0.3":
-  version: 8.2.3
-  resolution: "@types/mocha@npm:8.2.3"
-  checksum: b43ed1b642a2ee62bf10792a07d5d21d66ab8b4d2cf5d822c8a7643e77b90009aecc000eefab5f6ddc9eb69004192f84119a6f97a8499e1a13ea082e7a5e71bf
+"@types/mocha@npm:^9.1.1":
+  version: 9.1.1
+  resolution: "@types/mocha@npm:9.1.1"
+  checksum: 516077c0acd9806dc78317f88aaac0df5aaf0bdc2f63dfdadeabdf0b0137953b6ca65472e6ff7c30bc93ce4e0ae76eae70e8d46764b9a8eae4877a928b6ef49a
   languageName: node
   linkType: hard
 
@@ -8104,7 +8069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.21, lodash@npm:^4.17.4":
+"lodash@npm:^4.17.11, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.4":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
