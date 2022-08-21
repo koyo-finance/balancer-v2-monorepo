@@ -43,7 +43,7 @@ type SolcConfig = {
   };
 };
 
-export const compilers: [SolcConfig, SolcConfig, SolcConfig] = [
+export const compilers: [SolcConfig, SolcConfig, SolcConfig, SolcConfig] = [
   {
     version: '0.7.1',
     settings: {
@@ -68,6 +68,15 @@ export const compilers: [SolcConfig, SolcConfig, SolcConfig] = [
       optimizer: {
         enabled: true,
         runs: 1000000,
+      },
+    },
+  },
+  {
+    version: '0.6.12',
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 1,
       },
     },
   },

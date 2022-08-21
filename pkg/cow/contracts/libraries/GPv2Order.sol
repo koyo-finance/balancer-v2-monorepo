@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 pragma solidity ^0.7.6;
 
-import { IERC20 } from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
+import { IERC20 } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 
 /// @title Gnosis Protocol v2 Order Library
 /// @author Gnosis Developers

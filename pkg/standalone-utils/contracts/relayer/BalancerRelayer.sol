@@ -15,7 +15,7 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/standalone-utils/IBalancerRelayer.sol";
+import "@koyofinance/contracts-interfaces/contracts/standalone-utils/IBalancerRelayer.sol";
 
 import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
 import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/Address.sol";

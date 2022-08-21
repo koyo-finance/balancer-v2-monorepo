@@ -14,7 +14,7 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/pool-utils/IBasePoolRelayer.sol";
+import "@koyofinance/contracts-interfaces/contracts/pool-utils/IBasePoolRelayer.sol";
 
 contract MockBasePoolRelayer is IBasePoolRelayer {
     bool internal _hasCalledPool;

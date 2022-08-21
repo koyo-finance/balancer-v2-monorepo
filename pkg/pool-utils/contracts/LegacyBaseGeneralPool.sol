@@ -15,13 +15,13 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import { IVault } from "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
-import { IGeneralPool } from "@koyofinance/exchange-vault-interfaces/contracts/vault/IGeneralPool.sol";
+import { IVault } from "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
+import { IGeneralPool } from "@koyofinance/contracts-interfaces/contracts/vault/IGeneralPool.sol";
 
 import { LegacyBasePool } from "./LegacyBasePool.sol";
 
 import { Errors, _require } //
-    from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+    from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 
 /**
  * @dev Extension of `BasePool`, adding a handler for `IGeneralPool.onSwap`.

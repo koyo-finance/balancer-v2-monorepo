@@ -706,11 +706,57 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@koyofinance/contracts-interfaces@workspace:*, @koyofinance/contracts-interfaces@workspace:^, @koyofinance/contracts-interfaces@workspace:pkg/interfaces":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/contracts-interfaces@workspace:pkg/interfaces"
+  dependencies:
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    "@nomiclabs/hardhat-waffle": ^2.0.0
+    "@types/chai": ^4.2.12
+    "@types/lodash": ^4.14.161
+    "@types/mocha": ^8.0.3
+    chai: ^4.2.0
+    decimal.js: ^10.2.1
+    eslint-plugin-mocha-no-only: ^1.1.1
+    ethereum-waffle: ^3.0.2
+    ethers: ^5.4.1
+    hardhat: ^2.8.3
+    lodash.frompairs: ^4.0.1
+    lodash.pick: ^4.4.0
+    lodash.range: ^3.2.0
+    lodash.times: ^4.3.2
+    lodash.zip: ^4.2.0
+    mocha: ^8.2.1
+    nodemon: ^2.0.4
+  languageName: unknown
+  linkType: soft
+
+"@koyofinance/contracts-monorepo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/contracts-monorepo@workspace:."
+  dependencies:
+    "@types/eslint": ^8
+    "@types/node": ^17.0.42
+    "@types/prettier": ^2
+    "@typescript-eslint/eslint-plugin": ^5.27.1
+    "@typescript-eslint/parser": ^5.27.1
+    eslint: ^8.17.0
+    eslint-plugin-prettier: ^4.0.0
+    hardhat-abi-exporter: ^2.9.0
+    prettier: ^2.6.2
+    prettier-plugin-solidity: ^1.0.0-beta.19
+    solhint-plugin-prettier: ^0.0.5
+    ts-node: ^10.8.1
+    turbo: ^1.2.16
+    typescript: ^4.7.3
+  languageName: unknown
+  linkType: soft
+
 "@koyofinance/exchange-cow@workspace:pkg/cow":
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-cow@workspace:pkg/cow"
   dependencies:
-    "@koyofinance/exchange-vault-interfaces": "workspace:^"
+    "@koyofinance/contracts-interfaces": "workspace:^"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
     "@types/chai": ^4.2.12
@@ -778,59 +824,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@koyofinance/exchange-vault-interfaces@workspace:*, @koyofinance/exchange-vault-interfaces@workspace:^, @koyofinance/exchange-vault-interfaces@workspace:pkg/interfaces":
-  version: 0.0.0-use.local
-  resolution: "@koyofinance/exchange-vault-interfaces@workspace:pkg/interfaces"
-  dependencies:
-    "@nomiclabs/hardhat-ethers": ^2.0.1
-    "@nomiclabs/hardhat-waffle": ^2.0.0
-    "@types/chai": ^4.2.12
-    "@types/lodash": ^4.14.161
-    "@types/mocha": ^8.0.3
-    chai: ^4.2.0
-    decimal.js: ^10.2.1
-    eslint-plugin-mocha-no-only: ^1.1.1
-    ethereum-waffle: ^3.0.2
-    ethers: ^5.4.1
-    hardhat: ^2.8.3
-    lodash.frompairs: ^4.0.1
-    lodash.pick: ^4.4.0
-    lodash.range: ^3.2.0
-    lodash.times: ^4.3.2
-    lodash.zip: ^4.2.0
-    mocha: ^8.2.1
-    nodemon: ^2.0.4
-  languageName: unknown
-  linkType: soft
-
-"@koyofinance/contracts-monorepo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@koyofinance/contracts-monorepo@workspace:."
-  dependencies:
-    "@types/eslint": ^8
-    "@types/node": ^17.0.42
-    "@types/prettier": ^2
-    "@typescript-eslint/eslint-plugin": ^5.27.1
-    "@typescript-eslint/parser": ^5.27.1
-    eslint: ^8.17.0
-    eslint-plugin-prettier: ^4.0.0
-    hardhat-abi-exporter: ^2.9.0
-    prettier: ^2.6.2
-    prettier-plugin-solidity: ^1.0.0-beta.19
-    solhint-plugin-prettier: ^0.0.5
-    ts-node: ^10.8.1
-    turbo: ^1.2.16
-    typescript: ^4.7.3
-  languageName: unknown
-  linkType: soft
-
 "@koyofinance/exchange-vault-pool-oracle@workspace:pkg/pools/oracle":
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-pool-oracle@workspace:pkg/pools/oracle"
   dependencies:
+    "@koyofinance/contracts-interfaces": "workspace:*"
     "@koyofinance/exchange-vault-common": "workspace:*"
     "@koyofinance/exchange-vault-helpers": "workspace:*"
-    "@koyofinance/exchange-vault-interfaces": "workspace:*"
     "@koyofinance/exchange-vault-pool-utils": "workspace:*"
     "@koyofinance/exchange-vault-pool-weighted": "workspace:^"
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
@@ -859,9 +859,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-pool-stable@workspace:pkg/pools/stable"
   dependencies:
+    "@koyofinance/contracts-interfaces": "workspace:*"
     "@koyofinance/exchange-vault-common": "workspace:*"
     "@koyofinance/exchange-vault-helpers": "workspace:*"
-    "@koyofinance/exchange-vault-interfaces": "workspace:*"
     "@koyofinance/exchange-vault-pool-utils": "workspace:*"
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
@@ -889,10 +889,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-pool-utils@workspace:pkg/pool-utils"
   dependencies:
+    "@koyofinance/contracts-interfaces": "workspace:*"
     "@koyofinance/exchange-vault": "workspace:*"
     "@koyofinance/exchange-vault-common": "workspace:*"
     "@koyofinance/exchange-vault-helpers": "workspace:*"
-    "@koyofinance/exchange-vault-interfaces": "workspace:*"
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
@@ -919,9 +919,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-pool-weighted@workspace:pkg/pools/weighted"
   dependencies:
+    "@koyofinance/contracts-interfaces": "workspace:*"
     "@koyofinance/exchange-vault-common": "workspace:*"
     "@koyofinance/exchange-vault-helpers": "workspace:*"
-    "@koyofinance/exchange-vault-interfaces": "workspace:*"
     "@koyofinance/exchange-vault-pool-utils": "workspace:*"
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
@@ -975,9 +975,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-solidity-utils@workspace:pkg/solidity-utils"
   dependencies:
+    "@koyofinance/contracts-interfaces": "workspace:*"
     "@koyofinance/exchange-vault-common": "workspace:*"
     "@koyofinance/exchange-vault-helpers": "workspace:*"
-    "@koyofinance/exchange-vault-interfaces": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
     "@types/chai": ^4.2.12
@@ -1003,10 +1003,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault-standalone-utils@workspace:pkg/standalone-utils"
   dependencies:
+    "@koyofinance/contracts-interfaces": "workspace:*"
     "@koyofinance/exchange-vault": "workspace:*"
     "@koyofinance/exchange-vault-common": "workspace:*"
     "@koyofinance/exchange-vault-helpers": "workspace:*"
-    "@koyofinance/exchange-vault-interfaces": "workspace:*"
     "@koyofinance/exchange-vault-pool-utils": "workspace:*"
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
@@ -1044,10 +1044,36 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-vault@workspace:pkg/vault"
   dependencies:
+    "@koyofinance/contracts-interfaces": "workspace:*"
     "@koyofinance/exchange-vault-common": "workspace:*"
     "@koyofinance/exchange-vault-helpers": "workspace:*"
-    "@koyofinance/exchange-vault-interfaces": "workspace:*"
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*"
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    "@nomiclabs/hardhat-waffle": ^2.0.0
+    "@types/chai": ^4.2.12
+    "@types/lodash": ^4.14.161
+    "@types/mocha": ^8.0.3
+    chai: ^4.2.0
+    decimal.js: ^10.2.1
+    eslint-plugin-mocha-no-only: ^1.1.1
+    ethereum-waffle: ^3.0.2
+    ethers: ^5.4.1
+    hardhat: ^2.8.3
+    lodash.frompairs: ^4.0.1
+    lodash.pick: ^4.4.0
+    lodash.range: ^3.2.0
+    lodash.times: ^4.3.2
+    lodash.zip: ^4.2.0
+    mocha: ^8.2.1
+    nodemon: ^2.0.4
+  languageName: unknown
+  linkType: soft
+
+"@koyofinance/perpetual-swaps-core@workspace:pkg/perpetuals/core":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/perpetual-swaps-core@workspace:pkg/perpetuals/core"
+  dependencies:
+    "@koyofinance/contracts-interfaces": "workspace:*"
     "@nomiclabs/hardhat-ethers": ^2.0.1
     "@nomiclabs/hardhat-waffle": ^2.0.0
     "@types/chai": ^4.2.12

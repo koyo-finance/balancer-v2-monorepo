@@ -15,9 +15,9 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC20Permit.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC20PermitDAI.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20Permit.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20PermitDAI.sol";
+import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
 import "./IBaseRelayerLibrary.sol";
 

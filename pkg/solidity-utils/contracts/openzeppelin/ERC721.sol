@@ -3,14 +3,14 @@
 
 pragma solidity ^0.7.0;
 
-import { IERC721 } from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC721.sol";
+import { IERC721 } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC721.sol";
 import {
     IERC721Receiver
-} from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC721Receiver.sol";
+} from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC721Receiver.sol";
 import {
     IERC721Metadata
-} from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC721Metadata.sol";
-import { IERC165 } from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC165.sol";
+} from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC721Metadata.sol";
+import { IERC165 } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC165.sol";
 
 import { Address } from "./Address.sol";
 import { Context } from "./Context.sol";
@@ -20,7 +20,7 @@ import {
     _require,
     _revert,
     Errors
-} from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+} from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 
 /**
  * @dev Implementation of https://eips.ethereum.org/EIPS/eip-721[ERC721] Non-Fungible Token Standard, including

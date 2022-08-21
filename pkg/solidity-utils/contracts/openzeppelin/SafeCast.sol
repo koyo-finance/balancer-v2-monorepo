@@ -2,7 +2,7 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 
 /**
  * @dev Wrappers over Solidity's uintXX/intXX casting operators with added overflow

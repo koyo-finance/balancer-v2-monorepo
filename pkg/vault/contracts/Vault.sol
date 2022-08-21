@@ -15,8 +15,8 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/misc/IWETH.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/vault/IAuthorizer.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/misc/IWETH.sol";
+import "@koyofinance/contracts-interfaces/contracts/vault/IAuthorizer.sol";
 
 import "./VaultAuthorization.sol";
 import "./FlashLoans.sol";

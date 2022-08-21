@@ -14,9 +14,9 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/liquidity-mining/IBalancerToken.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/standalone-utils/IBALTokenHolderFactory.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
+import "@koyofinance/contracts-interfaces/contracts/liquidity-mining/IBalancerToken.sol";
+import "@koyofinance/contracts-interfaces/contracts/standalone-utils/IBALTokenHolderFactory.sol";
+import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
 import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/Authentication.sol";
 

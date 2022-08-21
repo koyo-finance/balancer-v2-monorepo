@@ -30,9 +30,9 @@
     "generate:abi": "hardhat export-abi"
   },
   "devDependencies": {
+    "@koyofinance/contracts-interfaces": "workspace:*",
     "@koyofinance/exchange-vault-common": "workspace:*",
     "@koyofinance/exchange-vault-helpers": "workspace:*",
-    "@koyofinance/exchange-vault-interfaces": "workspace:*",
     "@koyofinance/exchange-vault-pool-utils": "workspace:*",
     "@koyofinance/exchange-vault-pool-weighted": "workspace:^",
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*",

@@ -14,7 +14,7 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/standalone-utils/IAumProtocolFeesCollector.sol";
+import "@koyofinance/contracts-interfaces/contracts/standalone-utils/IAumProtocolFeesCollector.sol";
 
 import "./ProtocolFeeCache.sol";
 

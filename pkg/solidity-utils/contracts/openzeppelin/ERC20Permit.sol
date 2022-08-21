@@ -2,7 +2,7 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC20Permit.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20Permit.sol";
 
 import "./ERC20.sol";
 import "./EIP712.sol";

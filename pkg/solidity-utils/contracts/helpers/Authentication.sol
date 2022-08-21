@@ -14,8 +14,8 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/IAuthentication.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/IAuthentication.sol";
 
 /**
  * @dev Building block for performing access control on external functions.

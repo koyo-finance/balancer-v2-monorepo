@@ -2,7 +2,7 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 
 /**
  * @dev Helper to make usage of the `CREATE2` EVM opcode easier and safer.

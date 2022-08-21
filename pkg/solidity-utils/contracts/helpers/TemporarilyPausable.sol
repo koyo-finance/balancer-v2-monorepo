@@ -14,8 +14,8 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/ITemporarilyPausable.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/ITemporarilyPausable.sol";
 
 /**
  * @dev Allows for a contract to be paused during an initial period after deployment, disabling functionality. Can be

@@ -19,9 +19,9 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/vault/IFlashLoanRecipient.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
+import "@koyofinance/contracts-interfaces/contracts/vault/IFlashLoanRecipient.sol";
 
 import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
 import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";

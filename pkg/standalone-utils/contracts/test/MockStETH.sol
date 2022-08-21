@@ -16,7 +16,7 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/standalone-utils/IstETH.sol";
+import "@koyofinance/contracts-interfaces/contracts/standalone-utils/IstETH.sol";
 
 import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
 import "@koyofinance/exchange-vault-solidity-utils/contracts/test/TestToken.sol";

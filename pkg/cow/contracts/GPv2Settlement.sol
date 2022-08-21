@@ -2,8 +2,8 @@
 pragma solidity ^0.7.6;
 pragma abicoder v2;
 
-import { IVaultCoW } from "@koyofinance/exchange-vault-interfaces/contracts/vault/IVaultCoW.sol";
-import { IERC20 } from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
+import { IVaultCoW } from "@koyofinance/contracts-interfaces/contracts/vault/IVaultCoW.sol";
+import { IERC20 } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 
 import "./GPv2VaultRelayer.sol";
 import "./interfaces/GPv2Authentication.sol";

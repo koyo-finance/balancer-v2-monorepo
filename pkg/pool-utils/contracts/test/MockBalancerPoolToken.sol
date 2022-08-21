@@ -14,7 +14,7 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
+import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
 import "../BalancerPoolToken.sol";
 

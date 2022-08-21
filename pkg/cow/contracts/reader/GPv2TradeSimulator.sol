@@ -2,7 +2,7 @@
 pragma solidity ^0.7.6;
 pragma abicoder v2;
 
-import { IVaultCoW } from "@koyofinance/exchange-vault-interfaces/contracts/vault/IVaultCoW.sol";
+import { IVaultCoW } from "@koyofinance/contracts-interfaces/contracts/vault/IVaultCoW.sol";
 
 import "../GPv2Settlement.sol";
 

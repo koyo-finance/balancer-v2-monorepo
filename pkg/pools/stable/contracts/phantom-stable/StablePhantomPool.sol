@@ -15,10 +15,10 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/pool-stable-phantom/StablePhantomPoolUserData.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/pool-utils/BasePoolUserData.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/pool-utils/IRateProvider.sol";
+import "@koyofinance/contracts-interfaces/contracts/pool-stable-phantom/StablePhantomPoolUserData.sol";
+import "@koyofinance/contracts-interfaces/contracts/pool-utils/BasePoolUserData.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/contracts-interfaces/contracts/pool-utils/IRateProvider.sol";
 
 import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
 import "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";

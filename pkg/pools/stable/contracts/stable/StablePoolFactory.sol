@@ -15,7 +15,7 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
+import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
 import "@koyofinance/exchange-vault-pool-utils/contracts/factories/BasePoolSplitCodeFactory.sol";
 import "@koyofinance/exchange-vault-pool-utils/contracts/factories/FactoryWidePauseWindow.sol";

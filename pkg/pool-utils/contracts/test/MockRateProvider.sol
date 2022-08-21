@@ -14,7 +14,7 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/pool-utils/IRateProvider.sol";
+import "@koyofinance/contracts-interfaces/contracts/pool-utils/IRateProvider.sol";
 
 import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
 

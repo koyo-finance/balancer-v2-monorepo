@@ -30,10 +30,10 @@
     "generate:abi": "hardhat export-abi"
   },
   "devDependencies": {
+    "@koyofinance/contracts-interfaces": "workspace:*",
     "@koyofinance/exchange-vault": "workspace:*",
     "@koyofinance/exchange-vault-common": "workspace:*",
     "@koyofinance/exchange-vault-helpers": "workspace:*",
-    "@koyofinance/exchange-vault-interfaces": "workspace:*",
     "@koyofinance/exchange-vault-solidity-utils": "workspace:*",
     "@nomiclabs/hardhat-ethers": "^2.0.1",
     "@nomiclabs/hardhat-waffle": "^2.0.0",

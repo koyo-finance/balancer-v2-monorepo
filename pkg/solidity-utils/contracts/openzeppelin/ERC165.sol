@@ -3,7 +3,7 @@
 
 pragma solidity ^0.7.0;
 
-import { IERC165 } from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/openzeppelin/IERC165.sol";
+import { IERC165 } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC165.sol";
 
 /**
  * @dev Implementation of the {IERC165} interface.

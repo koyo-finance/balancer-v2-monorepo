@@ -16,7 +16,7 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/misc/IWETH.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/misc/IWETH.sol";
 
 contract TestWETH is IWETH {
     string public name = "Wrapped Ether";

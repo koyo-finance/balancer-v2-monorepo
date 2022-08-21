@@ -4,7 +4,7 @@ pragma solidity >=0.7.0;
 import {
     _require,
     Errors
-} from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+} from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 
 /// @title Optimized overflow and underflow safe math operations
 /// @notice Contains methods for doing math operations that revert on overflow or underflow for minimal gas cost

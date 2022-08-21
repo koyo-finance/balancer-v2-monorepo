@@ -6,7 +6,7 @@ pragma solidity ^0.7.0;
 import {
     _require,
     Errors
-} from "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+} from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 
 /**
  * @dev String operations.

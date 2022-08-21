@@ -15,7 +15,7 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/pool-utils/IControlledManagedPool.sol";
+import "@koyofinance/contracts-interfaces/contracts/pool-utils/IControlledManagedPool.sol";
 
 import "./BasePoolController.sol";
 

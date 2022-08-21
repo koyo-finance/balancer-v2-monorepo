@@ -1,5 +1,5 @@
 {
-  "name": "@koyofinance/exchange-vault-interfaces",
+  "name": "@koyofinance/contracts-interfaces",
   "version": "0.0.1",
   "description": "V2 Interfaces",
   "license": "GPL-3.0-only",

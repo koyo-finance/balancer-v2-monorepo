@@ -15,9 +15,9 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/solidity-utils/misc/IWETH.sol";
-import "@koyofinance/exchange-vault-interfaces/contracts/vault/IVault.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import "@koyofinance/contracts-interfaces/contracts/solidity-utils/misc/IWETH.sol";
+import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
 import "@koyofinance/exchange-vault/contracts/balances/BalanceAllocation.sol";
 import "@koyofinance/exchange-vault/contracts/AssetHelpers.sol";
