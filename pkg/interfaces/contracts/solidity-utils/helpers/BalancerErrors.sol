@@ -263,4 +263,62 @@ library Errors {
     // Perpetuals - Vault
     uint256 internal constant VAULT_POOL_AMOUNT_EXCEEDED = 10101;
     uint256 internal constant VAULT_INSUFFICIENT_RESERVE = 10102;
+
+    uint256 internal constant VAULT_ZERO_ERROR = 10201;
+    uint256 internal constant VAULT_ALREADY_INITIALIZED = 10202;
+    uint256 internal constant VAULT__MAX_LEVERAGE_INVALID = 10203;
+    uint256 internal constant VAULT__TAX_BASIS_POINTS_INVALID = 10204;
+    uint256 internal constant VAULT__STABLE_TAX_BASIS_POINTS_INVALID = 10205;
+    uint256 internal constant VAULT__MINT_BURN_FEE_BASIS_POINTS_INVALID = 10206;
+    uint256 internal constant VAULT__SWAP_FEE_BASIS_POINTS_INVALID = 10207;
+    uint256 internal constant VAULT__STABLE_SWAP_FEE_BASIS_POINTS_INVALID = 10208;
+    uint256 internal constant VAULT__MARGIN_FEE_BASIS_POINTS_INVALID = 10209;
+    uint256 internal constant VAULT__LIQUIDATION_FEE_USD_INVALID = 10210;
+    uint256 internal constant VAULT__FUNDING_INTERVAL_INVALID = 10211;
+    uint256 internal constant VAULT__FUNDING_RATE_FACTOR_INVALID = 10212;
+    uint256 internal constant VAULT__STABLE_FUNDING_RATE_FACTOR_INVALID = 10213;
+    uint256 internal constant VAULT__AVERAGE_PRICE_INVALID = 10214;
+    uint256 internal constant VAULT_TOKEN_AMOUNT_INVALID = 10215;
+    uint256 internal constant VAULT_USDK_AMOUNT_INVALID = 10216;
+    uint256 internal constant VAULT_REDEMPTION_AMOUNT_INVALID = 10217;
+    uint256 internal constant VAULT_AMOUNT_OUT_INVALID = 10218;
+    uint256 internal constant VAULT_AMOUNT_IN_INVALID = 10219;
+    uint256 internal constant VAULT_TOKENS_INVALID = 10220;
+    uint256 internal constant VAULT_POSITION_SIZE_INVALID = 10221;
+    uint256 internal constant VAULT_LIQUIDATOR_INVALID = 10222;
+    uint256 internal constant VAULT_POSITION_INVALID = 10223;
+    uint256 internal constant VAULT_MESSAGE_SENDER_INVALID = 10224;
+    uint256 internal constant VAULT_INCREASE_INVALID = 10225;
+
+    uint256 internal constant VAULT__TOKEN_NOT_WHITELISTED = 10226;
+    uint256 internal constant VAULT__TOKEN_IN_NOT_WHITELISTED = 10227;
+    uint256 internal constant VAULT__TOKEN_OUT_NOT_WHITELISTED = 10228;
+    uint256 internal constant VAULT__COLLATERAL_TOKEN_NOT_WHITELISTED = 10229;
+    uint256 internal constant VAULT_TOKEN_NOT_WHITELISTED = 10230;
+
+    uint256 internal constant VAULT_SWAPS_NOT_ENABLED = 10231;
+    uint256 internal constant VAULT_LEVERAGE_NOT_ENABLED = 10232;
+
+    uint256 internal constant VAULT_POSITION_SIZE_EXCEEDED = 10233;
+    uint256 internal constant VAULT_POSITION_COLLATERAL_EXCEEDED = 10234;
+    uint256 internal constant VAULT_MAX_USDK_EXCEEDED = 10235;
+    uint256 internal constant VAULT_MAX_GAS_PRICE_EXCEEDED = 10236;
+    uint256 internal constant VAULT_MAX_SHORTS_EXCEEDED = 10237;
+
+    uint256 internal constant VAULT_POSITION_EMPTY = 10238;
+    uint256 internal constant VAULT_POSITION_CANNOT_LIQUIDATE = 10239;
+
+    uint256 internal constant VAULT_TOKENS_MISSMATCHED = 10240;
+
+    uint256 internal constant VAULT_COLLATERAL_INSUFFICIENT_FOR_FEES = 10241;
+    uint256 internal constant VAULT_COLLATERAL_SHOULD_WITHDRAW = 10242;
+    uint256 internal constant VAULT__COLLATERAL_SMALLER_THAN__SIZE = 10243;
+    uint256 internal constant VAULT__COLLATERAL_TOKEN_A_STABLE_TOKEN = 10244;
+    uint256 internal constant VAULT__COLLATERAL_TOKEN_NOT_A_STABLE_TOKEN = 10245;
+
+    uint256 internal constant VAULT__INDEX_TOKEN_A_STABLE_TOKEN = 10246;
+    uint256 internal constant VAULT__INDEX_TOKEN_NOT_SHORTABLE = 10247;
+
+    uint256 internal constant VAULT_RESERVE_EXCEEDS_POOL = 10248;
+    uint256 internal constant VAULT_FORBIDDEN = 10249;
 }

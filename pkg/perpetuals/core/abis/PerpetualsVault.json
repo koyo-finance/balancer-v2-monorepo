@@ -1038,38 +1038,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "errorController",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "errors",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "address",
@@ -2365,37 +2333,6 @@
       }
     ],
     "name": "setBufferAmount",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_errorCode",
-        "type": "uint256"
-      },
-      {
-        "internalType": "string",
-        "name": "_error",
-        "type": "string"
-      }
-    ],
-    "name": "setError",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_errorController",
-        "type": "address"
-      }
-    ],
-    "name": "setErrorController",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

@@ -12,7 +12,8 @@ import { IPerpetualsVaultInternalStable } from "@koyofinance/contracts-interface
 import { ReentrancyGuard } from "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
 import { IERC20 } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 
-import { Errors } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+// solhint-disable-next-line max-line-length
+import { Errors, _require } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 import { SafeMath } from "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeMath.sol";
 import { SafeERC20 } from "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 
@@ -46,8 +47,6 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
     bool public override isLeverageEnabled = true;
 
     IPerpetualsVaultUtils public vaultUtils;
-
-    address public errorController;
 
     address public override router;
     address public override priceFeed;
@@ -139,8 +138,6 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
     mapping(address => uint256) public override globalShortSizes;
     mapping(address => uint256) public override globalShortAveragePrices;
     mapping(address => uint256) public override maxGlobalShortSizes;
-
-    mapping(uint256 => string) public errors;
 
     event BuyUSDG(address account, address token, uint256 tokenAmount, uint256 usdgAmount, uint256 feeBasisPoints);
     event SellUSDG(address account, address token, uint256 usdgAmount, uint256 tokenAmount, uint256 feeBasisPoints);
@@ -239,7 +236,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         uint256 _stableFundingRateFactor
     ) external {
         _onlyGov();
-        _validate(!isInitialized, 1);
+        _require(!isInitialized, Errors.VAULT_ALREADY_INITIALIZED);
         isInitialized = true;
 
         router = _router;
@@ -253,16 +250,6 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
     function setVaultUtils(IPerpetualsVaultUtils _vaultUtils) external override {
         _onlyGov();
         vaultUtils = _vaultUtils;
-    }
-
-    function setErrorController(address _errorController) external {
-        _onlyGov();
-        errorController = _errorController;
-    }
-
-    function setError(uint256 _errorCode, string calldata _error) external override {
-        require(msg.sender == errorController, "Vault: invalid errorController");
-        errors[_errorCode] = _error;
     }
 
     function allWhitelistedTokensLength() external view override returns (uint256) {
@@ -316,7 +303,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
 
     function setMaxLeverage(uint256 _maxLeverage) external override {
         _onlyGov();
-        _validate(_maxLeverage > MIN_LEVERAGE, 2);
+        _require(_maxLeverage > MIN_LEVERAGE, Errors.VAULT__MAX_LEVERAGE_INVALID);
         maxLeverage = _maxLeverage;
     }
 
@@ -342,13 +329,13 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         bool _hasDynamicFees
     ) external override {
         _onlyGov();
-        _validate(_taxBasisPoints <= MAX_FEE_BASIS_POINTS, 3);
-        _validate(_stableTaxBasisPoints <= MAX_FEE_BASIS_POINTS, 4);
-        _validate(_mintBurnFeeBasisPoints <= MAX_FEE_BASIS_POINTS, 5);
-        _validate(_swapFeeBasisPoints <= MAX_FEE_BASIS_POINTS, 6);
-        _validate(_stableSwapFeeBasisPoints <= MAX_FEE_BASIS_POINTS, 7);
-        _validate(_marginFeeBasisPoints <= MAX_FEE_BASIS_POINTS, 8);
-        _validate(_liquidationFeeUsd <= MAX_LIQUIDATION_FEE_USD, 9);
+        _require(_taxBasisPoints <= MAX_FEE_BASIS_POINTS, Errors.VAULT__TAX_BASIS_POINTS_INVALID);
+        _require(_stableTaxBasisPoints <= MAX_FEE_BASIS_POINTS, Errors.VAULT__STABLE_TAX_BASIS_POINTS_INVALID);
+        _require(_mintBurnFeeBasisPoints <= MAX_FEE_BASIS_POINTS, Errors.VAULT__MINT_BURN_FEE_BASIS_POINTS_INVALID);
+        _require(_swapFeeBasisPoints <= MAX_FEE_BASIS_POINTS, Errors.VAULT__SWAP_FEE_BASIS_POINTS_INVALID);
+        _require(_stableSwapFeeBasisPoints <= MAX_FEE_BASIS_POINTS, Errors.VAULT__STABLE_SWAP_FEE_BASIS_POINTS_INVALID);
+        _require(_marginFeeBasisPoints <= MAX_FEE_BASIS_POINTS, Errors.VAULT__MARGIN_FEE_BASIS_POINTS_INVALID);
+        _require(_liquidationFeeUsd <= MAX_LIQUIDATION_FEE_USD, Errors.VAULT__LIQUIDATION_FEE_USD_INVALID);
         taxBasisPoints = _taxBasisPoints;
         stableTaxBasisPoints = _stableTaxBasisPoints;
         mintBurnFeeBasisPoints = _mintBurnFeeBasisPoints;
@@ -366,9 +353,9 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         uint256 _stableFundingRateFactor
     ) external override {
         _onlyGov();
-        _validate(_fundingInterval >= MIN_FUNDING_RATE_INTERVAL, 10);
-        _validate(_fundingRateFactor <= MAX_FUNDING_RATE_FACTOR, 11);
-        _validate(_stableFundingRateFactor <= MAX_FUNDING_RATE_FACTOR, 12);
+        _require(_fundingInterval >= MIN_FUNDING_RATE_INTERVAL, Errors.VAULT__FUNDING_INTERVAL_INVALID);
+        _require(_fundingRateFactor <= MAX_FUNDING_RATE_FACTOR, Errors.VAULT__FUNDING_RATE_FACTOR_INVALID);
+        _require(_stableFundingRateFactor <= MAX_FUNDING_RATE_FACTOR, Errors.VAULT__STABLE_FUNDING_RATE_FACTOR_INVALID);
         fundingInterval = _fundingInterval;
         fundingRateFactor = _fundingRateFactor;
         stableFundingRateFactor = _stableFundingRateFactor;
@@ -409,7 +396,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
 
     function clearTokenConfig(address _token) external {
         _onlyGov();
-        _validate(whitelistedTokens[_token], 13);
+        _require(whitelistedTokens[_token], Errors.VAULT__TOKEN_NOT_WHITELISTED);
         totalTokenWeights = totalTokenWeights.sub(tokenWeights[_token]);
         delete whitelistedTokens[_token];
         delete tokenDecimals[_token];
@@ -465,20 +452,20 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
     // deposit into the pool without minting USDG tokens
     // useful in allowing the pool to become over-collaterised
     function directPoolDeposit(address _token) external override nonReentrant {
-        _validate(whitelistedTokens[_token], 14);
+        _require(whitelistedTokens[_token], Errors.VAULT__TOKEN_NOT_WHITELISTED);
         uint256 tokenAmount = _transferIn(_token);
-        _validate(tokenAmount > 0, 15);
+        _require(tokenAmount > 0, Errors.VAULT_TOKEN_AMOUNT_INVALID);
         _increasePoolAmount(_token, tokenAmount);
         emit DirectPoolDeposit(_token, tokenAmount);
     }
 
     function buyUSDG(address _token, address _receiver) external override nonReentrant returns (uint256) {
         _validateManager();
-        _validate(whitelistedTokens[_token], 16);
+        _require(whitelistedTokens[_token], Errors.VAULT__TOKEN_NOT_WHITELISTED);
         useSwapPricing = true;
 
         uint256 tokenAmount = _transferIn(_token);
-        _validate(tokenAmount > 0, 17);
+        _require(tokenAmount > 0, Errors.VAULT_TOKEN_AMOUNT_INVALID);
 
         updateCumulativeFundingRate(_token, _token);
 
@@ -486,7 +473,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
 
         uint256 usdgAmount = tokenAmount.mul(price).div(PRICE_PRECISION);
         usdgAmount = adjustForDecimals(usdgAmount, _token, usdg);
-        _validate(usdgAmount > 0, 18);
+        _require(usdgAmount > 0, Errors.VAULT_USDK_AMOUNT_INVALID);
 
         uint256 feeBasisPoints = vaultUtils.getBuyUsdgFeeBasisPoints(_token, usdgAmount);
         uint256 amountAfterFees = _collectSwapFees(_token, tokenAmount, feeBasisPoints);
@@ -506,16 +493,16 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
 
     function sellUSDG(address _token, address _receiver) external override nonReentrant returns (uint256) {
         _validateManager();
-        _validate(whitelistedTokens[_token], 19);
+        _require(whitelistedTokens[_token], Errors.VAULT__TOKEN_NOT_WHITELISTED);
         useSwapPricing = true;
 
         uint256 usdgAmount = _transferIn(usdg);
-        _validate(usdgAmount > 0, 20);
+        _require(usdgAmount > 0, Errors.VAULT_USDK_AMOUNT_INVALID);
 
         updateCumulativeFundingRate(_token, _token);
 
         uint256 redemptionAmount = getRedemptionAmount(_token, usdgAmount);
-        _validate(redemptionAmount > 0, 21);
+        _require(redemptionAmount > 0, Errors.VAULT_REDEMPTION_AMOUNT_INVALID);
 
         _decreaseUsdgAmount(_token, usdgAmount);
         _decreasePoolAmount(_token, redemptionAmount);
@@ -530,7 +517,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
 
         uint256 feeBasisPoints = vaultUtils.getSellUsdgFeeBasisPoints(_token, usdgAmount);
         uint256 amountOut = _collectSwapFees(_token, redemptionAmount, feeBasisPoints);
-        _validate(amountOut > 0, 22);
+        _require(amountOut > 0, Errors.VAULT_AMOUNT_OUT_INVALID);
 
         _transferOut(_token, amountOut, _receiver);
 
@@ -545,10 +532,10 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         address _tokenOut,
         address _receiver
     ) external override nonReentrant returns (uint256) {
-        _validate(isSwapEnabled, 23);
-        _validate(whitelistedTokens[_tokenIn], 24);
-        _validate(whitelistedTokens[_tokenOut], 25);
-        _validate(_tokenIn != _tokenOut, 26);
+        _require(isSwapEnabled, Errors.VAULT_SWAPS_NOT_ENABLED);
+        _require(whitelistedTokens[_tokenIn], Errors.VAULT__TOKEN_IN_NOT_WHITELISTED);
+        _require(whitelistedTokens[_tokenOut], Errors.VAULT__TOKEN_OUT_NOT_WHITELISTED);
+        _require(_tokenIn != _tokenOut, Errors.VAULT_TOKENS_INVALID);
 
         useSwapPricing = true;
 
@@ -556,7 +543,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         updateCumulativeFundingRate(_tokenOut, _tokenOut);
 
         uint256 amountIn = _transferIn(_tokenIn);
-        _validate(amountIn > 0, 27);
+        _require(amountIn > 0, Errors.VAULT_AMOUNT_IN_INVALID);
 
         uint256 priceIn = getMinPrice(_tokenIn);
         uint256 priceOut = getMaxPrice(_tokenOut);
@@ -594,7 +581,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         uint256 _sizeDelta,
         bool _isLong
     ) external override nonReentrant {
-        _validate(isLeverageEnabled, 28);
+        _require(isLeverageEnabled, Errors.VAULT_LEVERAGE_NOT_ENABLED);
         _validateGasPrice();
         _validateRouter(_account);
         _validateTokens(_collateralToken, _indexToken, _isLong);
@@ -636,7 +623,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         uint256 collateralDeltaUsd = tokenToUsdMin(_collateralToken, collateralDelta);
 
         position.collateral = position.collateral.add(collateralDeltaUsd);
-        _validate(position.collateral >= fee, 29);
+        _require(position.collateral >= fee, Errors.VAULT_COLLATERAL_INSUFFICIENT_FOR_FEES);
 
         position.collateral = position.collateral.sub(fee);
         position.entryFundingRate = getEntryFundingRate(_collateralToken, _indexToken, _isLong);
@@ -644,7 +631,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         // solhint-disable-next-line not-rely-on-time
         position.lastIncreasedTime = block.timestamp;
 
-        _validate(position.size > 0, 30);
+        _require(position.size > 0, Errors.VAULT_POSITION_SIZE_INVALID);
         _validatePosition(position.size, position.collateral);
         validateLiquidation(_account, _collateralToken, _indexToken, _isLong, true);
 
@@ -742,9 +729,9 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
 
         bytes32 key = getPositionKey(_account, _collateralToken, _indexToken, _isLong);
         Position storage position = positions[key];
-        _validate(position.size > 0, 31);
-        _validate(position.size >= _sizeDelta, 32);
-        _validate(position.collateral >= _collateralDelta, 33);
+        _require(position.size > 0, Errors.VAULT_POSITION_SIZE_INVALID);
+        _require(position.size >= _sizeDelta, Errors.VAULT_POSITION_SIZE_EXCEEDED);
+        _require(position.collateral >= _collateralDelta, Errors.VAULT_POSITION_COLLATERAL_EXCEEDED);
 
         uint256 collateral = position.collateral;
         // scrop variables to avoid stack too deep errors
@@ -852,7 +839,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         address _feeReceiver
     ) external override nonReentrant {
         if (inPrivateLiquidationMode) {
-            _validate(isLiquidator[msg.sender], 34);
+            _require(isLiquidator[msg.sender], Errors.VAULT_LIQUIDATOR_INVALID);
         }
 
         // set includeAmmPrice to false to prevent manipulated liquidations
@@ -862,7 +849,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
 
         bytes32 key = getPositionKey(_account, _collateralToken, _indexToken, _isLong);
         Position memory position = positions[key];
-        _validate(position.size > 0, 35);
+        _require(position.size > 0, Errors.VAULT_POSITION_SIZE_INVALID);
 
         (uint256 liquidationState, uint256 marginFees) = validateLiquidation(
             _account,
@@ -871,7 +858,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
             _isLong,
             false
         );
-        _validate(liquidationState != 0, 36);
+        _require(liquidationState != 0, Errors.VAULT_POSITION_CANNOT_LIQUIDATE);
         if (liquidationState == 2) {
             // Max leverage exceeded but there is collateral remaining
             // after deducting losses so decreasePosition instead
@@ -1109,7 +1096,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
     ) public view returns (uint256) {
         bytes32 key = getPositionKey(_account, _collateralToken, _indexToken, _isLong);
         Position memory position = positions[key];
-        _validate(position.collateral > 0, 37);
+        _require(position.collateral > 0, Errors.VAULT_POSITION_COLLATERAL_EXCEEDED);
         return position.size.mul(BASIS_POINTS_DIVISOR).div(position.collateral);
     }
 
@@ -1187,7 +1174,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         bool _isLong,
         uint256 _lastIncreasedTime
     ) public view override returns (bool, uint256) {
-        _validate(_averagePrice > 0, 38);
+        _require(_averagePrice > 0, Errors.VAULT__AVERAGE_PRICE_INVALID);
         uint256 price = _isLong ? getMinPrice(_indexToken) : getMaxPrice(_indexToken);
         uint256 priceDelta = _averagePrice > price ? _averagePrice.sub(price) : price.sub(_averagePrice);
         uint256 delta = _size.mul(priceDelta).div(_averagePrice);
@@ -1366,22 +1353,18 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         return (usdOut, usdOutAfterFee);
     }
 
-    function _validatePosition(uint256 _size, uint256 _collateral) private view {
+    function _validatePosition(uint256 _size, uint256 _collateral) private pure {
         if (_size == 0) {
-            _validate(_collateral == 0, 39);
+            _require(_collateral == 0, Errors.VAULT_POSITION_INVALID);
             return;
         }
-        _validate(_size >= _collateral, 40);
+        _require(_size >= _collateral, Errors.VAULT__COLLATERAL_SMALLER_THAN__SIZE);
     }
 
     function _validateRouter(address _account) private view {
-        if (msg.sender == _account) {
-            return;
-        }
-        if (msg.sender == router) {
-            return;
-        }
-        _validate(approvedRouters[_account][msg.sender], 41);
+        if (msg.sender == _account) return;
+        if (msg.sender == router) return;
+        _require(approvedRouters[_account][msg.sender], Errors.VAULT_MESSAGE_SENDER_INVALID);
     }
 
     function _validateTokens(
@@ -1390,16 +1373,16 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         bool _isLong
     ) private view {
         if (_isLong) {
-            _validate(_collateralToken == _indexToken, 42);
-            _validate(whitelistedTokens[_collateralToken], 43);
-            _validate(!stableTokens[_collateralToken], 44);
+            _require(_collateralToken == _indexToken, Errors.VAULT__INDEX_TOKEN_NOT_SHORTABLE);
+            _require(whitelistedTokens[_collateralToken], Errors.VAULT__COLLATERAL_TOKEN_NOT_WHITELISTED);
+            _require(!stableTokens[_collateralToken], Errors.VAULT__COLLATERAL_TOKEN_NOT_A_STABLE_TOKEN);
             return;
         }
 
-        _validate(whitelistedTokens[_collateralToken], 45);
-        _validate(stableTokens[_collateralToken], 46);
-        _validate(!stableTokens[_indexToken], 47);
-        _validate(shortableTokens[_indexToken], 48);
+        _require(whitelistedTokens[_collateralToken], Errors.VAULT__COLLATERAL_TOKEN_NOT_WHITELISTED);
+        _require(stableTokens[_collateralToken], Errors.VAULT__COLLATERAL_TOKEN_NOT_A_STABLE_TOKEN);
+        _require(!stableTokens[_indexToken], Errors.VAULT__INDEX_TOKEN_A_STABLE_TOKEN);
+        _require(shortableTokens[_indexToken], Errors.VAULT__INDEX_TOKEN_NOT_SHORTABLE);
     }
 
     function _collectSwapFees(
@@ -1460,13 +1443,13 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
     function _increasePoolAmount(address _token, uint256 _amount) private {
         poolAmounts[_token] = poolAmounts[_token].add(_amount);
         uint256 balance = IERC20(_token).balanceOf(address(this));
-        _validate(poolAmounts[_token] <= balance, 49);
+        _require(poolAmounts[_token] <= balance, Errors.VAULT_POSITION_SIZE_EXCEEDED);
         emit IncreasePoolAmount(_token, _amount);
     }
 
     function _decreasePoolAmount(address _token, uint256 _amount) private {
         poolAmounts[_token] = poolAmounts[_token].sub(_amount, Errors.VAULT_POOL_AMOUNT_EXCEEDED);
-        _validate(reservedAmounts[_token] <= poolAmounts[_token], 50);
+        _require(reservedAmounts[_token] <= poolAmounts[_token], Errors.VAULT_RESERVE_EXCEEDS_POOL);
         emit DecreasePoolAmount(_token, _amount);
     }
 
@@ -1480,7 +1463,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         usdgAmounts[_token] = usdgAmounts[_token].add(_amount);
         uint256 maxUsdgAmount = maxUsdgAmounts[_token];
         if (maxUsdgAmount != 0) {
-            _validate(usdgAmounts[_token] <= maxUsdgAmount, 51);
+            _require(usdgAmounts[_token] <= maxUsdgAmount, Errors.VAULT_MAX_USDK_EXCEEDED);
         }
         emit IncreaseUsdgAmount(_token, _amount);
     }
@@ -1501,7 +1484,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
 
     function _increaseReservedAmount(address _token, uint256 _amount) private {
         reservedAmounts[_token] = reservedAmounts[_token].add(_amount);
-        _validate(reservedAmounts[_token] <= poolAmounts[_token], 52);
+        _require(reservedAmounts[_token] <= poolAmounts[_token], Errors.VAULT_RESERVE_EXCEEDS_POOL);
         emit IncreaseReservedAmount(_token, _amount);
     }
 
@@ -1525,7 +1508,7 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
 
         uint256 maxSize = maxGlobalShortSizes[_token];
         if (maxSize != 0) {
-            require(globalShortSizes[_token] <= maxSize, "Vault: max shorts exceeded");
+            _require(globalShortSizes[_token] <= maxSize, Errors.VAULT_MAX_SHORTS_EXCEEDED);
         }
     }
 
@@ -1541,13 +1524,13 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
 
     // we have this validation as a function instead of a modifier to reduce contract size
     function _onlyGov() private view {
-        _validate(msg.sender == gov, 53);
+        _require(msg.sender == gov, Errors.VAULT_FORBIDDEN);
     }
 
     // we have this validation as a function instead of a modifier to reduce contract size
     function _validateManager() private view {
         if (inManagerMode) {
-            _validate(isManager[msg.sender], 54);
+            _require(isManager[msg.sender], Errors.VAULT_FORBIDDEN);
         }
     }
 
@@ -1556,10 +1539,6 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         if (maxGasPrice == 0) {
             return;
         }
-        _validate(tx.gasprice <= maxGasPrice, 55);
-    }
-
-    function _validate(bool _condition, uint256 _errorCode) private view {
-        require(_condition, errors[_errorCode]);
+        _require(tx.gasprice <= maxGasPrice, Errors.VAULT_MAX_GAS_PRICE_EXCEEDED);
     }
 }

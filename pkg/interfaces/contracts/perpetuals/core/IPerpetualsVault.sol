@@ -13,8 +13,6 @@ interface IPerpetualsVault {
 
     function setVaultUtils(IPerpetualsVaultUtils _vaultUtils) external;
 
-    function setError(uint256 _errorCode, string calldata _error) external;
-
     function router() external view returns (address);
 
     function usdg() external view returns (address);
