@@ -20,8 +20,8 @@ import "@koyofinance/contracts-interfaces/contracts/pool-weighted/WeightedPoolUs
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IFlashLoanRecipient.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/ERC20Helpers.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/ERC20Helpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 
 import "hardhat/console.sol";
 

@@ -18,7 +18,7 @@ pragma experimental ABIEncoderV2;
 import "@koyofinance/contracts-interfaces/contracts/vault/IBasicAuthorizer.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/Math.sol";
 
 import "./TimelockAuthorizer.sol";
 

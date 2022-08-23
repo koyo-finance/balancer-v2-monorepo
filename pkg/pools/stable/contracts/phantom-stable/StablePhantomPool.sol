@@ -20,11 +20,11 @@ import "@koyofinance/contracts-interfaces/contracts/pool-utils/BasePoolUserData.
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 import "@koyofinance/contracts-interfaces/contracts/pool-utils/IRateProvider.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/ERC20Helpers.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/WordCodec.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/FixedPoint.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/Math.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/ERC20Helpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/WordCodec.sol";
 
 import "@koyofinance/exchange-vault-pool-utils/contracts/BaseGeneralPool.sol";
 import "@koyofinance/exchange-vault-pool-utils/contracts/BasePoolAuthorization.sol";

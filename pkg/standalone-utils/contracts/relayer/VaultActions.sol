@@ -18,9 +18,9 @@ pragma experimental ABIEncoderV2;
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 import "@koyofinance/contracts-interfaces/contracts/pool-weighted/WeightedPoolUserData.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/VaultHelpers.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/VaultHelpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/Math.sol";
 
 import "./IBaseRelayerLibrary.sol";
 

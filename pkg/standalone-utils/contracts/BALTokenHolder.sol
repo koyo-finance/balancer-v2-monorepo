@@ -18,8 +18,8 @@ import "@koyofinance/contracts-interfaces/contracts/liquidity-mining/IBalancerTo
 import "@koyofinance/contracts-interfaces/contracts/standalone-utils/IBALTokenHolder.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/SingletonAuthentication.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/SingletonAuthentication.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 
 /**
  * @dev This contract simply holds the BAL token and delegates to Balancer Governance the permission to withdraw it. It

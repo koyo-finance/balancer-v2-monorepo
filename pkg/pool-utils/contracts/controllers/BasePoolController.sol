@@ -17,7 +17,7 @@ pragma experimental ABIEncoderV2;
 
 import "@koyofinance/contracts-interfaces/contracts/pool-utils/IBasePoolController.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/WordCodec.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/WordCodec.sol";
 
 import "../BasePoolAuthorization.sol";
 

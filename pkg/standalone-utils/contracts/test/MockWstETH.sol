@@ -19,8 +19,8 @@ pragma solidity ^0.7.0;
 import "@koyofinance/contracts-interfaces/contracts/standalone-utils/IstETH.sol";
 import "@koyofinance/contracts-interfaces/contracts/standalone-utils/IwstETH.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ERC20.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/FixedPoint.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ERC20.sol";
 
 contract MockWstETH is ERC20, IwstETH {
     using FixedPoint for uint256;

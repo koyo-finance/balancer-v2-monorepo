@@ -18,8 +18,8 @@ pragma experimental ABIEncoderV2;
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IBasicAuthorizer.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/EnumerableSet.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/EnumerableSet.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/InputHelpers.sol";
 
 contract MockBasicAuthorizer is IBasicAuthorizer {
     using EnumerableSet for EnumerableSet.AddressSet;

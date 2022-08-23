@@ -18,9 +18,9 @@ import "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/
 import "@koyofinance/contracts-interfaces/contracts/vault/IFlashLoanRecipient.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/test/TestToken.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/test/TestToken.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/Math.sol";
 
 contract MockFlashLoanRecipient is IFlashLoanRecipient {
     using Math for uint256;

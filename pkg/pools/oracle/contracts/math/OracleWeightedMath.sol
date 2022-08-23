@@ -14,8 +14,8 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/LogCompression.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/LogCompression.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/FixedPoint.sol";
 
 // These functions start with an underscore, as if they were part of a contract and not a library. At some point this
 // should be fixed.

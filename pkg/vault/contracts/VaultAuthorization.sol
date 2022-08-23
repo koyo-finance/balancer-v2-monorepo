@@ -19,10 +19,10 @@ import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/Balan
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IAuthorizer.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/Authentication.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/SignaturesValidator.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/TemporarilyPausable.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/Authentication.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/SignaturesValidator.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/TemporarilyPausable.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
 
 /**
  * @dev Manages access control of Vault permissioned functions by relying on the Authorizer and signature validation.

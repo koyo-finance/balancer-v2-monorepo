@@ -18,7 +18,7 @@ import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/IReco
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 import "@koyofinance/contracts-interfaces/contracts/pool-utils/BasePoolUserData.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/FixedPoint.sol";
 
 import "./BasePoolAuthorization.sol";
 

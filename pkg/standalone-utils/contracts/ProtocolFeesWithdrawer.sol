@@ -16,8 +16,8 @@ pragma solidity ^0.7.0;
 
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/SingletonAuthentication.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/EnumerableSet.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/SingletonAuthentication.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/EnumerableSet.sol";
 
 /**
  * @title Protocol Fees Withdrawer

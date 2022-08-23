@@ -15,7 +15,7 @@
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/LogCompression.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/LogCompression.sol";
 
 import "@koyofinance/exchange-vault-pool-utils/contracts/oracle/PoolPriceOracle.sol";
 

@@ -20,8 +20,8 @@ import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/IAuth
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IAuthorizer.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/Address.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/Address.sol";
 import "./TimelockExecutor.sol";
 
 /**

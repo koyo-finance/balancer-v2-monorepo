@@ -18,7 +18,7 @@ pragma experimental ABIEncoderV2;
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/EnumerableSet.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/EnumerableSet.sol";
 
 import "./BalanceAllocation.sol";
 import "../PoolRegistry.sol";

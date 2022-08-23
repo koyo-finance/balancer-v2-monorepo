@@ -18,7 +18,7 @@ import "@koyofinance/contracts-interfaces/contracts/liquidity-mining/IBalancerTo
 import "@koyofinance/contracts-interfaces/contracts/standalone-utils/IBALTokenHolderFactory.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/Authentication.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/Authentication.sol";
 
 import "./BALTokenHolder.sol";
 

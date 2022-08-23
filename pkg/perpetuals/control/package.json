@@ -1,13 +1,13 @@
 {
-  "name": "@koyofinance/perpetual-swaps-core",
+  "name": "@koyofinance/perpetual-swaps-control",
   "version": "2.0.1",
-  "description": "Core for Kōyō Perpetual swaps based on GMX",
+  "description": "Control and Access abstraction contracts for Kōyō Perpetual swaps",
   "license": "MIT",
-  "homepage": "https://github.com/koyo-finance/contracts-monorepo/tree/master/pkg/perpetuals/core#readme",
+  "homepage": "https://github.com/koyo-finance/contracts-monorepo/tree/master/pkg/perpetuals/control#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/koyo-finance/contracts-monorepo.git",
-    "directory": "pkg/perpetuals/core"
+    "directory": "pkg/perpetuals/control"
   },
   "bugs": {
     "url": "https://github.com/koyo-finance/contracts-monorepo/issues"

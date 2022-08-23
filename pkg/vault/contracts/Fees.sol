@@ -19,9 +19,9 @@ import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/Balan
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/FixedPoint.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 
 import "./ProtocolFeesCollector.sol";
 import "./VaultAuthorization.sol";

@@ -14,7 +14,7 @@
 
 pragma solidity ^0.7.0;
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/WordCodec.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/WordCodec.sol";
 
 /**
  * @dev This module provides an interface to store seemingly unrelated pieces of information in the same storage slot,

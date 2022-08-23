@@ -15,8 +15,8 @@
 pragma solidity ^0.7.0;
 
 import "@koyofinance/contracts-interfaces/contracts/vault/IAuthorizer.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/AccessControl.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/AccessControl.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/InputHelpers.sol";
 
 /**
  * @dev Basic Authorizer implementation, based on OpenZeppelin's Access Control.

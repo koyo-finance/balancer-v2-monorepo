@@ -16,7 +16,7 @@ pragma solidity ^0.7.0;
 
 import "@koyofinance/contracts-interfaces/contracts/vault/IAuthorizer.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/Authentication.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/Authentication.sol";
 
 /**
  * @dev Base authorization layer implementation for Pools.

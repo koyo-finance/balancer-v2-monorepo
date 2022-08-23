@@ -17,7 +17,7 @@ pragma experimental ABIEncoderV2;
 
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
 
 import "./AssetManagers.sol";
 import "./PoolRegistry.sol";

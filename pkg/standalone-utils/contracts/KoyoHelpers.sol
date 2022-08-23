@@ -24,9 +24,9 @@ import "@koyofinance/exchange-vault/contracts/AssetHelpers.sol";
 
 import "@koyofinance/exchange-vault-pool-utils/contracts/BasePool.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/Math.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/FixedPoint.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/InputHelpers.sol";
 
 /**
  * @dev This contract simply builds on top of the Balancer V2 (Koyo) architecture to provide useful helpers to users.

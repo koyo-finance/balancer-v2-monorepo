@@ -21,9 +21,9 @@ import "@koyofinance/contracts-interfaces/contracts/solidity-utils/misc/IWETH.so
 import "@koyofinance/contracts-interfaces/contracts/vault/IAsset.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/Address.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/Address.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/Math.sol";
 
 import "./AssetHelpers.sol";
 

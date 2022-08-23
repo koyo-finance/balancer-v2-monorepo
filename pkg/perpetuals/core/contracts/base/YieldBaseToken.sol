@@ -7,8 +7,8 @@ import { IYieldTracker } from "@koyofinance/contracts-interfaces/contracts/perpe
 import { IYieldToken } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IYieldToken.sol";
 
 import { Errors } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import { SafeMath } from "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeMath.sol";
-import { SafeERC20 } from "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import { SafeMath } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeMath.sol";
+import { SafeERC20 } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 
 contract YieldBaseToken is IERC20, IYieldToken {
     using SafeMath for uint256;

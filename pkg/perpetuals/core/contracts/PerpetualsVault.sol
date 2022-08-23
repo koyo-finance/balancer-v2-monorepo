@@ -9,13 +9,13 @@ import { IPerpetualsVaultUtils } from "@koyofinance/contracts-interfaces/contrac
 import { IPerpetualsVaultPriceFeed } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVaultPriceFeed.sol";
 // solhint-disable-next-line max-line-length
 import { IPerpetualsVaultInternalStable } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVaultInternalStable.sol";
-import { ReentrancyGuard } from "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
+import { ReentrancyGuard } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
 import { IERC20 } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 
 // solhint-disable-next-line max-line-length
 import { Errors, _require } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
-import { SafeMath } from "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeMath.sol";
-import { SafeERC20 } from "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import { SafeMath } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeMath.sol";
+import { SafeERC20 } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 
 // solhint-disable-next-line max-states-count
 contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {

@@ -19,7 +19,7 @@ import "@koyofinance/contracts-interfaces/contracts/standalone-utils/IstETH.sol"
 import "@koyofinance/contracts-interfaces/contracts/standalone-utils/IwstETH.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/Address.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/Address.sol";
 
 import "./IBaseRelayerLibrary.sol";
 

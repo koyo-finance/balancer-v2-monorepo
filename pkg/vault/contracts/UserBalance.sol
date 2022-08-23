@@ -18,10 +18,10 @@ pragma experimental ABIEncoderV2;
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeCast.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeCast.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/Math.sol";
 
 import "./AssetTransfersHandler.sol";
 import "./VaultAuthorization.sol";

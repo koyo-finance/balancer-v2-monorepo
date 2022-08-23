@@ -22,13 +22,13 @@ import "@koyofinance/contracts-interfaces/contracts/vault/IPoolSwapStructs.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IGeneralPool.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IMinimalSwapInfoPool.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/EnumerableSet.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/EnumerableMap.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeCast.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/Math.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/EnumerableSet.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/EnumerableMap.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeCast.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/Math.sol";
 
 import "./PoolBalances.sol";
 import "./balances/BalanceAllocation.sol";

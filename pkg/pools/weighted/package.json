@@ -31,10 +31,10 @@
   },
   "devDependencies": {
     "@koyofinance/contracts-interfaces": "workspace:*",
+    "@koyofinance/contracts-solidity-utils": "workspace:*",
     "@koyofinance/exchange-vault-common": "workspace:*",
     "@koyofinance/exchange-vault-helpers": "workspace:*",
     "@koyofinance/exchange-vault-pool-utils": "workspace:*",
-    "@koyofinance/exchange-vault-solidity-utils": "workspace:*",
     "@nomiclabs/hardhat-ethers": "^2.0.1",
     "@nomiclabs/hardhat-waffle": "^2.0.0",
     "chai": "^4.2.0",

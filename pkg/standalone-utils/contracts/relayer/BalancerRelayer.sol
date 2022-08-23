@@ -17,8 +17,8 @@ pragma experimental ABIEncoderV2;
 
 import "@koyofinance/contracts-interfaces/contracts/standalone-utils/IBalancerRelayer.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/Address.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/Address.sol";
 
 /**
  * @title Balancer Relayer

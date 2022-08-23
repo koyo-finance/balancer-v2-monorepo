@@ -20,7 +20,7 @@ import "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IGeneralPool.sol";
 import "@koyofinance/contracts-interfaces/contracts/vault/IMinimalSwapInfoPool.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/FixedPoint.sol";
 
 contract MockPool is IGeneralPool, IMinimalSwapInfoPool {
     using FixedPoint for uint256;

@@ -17,8 +17,8 @@ pragma experimental ABIEncoderV2;
 
 import "@koyofinance/contracts-interfaces/contracts/pool-weighted/WeightedPoolUserData.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/FixedPoint.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/InputHelpers.sol";
 
 import "@koyofinance/exchange-vault-pool-utils/contracts/BaseMinimalSwapInfoPool.sol";
 

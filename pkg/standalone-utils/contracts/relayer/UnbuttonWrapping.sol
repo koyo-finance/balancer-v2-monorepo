@@ -18,7 +18,7 @@ pragma experimental ABIEncoderV2;
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 import "@koyofinance/contracts-interfaces/contracts/pool-linear/IUnbuttonToken.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/Address.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/Address.sol";
 
 import "./IBaseRelayerLibrary.sol";
 

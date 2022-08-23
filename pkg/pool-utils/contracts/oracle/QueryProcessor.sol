@@ -18,7 +18,7 @@ pragma experimental ABIEncoderV2;
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 import "@koyofinance/contracts-interfaces/contracts/pool-utils/IPriceOracle.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/LogCompression.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/LogCompression.sol";
 
 import "./Buffer.sol";
 import "./Samples.sol";

@@ -16,7 +16,7 @@ pragma solidity ^0.7.0;
 
 import "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/WordCodec.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/WordCodec.sol";
 
 /**
  * Price rate caches are used to avoid querying the price rate for a token every time we need to work with it. It is

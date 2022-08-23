@@ -17,10 +17,10 @@ pragma experimental ABIEncoderV2;
 
 import "@koyofinance/contracts-interfaces/contracts/vault/IProtocolFeesCollector.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/InputHelpers.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/Authentication.sol";
-import "@koyofinance/exchange-vault-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/InputHelpers.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/Authentication.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 
 /**
  * @dev This an auxiliary contract to the Vault, deployed by it during construction. It offloads some of the tasks the

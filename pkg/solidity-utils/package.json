@@ -1,5 +1,5 @@
 {
-  "name": "@koyofinance/exchange-vault-solidity-utils",
+  "name": "@koyofinance/contracts-solidity-utils",
   "version": "2.0.0",
   "description": "Solidity libraries and utilities",
   "license": "GPL-3.0-only",

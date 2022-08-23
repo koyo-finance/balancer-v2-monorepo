@@ -16,7 +16,7 @@ pragma solidity ^0.7.0;
 
 import "@koyofinance/contracts-interfaces/contracts/pool-utils/IRateProvider.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/math/FixedPoint.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/math/FixedPoint.sol";
 
 contract MockRateProvider is IRateProvider {
     uint256 internal _rate;

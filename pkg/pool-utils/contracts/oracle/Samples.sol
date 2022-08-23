@@ -16,7 +16,7 @@ pragma solidity ^0.7.0;
 
 import "@koyofinance/contracts-interfaces/contracts/pool-utils/IPriceOracle.sol";
 
-import "@koyofinance/exchange-vault-solidity-utils/contracts/helpers/WordCodec.sol";
+import "@koyofinance/contracts-solidity-utils/contracts/helpers/WordCodec.sol";
 
 /**
  * @dev This library provides functions to help manipulating samples for Pool Price Oracles. It handles updates,
