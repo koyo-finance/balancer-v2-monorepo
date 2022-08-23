@@ -2,6 +2,7 @@
 
 pragma solidity ^0.7.0;
 
+import { ReentrancyGuard } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
 import { IPerpetualsVault } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVault.sol";
 // solhint-disable-next-line max-line-length
 import { IPerpetualsVaultUtils } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVaultUtils.sol";
@@ -9,7 +10,6 @@ import { IPerpetualsVaultUtils } from "@koyofinance/contracts-interfaces/contrac
 import { IPerpetualsVaultPriceFeed } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVaultPriceFeed.sol";
 // solhint-disable-next-line max-line-length
 import { IPerpetualsVaultInternalStable } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVaultInternalStable.sol";
-import { ReentrancyGuard } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
 import { IERC20 } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 
 // solhint-disable-next-line max-line-length

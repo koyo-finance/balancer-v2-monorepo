@@ -321,4 +321,8 @@ library Errors {
 
     uint256 internal constant VAULT_RESERVE_EXCEEDS_POOL = 10248;
     uint256 internal constant VAULT_FORBIDDEN = 10249;
+
+    // Perpetuals - External authorization
+    uint256 internal constant PERPETUALS_EXTERNAL_AUTHORIZATION_ARBITRARY_VAULT_CALL_REVERTED = 10301;
+    uint256 internal constant PERPETUALS_EXTERNAL_AUTHORIZATION_ARBITRARY_PRICE_FEED_CALL_REVERTED = 10302;
 }
