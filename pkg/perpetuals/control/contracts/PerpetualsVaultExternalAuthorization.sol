@@ -215,6 +215,21 @@ contract PerpetualsVaultExternalAuthorization is Authentication {
         _require(success, Errors.PERPETUALS_EXTERNAL_AUTHORIZATION_ARBITRARY_PRICE_FEED_CALL_REVERTED);
     }
 
+    function executePerpetualsVaultFastPriceFeed(
+        address fastPriceFeed,
+        uint256 value,
+        bytes calldata data
+    ) external authenticate {
+        _require(
+            (fastPriceFeed != address(_perpetualsVault)) && (fastPriceFeed != address(_perpetualsVaultPriceFeed)),
+            Errors.PERPETUALS_EXTERNAL_AUTHORIZATION_ARBITRARY_DISSALOWED_TARGET_ADDRESS
+        );
+
+        // solhint-disable-next-line avoid-low-level-calls
+        (bool success, ) = fastPriceFeed.call{ value: value }(data);
+        _require(success, Errors.PERPETUALS_EXTERNAL_AUTHORIZATION_ARBITRARY_PRICE_FEED_CALL_REVERTED);
+    }
+
     function getExchangeVault() public view returns (IExchangeVault) {
         return _exchangeVault;
     }
