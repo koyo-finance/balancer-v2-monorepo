@@ -301,6 +301,11 @@ contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
         priceFeed = _priceFeed;
     }
 
+    function setRouter(address _router) external override {
+        _onlyGov();
+        router = _router;
+    }
+
     function setMaxLeverage(uint256 _maxLeverage) external override {
         _onlyGov();
         _require(_maxLeverage > MIN_LEVERAGE, Errors.VAULT__MAX_LEVERAGE_INVALID);

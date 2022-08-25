@@ -103,6 +103,8 @@ interface IPerpetualsVault {
 
     function setPriceFeed(address _priceFeed) external;
 
+    function setRouter(address _router) external;
+
     function withdrawFees(address _token, address _receiver) external returns (uint256);
 
     function directPoolDeposit(address _token) external;
