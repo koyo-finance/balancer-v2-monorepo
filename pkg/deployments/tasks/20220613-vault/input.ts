@@ -42,6 +42,12 @@ const input: { [network in Network]: VaultDeployment } = {
     pauseWindowDuration: 3 * MONTH,
     bufferPeriodDuration: MONTH,
   },
+  optimism: {
+    Authorizer: Authorizer as unknown as string,
+    weth: '0x4200000000000000000000000000000000000006',
+    pauseWindowDuration: 3 * MONTH,
+    bufferPeriodDuration: MONTH,
+  },
 };
 
 export default input;

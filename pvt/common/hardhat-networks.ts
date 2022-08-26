@@ -23,6 +23,10 @@ const networks: NetworksUserConfig = {
     chainId: 1285,
     url: 'https://moonriver.public.blastapi.io',
   },
+  optimism: {
+    chainId: 10,
+    url: 'https://mainnet.optimism.io',
+  },
 };
 
 export default networks;

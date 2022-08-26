@@ -185,6 +185,14 @@ const config: HardhatUserConfig = {
           apiURL: 'https://api-moonbeam.moonscan.io/api',
         },
       },
+      {
+        network: 'optimism',
+        chainId: 10,
+        urls: {
+          browserURL: 'https://optimistic.etherscan.io',
+          apiURL: 'https://api-optimistic.etherscan.io/api',
+        },
+      },
     ],
   },
 };
