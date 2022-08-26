@@ -6,12 +6,5 @@ export default async (task: Task, { from, force }: TaskRunOptions = {}): Promise
   const input = task.input() as HelpersDeployment;
 
   const helpersArgs = [input.Vault];
-  await task.deployAndVerify(
-    'KoyoHelpers',
-    helpersArgs,
-    from,
-    force,
-    undefined,
-    task._network === 'polygon' ? 20 : undefined
-  );
+  await task.deployAndVerify('KoyoHelpers', helpersArgs, from, force, undefined, 10);
 };

@@ -5,12 +5,19 @@ import { PerpetualsVaultDeployment } from './input';
 export default async (task: Task, { from, force }: TaskRunOptions = {}): Promise<void> => {
   const input = task.input() as PerpetualsVaultDeployment;
 
-  const perpetualsVaultArgs = [];
-  const perpetualsVault = await task.deployAndVerify('PerpetualsVault', perpetualsVaultArgs, from, force, undefined, 3);
+  const perpetualsVaultArgs: string[] = [];
+  const perpetualsVault = await task.deployAndVerify(
+    'PerpetualsVault',
+    perpetualsVaultArgs,
+    from,
+    force,
+    undefined,
+    10
+  );
   await perpetualsVault.deployed();
 
   const usdkArgs = [perpetualsVault.address];
-  const usdk = await task.deployAndVerify('USDK', usdkArgs, from, force, undefined, 3);
+  const usdk = await task.deployAndVerify('USDK', usdkArgs, from, force, undefined, 10);
   await usdk.deployed();
 
   const perpetualsRouterArgs = [input.Vault, perpetualsVault.address, usdk.address, input.weth];
@@ -20,7 +27,7 @@ export default async (task: Task, { from, force }: TaskRunOptions = {}): Promise
     from,
     force,
     undefined,
-    3
+    10
   );
   await perpetualsRouter.deployed();
 };
