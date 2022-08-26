@@ -6,7 +6,7 @@ import { IERC20 } from "@koyofinance/contracts-interfaces/contracts/solidity-uti
 import { IBaseToken } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IBaseToken.sol";
 import { IYieldTracker } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IYieldTracker.sol";
 
-import { Errors } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import { Errors } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/KoyoErrors.sol";
 import { SafeMath } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeMath.sol";
 import { SafeERC20 } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 

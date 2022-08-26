@@ -11,7 +11,7 @@ import { IERC20 } from "@koyofinance/contracts-interfaces/contracts/solidity-uti
 import { IWETH } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/misc/IWETH.sol";
 
 // solhint-disable-next-line max-line-length
-import { Errors, _require, _revert } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import { Errors, _require, _revert } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/KoyoErrors.sol";
 import { SafeMath } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeMath.sol";
 import { SafeERC20 } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 import { Address } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/Address.sol";

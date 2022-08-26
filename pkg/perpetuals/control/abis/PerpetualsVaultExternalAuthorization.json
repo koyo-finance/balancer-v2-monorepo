@@ -1,0 +1,406 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract IVault",
+        "name": "exchangeVault",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IPerpetualsVault",
+        "name": "perpetualsVault",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_marginFeeBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_maxMarginFeeBasisPoints",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "disableLeverage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "enableLeverage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "executePerpetualsVault",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "fastPriceFeed",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "executePerpetualsVaultFastPriceFeed",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      }
+    ],
+    "name": "executePerpetualsVaultPriceFeed",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes4",
+        "name": "selector",
+        "type": "bytes4"
+      }
+    ],
+    "name": "getActionId",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getExchangeVault",
+    "outputs": [
+      {
+        "internalType": "contract IVault",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getPerpetualsVault",
+    "outputs": [
+      {
+        "internalType": "contract IPerpetualsVault",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "marginFeeBasisPoints",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "maxMarginFeeBasisPoints",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_token",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tokenWeight",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_minProfitBps",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_maxUsdgAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_bufferAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_usdgAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "modifyTokenConfig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_taxBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_stableTaxBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_mintBurnFeeBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_swapFeeBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_stableSwapFeeBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_marginFeeBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_liquidationFeeUsd",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_minProfitTime",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "_hasDynamicFees",
+        "type": "bool"
+      }
+    ],
+    "name": "setFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_marginFeeBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_maxMarginFeeBasisPoints",
+        "type": "uint256"
+      }
+    ],
+    "name": "setMarginFeeBasisPoints",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "_shouldToggleIsLeverageEnabled",
+        "type": "bool"
+      }
+    ],
+    "name": "setShouldToggleIsLeverageEnabled",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_taxBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_stableTaxBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_mintBurnFeeBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_swapFeeBasisPoints",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_stableSwapFeeBasisPoints",
+        "type": "uint256"
+      }
+    ],
+    "name": "setSwapFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_token",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tokenDecimals",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tokenWeight",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_minProfitBps",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_maxUsdgAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "_isStable",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "_isShortable",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_bufferAmount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_usdgAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "setTokenConfig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "priceFeed",
+        "type": "address"
+      }
+    ],
+    "name": "setVaultPriceFeed",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "shouldToggleIsLeverageEnabled",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

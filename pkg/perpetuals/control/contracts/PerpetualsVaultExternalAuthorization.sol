@@ -10,7 +10,7 @@ import { IPerpetualsVaultPriceFeed } from "@koyofinance/contracts-interfaces/con
 import { IVault as IExchangeVault } from "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
 // solhint-disable-next-line max-line-length
-import { Errors, _require } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import { Errors, _require } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/KoyoErrors.sol";
 
 contract PerpetualsVaultExternalAuthorization is Authentication {
     uint256 public marginFeeBasisPoints;

@@ -29,8 +29,8 @@ function _require(bool condition, uint256 errorCode) pure {
  */
 function _revert(uint256 errorCode) pure {
     // We're going to dynamically create a revert string based on the error code, with the following format:
-    // 'BAL#{errorCode}'
-    // where the code is left-padded with zeroes to three digits (so they range from 000 to 999).
+    // 'KYO#{errorCode}'
+    // where the code is left-padded with zeroes to three digits (so they range from 000 to 99999).
     //
     // We don't have revert strings embedded in the contract to save bytecode size: it takes much less space to store a
     // number (8 to 16 bits) than the individual string characters.
@@ -39,8 +39,8 @@ function _revert(uint256 errorCode) pure {
     // much denser implementation, again saving bytecode size. Given this function unconditionally reverts, this is a
     // safe place to rely on it without worrying about how its usage might affect e.g. memory contents.
     assembly {
-        // First, we need to compute the ASCII representation of the error code. We assume that it is in the 0-999
-        // range, so we only need to convert three digits. To convert the digits to ASCII, we add 0x30, the value for
+        // First, we need to compute the ASCII representation of the error code. We assume that it is in the 0-99999
+        // range, so we only need to convert five digits. To convert the digits to ASCII, we add 0x30, the value for
         // the '0' character.
 
         let units := add(mod(errorCode, 10), 0x30)
@@ -51,30 +51,43 @@ function _revert(uint256 errorCode) pure {
         errorCode := div(errorCode, 10)
         let hundreds := add(mod(errorCode, 10), 0x30)
 
-        // With the individual characters, we can now construct the full string. The "BAL#" part is a known constant
+        errorCode := div(errorCode, 10)
+        let thousands := add(mod(errorCode, 10), 0x30)
+
+        errorCode := div(errorCode, 10)
+        let tenThousands := add(mod(errorCode, 10), 0x30)
+
+        // With the individual characters, we can now construct the full string. The "KYO#" part is a known constant
         // (0x42414c23): we simply shift this by 24 (to provide space for the 3 bytes of the error code), and add the
         // characters to it, each shifted by a multiple of 8.
-        // The revert reason is then shifted left by 200 bits (256 minus the length of the string, 7 characters * 8 bits
+        // The revert reason is then shifted left by 184 bits (256 minus the length of the string, 9 characters * 8 bits
         // per character = 56) to locate it in the most significant part of the 256 slot (the beginning of a byte
         // array).
 
-        let revertReason := shl(200, add(0x42414c23000000, add(add(units, shl(8, tenths)), shl(16, hundreds))))
+        let revertReason := shl(
+            184,
+            add(
+                0x4b594f23000000,
+                add(add(add(add(units, shl(8, tenths)), shl(16, hundreds)), shl(24, thousands)), shl(32, tenThousands))
+            )
+        )
 
         // We can now encode the reason in memory, which can be safely overwritten as we're about to revert. The encoded
         // message will have the following layout:
         // [ revert reason identifier ] [ string location offset ] [ string length ] [ string contents ]
+        //              4                           32                      32                 32
 
         // The Solidity revert reason identifier is 0x08c739a0, the function selector of the Error(string) function. We
         // also write zeroes to the next 28 bytes of memory, but those are about to be overwritten.
         mstore(0x0, 0x08c379a000000000000000000000000000000000000000000000000000000000)
         // Next is the offset to the location of the string, which will be placed immediately after (20 bytes away).
         mstore(0x04, 0x0000000000000000000000000000000000000000000000000000000000000020)
-        // The string length is fixed: 7 characters.
-        mstore(0x24, 7)
+        // The string length is fixed: 9 characters.
+        mstore(0x24, 9)
         // Finally, the string itself is stored.
         mstore(0x44, revertReason)
 
-        // Even if the string is only 7 bytes long, we need to return a full 32 byte slot containing it. The length of
+        // Even if the string is only 9 bytes long, we need to return a full 32 byte slot containing it. The length of
         // the encoded message is therefore 4 + 32 + 32 + 32 = 100.
         revert(0, 100)
     }
@@ -258,4 +271,82 @@ library Errors {
     uint256 internal constant FLASH_LOAN_FEE_PERCENTAGE_TOO_HIGH = 601;
     uint256 internal constant INSUFFICIENT_FLASH_LOAN_FEE_AMOUNT = 602;
     uint256 internal constant AUM_FEE_PERCENTAGE_TOO_HIGH = 603;
+
+    // Perpetuals
+    // Perpetuals - Vault
+    uint256 internal constant VAULT_POOL_AMOUNT_EXCEEDED = 10101;
+    uint256 internal constant VAULT_INSUFFICIENT_RESERVE = 10102;
+
+    uint256 internal constant VAULT_ZERO_ERROR = 10201;
+    uint256 internal constant VAULT_ALREADY_INITIALIZED = 10202;
+    uint256 internal constant VAULT__MAX_LEVERAGE_INVALID = 10203;
+    uint256 internal constant VAULT__TAX_BASIS_POINTS_INVALID = 10204;
+    uint256 internal constant VAULT__STABLE_TAX_BASIS_POINTS_INVALID = 10205;
+    uint256 internal constant VAULT__MINT_BURN_FEE_BASIS_POINTS_INVALID = 10206;
+    uint256 internal constant VAULT__SWAP_FEE_BASIS_POINTS_INVALID = 10207;
+    uint256 internal constant VAULT__STABLE_SWAP_FEE_BASIS_POINTS_INVALID = 10208;
+    uint256 internal constant VAULT__MARGIN_FEE_BASIS_POINTS_INVALID = 10209;
+    uint256 internal constant VAULT__LIQUIDATION_FEE_USD_INVALID = 10210;
+    uint256 internal constant VAULT__FUNDING_INTERVAL_INVALID = 10211;
+    uint256 internal constant VAULT__FUNDING_RATE_FACTOR_INVALID = 10212;
+    uint256 internal constant VAULT__STABLE_FUNDING_RATE_FACTOR_INVALID = 10213;
+    uint256 internal constant VAULT__AVERAGE_PRICE_INVALID = 10214;
+    uint256 internal constant VAULT_TOKEN_AMOUNT_INVALID = 10215;
+    uint256 internal constant VAULT_USDK_AMOUNT_INVALID = 10216;
+    uint256 internal constant VAULT_REDEMPTION_AMOUNT_INVALID = 10217;
+    uint256 internal constant VAULT_AMOUNT_OUT_INVALID = 10218;
+    uint256 internal constant VAULT_AMOUNT_IN_INVALID = 10219;
+    uint256 internal constant VAULT_TOKENS_INVALID = 10220;
+    uint256 internal constant VAULT_POSITION_SIZE_INVALID = 10221;
+    uint256 internal constant VAULT_LIQUIDATOR_INVALID = 10222;
+    uint256 internal constant VAULT_POSITION_INVALID = 10223;
+    uint256 internal constant VAULT_MESSAGE_SENDER_INVALID = 10224;
+    uint256 internal constant VAULT_INCREASE_INVALID = 10225;
+
+    uint256 internal constant VAULT__TOKEN_NOT_WHITELISTED = 10226;
+    uint256 internal constant VAULT__TOKEN_IN_NOT_WHITELISTED = 10227;
+    uint256 internal constant VAULT__TOKEN_OUT_NOT_WHITELISTED = 10228;
+    uint256 internal constant VAULT__COLLATERAL_TOKEN_NOT_WHITELISTED = 10229;
+    uint256 internal constant VAULT_TOKEN_NOT_WHITELISTED = 10230;
+
+    uint256 internal constant VAULT_SWAPS_NOT_ENABLED = 10231;
+    uint256 internal constant VAULT_LEVERAGE_NOT_ENABLED = 10232;
+
+    uint256 internal constant VAULT_POSITION_SIZE_EXCEEDED = 10233;
+    uint256 internal constant VAULT_POSITION_COLLATERAL_EXCEEDED = 10234;
+    uint256 internal constant VAULT_MAX_USDK_EXCEEDED = 10235;
+    uint256 internal constant VAULT_MAX_GAS_PRICE_EXCEEDED = 10236;
+    uint256 internal constant VAULT_MAX_SHORTS_EXCEEDED = 10237;
+
+    uint256 internal constant VAULT_POSITION_EMPTY = 10238;
+    uint256 internal constant VAULT_POSITION_CANNOT_LIQUIDATE = 10239;
+
+    uint256 internal constant VAULT_TOKENS_MISSMATCHED = 10240;
+
+    uint256 internal constant VAULT_COLLATERAL_INSUFFICIENT_FOR_FEES = 10241;
+    uint256 internal constant VAULT_COLLATERAL_SHOULD_WITHDRAW = 10242;
+    uint256 internal constant VAULT__COLLATERAL_SMALLER_THAN__SIZE = 10243;
+    uint256 internal constant VAULT__COLLATERAL_TOKEN_A_STABLE_TOKEN = 10244;
+    uint256 internal constant VAULT__COLLATERAL_TOKEN_NOT_A_STABLE_TOKEN = 10245;
+
+    uint256 internal constant VAULT__INDEX_TOKEN_A_STABLE_TOKEN = 10246;
+    uint256 internal constant VAULT__INDEX_TOKEN_NOT_SHORTABLE = 10247;
+
+    uint256 internal constant VAULT_RESERVE_EXCEEDS_POOL = 10248;
+    uint256 internal constant VAULT_FORBIDDEN = 10249;
+
+    // Perpetuals - Vault; Router
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_SENDER_NOT_W_NATIVE = 10401;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_PLUGIN_INVALID = 10402;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_PLUGIN_NOT_APPROVED = 10403;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER__PATH_INVALID = 10404;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER__PATH_LENGTH_INVALID = 10405;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_AMOUNT_OUT_INSUFFICIENT = 10406;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_MARK_PRICE_LOWER_LIMIT = 10407;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_MARK_PRICE_HIGHER_LIMIT = 10408;
+
+    // Perpetuals - External authorization
+    uint256 internal constant PERPETUALS_EXTERNAL_AUTHORIZATION_ARBITRARY_VAULT_CALL_REVERTED = 10301;
+    uint256 internal constant PERPETUALS_EXTERNAL_AUTHORIZATION_ARBITRARY_PRICE_FEED_CALL_REVERTED = 10302;
+    uint256 internal constant PERPETUALS_EXTERNAL_AUTHORIZATION_ARBITRARY_DISSALOWED_TARGET_ADDRESS = 10303;
 }

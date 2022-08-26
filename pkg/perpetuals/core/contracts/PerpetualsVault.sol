@@ -13,7 +13,7 @@ import { IPerpetualsVaultInternalStable } from "@koyofinance/contracts-interface
 import { IERC20 } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
 
 // solhint-disable-next-line max-line-length
-import { Errors, _require } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/BalancerErrors.sol";
+import { Errors, _require } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/KoyoErrors.sol";
 import { SafeMath } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeMath.sol";
 import { SafeERC20 } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 

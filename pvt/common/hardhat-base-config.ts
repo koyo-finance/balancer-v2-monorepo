@@ -25,11 +25,19 @@ const contractSettings: ContractSettings = {
   },
   '@koyofinance/exchange-vault-pool-weighted/contracts/weighted/WeightedPoolFactory.sol': {
     version: '0.7.1',
-    runs: 200,
+    runs: 1,
   },
   '@koyofinance/exchange-vault-pool-weighted/contracts/weighted/WeightedPool.sol': {
     version: '0.7.1',
-    runs: 200,
+    runs: 1,
+  },
+  '@koyofinance/exchange-vault-pool-stable/contracts/phantom-stable/StablePhantomPoolFactory.sol': {
+    version: '0.7.1',
+    runs: 1,
+  },
+  '@koyofinance/exchange-vault-pool-stable/contracts/phantom-stable/StablePhantomPool.sol': {
+    version: '0.7.1',
+    runs: 1,
   },
   '@koyofinance/perpetual-swaps-core/contracts/PerpetualsVault.sol': {
     version: '0.7.1',
