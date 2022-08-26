@@ -64,7 +64,13 @@ function _revert(uint256 errorCode) pure {
         // per character = 56) to locate it in the most significant part of the 256 slot (the beginning of a byte
         // array).
 
-        let revertReason := shl(184, add(0x42414c23000000, add(add(add(add(units, shl(8, tenths)), shl(16, hundreds)), shl(24, thousands)), shl(32, tenThousands))))
+        let revertReason := shl(
+            184,
+            add(
+                0x42414c23000000,
+                add(add(add(add(units, shl(8, tenths)), shl(16, hundreds)), shl(24, thousands)), shl(32, tenThousands))
+            )
+        )
 
         // We can now encode the reason in memory, which can be safely overwritten as we're about to revert. The encoded
         // message will have the following layout:
@@ -328,6 +334,16 @@ library Errors {
 
     uint256 internal constant VAULT_RESERVE_EXCEEDS_POOL = 10248;
     uint256 internal constant VAULT_FORBIDDEN = 10249;
+
+    // Perpetuals - Vault; Router
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_SENDER_NOT_W_NATIVE = 10401;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_PLUGIN_INVALID = 10402;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_PLUGIN_NOT_APPROVED = 10403;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER__PATH_INVALID = 10404;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER__PATH_LENGTH_INVALID = 10405;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_AMOUNT_OUT_INSUFFICIENT = 10406;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_MARK_PRICE_LOWER_LIMIT = 10407;
+    uint256 internal constant PERPETUALS_VAULT_ROUTER_MARK_PRICE_HIGHER_LIMIT = 10408;
 
     // Perpetuals - External authorization
     uint256 internal constant PERPETUALS_EXTERNAL_AUTHORIZATION_ARBITRARY_VAULT_CALL_REVERTED = 10301;
