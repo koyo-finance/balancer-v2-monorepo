@@ -2,8 +2,8 @@
 
 pragma solidity ^0.7.0;
 
-import { Authentication } from "@koyofinance/contracts-solidity-utils/contracts/helpers/Authentication.sol";
 import { IPerpetualsRouter } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsRouter.sol";
+import { Authentication } from "@koyofinance/contracts-solidity-utils/contracts/helpers/Authentication.sol";
 import { IPerpetualsVault } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVault.sol";
 import { IVault as IExchangeVault } from "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 import { IAuthorizer } from "@koyofinance/contracts-interfaces/contracts/vault/IAuthorizer.sol";
