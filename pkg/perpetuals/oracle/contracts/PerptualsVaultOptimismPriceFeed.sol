@@ -28,7 +28,7 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
     uint256 public constant MAX_ADJUSTMENT_INTERVAL = 2 hours;
     uint256 public constant MAX_ADJUSTMENT_BASIS_POINTS = 20;
 
-    uint256 public constant CHAINLINK_SEQUENCER_GRACE_PERIOD_TIME = 3600;
+    uint256 public constant CHAINLINK_SEQUENCER_GRACE_PERIOD_TIME = 1 hours;
 
     IExchangeVault private immutable _exchangeVault;
 
@@ -41,10 +41,9 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
         uint16 spreadThresholdBasisPoints; // 56/256
         uint160 maxStrictPriceDeviation; //  216/256
     }
-
     Slot0 public slot0;
 
-    address public chainlinkFlags;
+    address public chainlinkSequencesStatusOracle;
 
     address public secondaryPriceFeed;
 
@@ -76,8 +75,8 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
         });
     }
 
-    function setChainlinkFlags(address _chainlinkFlags) external authenticate {
-        chainlinkFlags = _chainlinkFlags;
+    function setChainlinkSequencesStatusOracle(address _chainlinkSequencesStatusOracle) external authenticate {
+        chainlinkSequencesStatusOracle = _chainlinkSequencesStatusOracle;
     }
 
     function setAdjustment(
@@ -86,6 +85,7 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
         uint256 _adjustmentBps
     ) external override authenticate {
         require(
+            // solhint-disable-next-line not-rely-on-time
             lastAdjustmentTimings[_token].add(MAX_ADJUSTMENT_INTERVAL) < block.timestamp,
             "VaultPriceFeed: adjustment frequency exceeded"
         );
@@ -295,8 +295,9 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
         address priceFeedAddress = priceFeeds[_token];
         require(priceFeedAddress != address(0), "VaultPriceFeed: invalid price feed");
 
-        if (chainlinkFlags != address(0)) {
-            (, int256 answer, uint256 startedAt, , ) = AggregatorV2V3Interface(chainlinkFlags).latestRoundData();
+        if (chainlinkSequencesStatusOracle != address(0)) {
+            (, int256 answer, uint256 startedAt, , ) = AggregatorV2V3Interface(chainlinkSequencesStatusOracle)
+                .latestRoundData();
             // Answer == 0: Sequencer is up
             // Answer == 1: Sequencer is down
             bool isSequencerUp = answer == 0;
