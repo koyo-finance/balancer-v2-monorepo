@@ -7,7 +7,7 @@ import { IPerpetualsVault } from "@koyofinance/contracts-interfaces/contracts/pe
 // solhint-disable-next-line max-line-length
 import { IPerpetualsVaultUtils } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVaultUtils.sol";
 // solhint-disable-next-line max-line-length
-import { IPerpetualsVaultPriceFeed } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVaultPriceFeed.sol";
+import { IPerpetualsVaultPriceFeed } from "@koyofinance/contracts-interfaces/contracts/perpetuals/oracle/IPerpetualsVaultPriceFeed.sol";
 // solhint-disable-next-line max-line-length
 import { IPerpetualsVaultInternalStable } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVaultInternalStable.sol";
 import { IERC20 } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/openzeppelin/IERC20.sol";
