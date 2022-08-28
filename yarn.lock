@@ -1030,6 +1030,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@koyofinance/perpetual-swaps-oracle@workspace:pkg/perpetuals/oracle":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/perpetual-swaps-oracle@workspace:pkg/perpetuals/oracle"
+  dependencies:
+    "@koyofinance/contracts-interfaces": "workspace:*"
+    "@koyofinance/contracts-solidity-utils": "workspace:*"
+    "@nomiclabs/hardhat-ethers": ^2.0.1
+    "@nomiclabs/hardhat-waffle": ^2.0.0
+    chai: ^4.2.0
+    decimal.js: ^10.2.1
+    eslint-plugin-mocha-no-only: ^1.1.1
+    ethereum-waffle: ^3.0.2
+    ethers: ^5.4.1
+    hardhat: ^2.8.3
+    mocha: ^8.2.1
+    nodemon: ^2.0.4
+  languageName: unknown
+  linkType: soft
+
 "@koyofinance/vault-js@workspace:^, @koyofinance/vault-js@workspace:pvt/js":
   version: 0.0.0-use.local
   resolution: "@koyofinance/vault-js@workspace:pvt/js"

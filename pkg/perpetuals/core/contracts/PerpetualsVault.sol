@@ -2,8 +2,8 @@
 
 pragma solidity ^0.7.0;
 
-import { ReentrancyGuard } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
 import { IPerpetualsVault } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVault.sol";
+import { ReentrancyGuard } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/ReentrancyGuard.sol";
 // solhint-disable-next-line max-line-length
 import { IPerpetualsVaultUtils } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVaultUtils.sol";
 // solhint-disable-next-line max-line-length
@@ -18,7 +18,7 @@ import { SafeMath } from "@koyofinance/contracts-solidity-utils/contracts/openze
 import { SafeERC20 } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 
 // solhint-disable-next-line max-states-count
-contract PerpetualsVault is ReentrancyGuard, IPerpetualsVault {
+contract PerpetualsVault is IPerpetualsVault, ReentrancyGuard  {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
