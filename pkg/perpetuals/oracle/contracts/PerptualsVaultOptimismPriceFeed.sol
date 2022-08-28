@@ -16,6 +16,8 @@ import { AggregatorV2V3Interface } from "@koyofinance/contracts-interfaces/contr
 // solhint-disable-next-line max-line-length
 import { IVelodromePair } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/velodrome/IVelodromePair.sol";
 
+// solhint-disable-next-line max-line-length
+import { Errors, _require, _revert } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/KoyoErrors.sol";
 import { SafeMath } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeMath.sol";
 
 contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentication {
@@ -61,8 +63,11 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
     mapping(address => bool) public override isAdjustmentAdditive;
     mapping(address => uint256) public lastAdjustmentTimings;
 
-    constructor(IExchangeVault exchangeVault) Authentication(bytes32(uint256(address(this)))) {
+    constructor(IExchangeVault exchangeVault, address _chainlinkSequencesStatusOracle)
+        Authentication(bytes32(uint256(address(this))))
+    {
         _exchangeVault = exchangeVault;
+        chainlinkSequencesStatusOracle = _chainlinkSequencesStatusOracle;
 
         slot0 = Slot0({
             isAmmEnabled: false,
@@ -84,12 +89,15 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
         bool _isAdditive,
         uint256 _adjustmentBps
     ) external override authenticate {
-        require(
+        _require(
             // solhint-disable-next-line not-rely-on-time
             lastAdjustmentTimings[_token].add(MAX_ADJUSTMENT_INTERVAL) < block.timestamp,
-            "VaultPriceFeed: adjustment frequency exceeded"
+            Errors.PERPETUALS_VAULT_PRICE_FEED_ADJUSTMENT_FREQUENCY_EXCEEDED
         );
-        require(_adjustmentBps <= MAX_ADJUSTMENT_BASIS_POINTS, "invalid _adjustmentBps");
+        _require(
+            _adjustmentBps <= MAX_ADJUSTMENT_BASIS_POINTS,
+            Errors.PERPETUALS_VAULT_PRICE_FEED__ADJUSTMENT_BPS_INVALID
+        );
         isAdjustmentAdditive[_token] = _isAdditive;
         adjustmentBasisPoints[_token] = _adjustmentBps;
         // solhint-disable-next-line not-rely-on-time
@@ -113,7 +121,7 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
     }
 
     function setSpreadBasisPoints(address _token, uint256 _spreadBasisPoints) external override authenticate {
-        require(_spreadBasisPoints <= MAX_SPREAD_BASIS_POINTS, "VaultPriceFeed: invalid _spreadBasisPoints");
+        _require(_spreadBasisPoints <= MAX_SPREAD_BASIS_POINTS, Errors.PERPETUALS_VAULT_PRICE_FEED__SPREAD_BPS_INVALID);
         spreadBasisPoints[_token] = _spreadBasisPoints;
     }
 
@@ -126,7 +134,7 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
     }
 
     function setPriceSampleSpace(uint256 _priceSampleSpace) external override authenticate {
-        require(_priceSampleSpace > 0, "VaultPriceFeed: invalid _priceSampleSpace");
+        _require(_priceSampleSpace > 0, Errors.PERPETUALS_VAULT_PRICE_FEED__PRICE_SAMPLE_SPACE_INVALID);
         slot0.priceSampleSpace = uint8(_priceSampleSpace);
     }
 
@@ -293,7 +301,7 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
 
     function getPrimaryPrice(address _token, bool _maximise) public view override returns (uint256) {
         address priceFeedAddress = priceFeeds[_token];
-        require(priceFeedAddress != address(0), "VaultPriceFeed: invalid price feed");
+        _require(priceFeedAddress != address(0), Errors.PERPETUALS_VAULT_PRICE_FEED_PRICE_FEED_INVALID);
 
         if (chainlinkSequencesStatusOracle != address(0)) {
             (, int256 answer, uint256 startedAt, , ) = AggregatorV2V3Interface(chainlinkSequencesStatusOracle)
@@ -303,13 +311,13 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
             bool isSequencerUp = answer == 0;
 
             if (!isSequencerUp) {
-                revert("Chainlink feeds are not being updated");
+                _revert(Errors.PERPETUALS_VAULT_PRICE_FEED_CHAINLINK_SEQUENCER_OFF);
             }
 
             // solhint-disable-next-line not-rely-on-time
             uint256 timeSinceUp = block.timestamp - startedAt;
             if (timeSinceUp <= CHAINLINK_SEQUENCER_GRACE_PERIOD_TIME) {
-                revert("Chainlink feeds are not being updated");
+                _revert(Errors.PERPETUALS_VAULT_PRICE_FEED_CHAINLINK_SEQUENCER_GRACE_PERIOD);
             }
         }
 
@@ -326,11 +334,11 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
 
             if (i == 0) {
                 int256 _p = priceFeed.latestAnswer();
-                require(_p > 0, "VaultPriceFeed: invalid price");
+                _require(_p > 0, Errors.PERPETUALS_VAULT_PRICE_FEED_PRICE_INVALID);
                 p = uint256(_p);
             } else {
                 (, int256 _p, , , ) = priceFeed.getRoundData(roundId - i);
-                require(_p > 0, "VaultPriceFeed: invalid price");
+                _require(_p > 0, Errors.PERPETUALS_VAULT_PRICE_FEED_PRICE_INVALID);
                 p = uint256(_p);
             }
 
@@ -349,7 +357,7 @@ contract PerptualsVaultOptimismPriceFeed is IPerpetualsVaultPriceFeed, Authentic
             }
         }
 
-        require(price > 0, "VaultPriceFeed: could not fetch price");
+        _require(price > 0, Errors.PERPETUALS_VAULT_PRICE_FEED_FETCH_FAILED);
         // normalise price precision
         uint256 _priceDecimals = priceDecimals[_token];
         return price.mul(PRICE_PRECISION).div(10**_priceDecimals);
