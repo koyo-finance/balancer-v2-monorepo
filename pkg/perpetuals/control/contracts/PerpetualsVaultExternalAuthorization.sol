@@ -6,7 +6,7 @@ import { Authentication } from "@koyofinance/contracts-solidity-utils/contracts/
 import { IAuthorizer } from "@koyofinance/contracts-interfaces/contracts/vault/IAuthorizer.sol";
 import { IPerpetualsVault } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVault.sol";
 // solhint-disable-next-line max-line-length
-import { IPerpetualsVaultPriceFeed } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVaultPriceFeed.sol";
+import { IPerpetualsVaultPriceFeed } from "@koyofinance/contracts-interfaces/contracts/perpetuals/oracle/IPerpetualsVaultPriceFeed.sol";
 import { IVault as IExchangeVault } from "@koyofinance/contracts-interfaces/contracts/vault/IVault.sol";
 
 // solhint-disable-next-line max-line-length
