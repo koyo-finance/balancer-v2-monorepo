@@ -397,7 +397,7 @@ contract PerpetualsRouter is IPerpetualsRouter, Authentication {
     }
 
     function _getAuthorizer() internal view returns (IAuthorizer) {
-        // Access control management is delegated to the Vault's Authorizer. This lets Balancer Governance manage which
+        // Access control management is delegated to the Vault's Authorizer. This lets Kōyō Governance manage which
         // accounts can call permissioned functions.
         return getExchangeVault().getAuthorizer();
     }
