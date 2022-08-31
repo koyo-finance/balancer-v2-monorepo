@@ -21,7 +21,7 @@ import { SafeMath } from "@koyofinance/contracts-solidity-utils/contracts/openze
 import { SafeERC20 } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/SafeERC20.sol";
 import { Address } from "@koyofinance/contracts-solidity-utils/contracts/openzeppelin/Address.sol";
 
-contract BasePositionManager is IPerpetualsBasePositionManager, Authentication, ReentrancyGuard {
+contract PerpetualsBasePositionManager is IPerpetualsBasePositionManager, Authentication, ReentrancyGuard {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
     using Address for address payable;
