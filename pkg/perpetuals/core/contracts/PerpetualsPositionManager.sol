@@ -19,7 +19,7 @@ contract PerpetualsPositionManager is PerpetualsBasePositionManager {
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
-    address public immutable orderBook;
+    IPerpetualsOrderBook public immutable orderBook;
 
     bool public inLegacyMode = false;
     bool public shouldValidateIncreaseOrder = true;
@@ -55,7 +55,7 @@ contract PerpetualsPositionManager is PerpetualsBasePositionManager {
         address _router,
         address _wNative,
         uint256 _depositFee,
-        address _orderBook
+        IPerpetualsOrderBook _orderBook
     ) PerpetualsBasePositionManager(exchangeVault, _vault, _router, _wNative, _depositFee) {
         orderBook = _orderBook;
     }
@@ -257,7 +257,7 @@ contract PerpetualsPositionManager is PerpetualsBasePositionManager {
         uint256 _orderIndex,
         address payable _feeReceiver
     ) external onlyOrderKeeper {
-        IPerpetualsOrderBook(orderBook).executeSwapOrder(_account, _orderIndex, _feeReceiver);
+        orderBook.executeSwapOrder(_account, _orderIndex, _feeReceiver);
     }
 
     function executeIncreaseOrder(
@@ -271,7 +271,7 @@ contract PerpetualsPositionManager is PerpetualsBasePositionManager {
         address externalAuthorization = IPerpetualsVault(_vault).gov();
 
         IPerpetualsAbstractVaultController(externalAuthorization).enableLeverage();
-        IPerpetualsOrderBook(orderBook).executeIncreaseOrder(_account, _orderIndex, _feeReceiver);
+        orderBook.executeIncreaseOrder(_account, _orderIndex, _feeReceiver);
         IPerpetualsAbstractVaultController(externalAuthorization).disableLeverage();
 
         _emitIncreasePositionReferral(_account, sizeDelta);
@@ -297,10 +297,10 @@ contract PerpetualsPositionManager is PerpetualsBasePositionManager {
             ,
             ,
 
-        ) = IPerpetualsOrderBook(orderBook).getDecreaseOrder(_account, _orderIndex);
+        ) = orderBook.getDecreaseOrder(_account, _orderIndex);
 
         IPerpetualsAbstractVaultController(externalAuthorization).enableLeverage();
-        IPerpetualsOrderBook(orderBook).executeDecreaseOrder(_account, _orderIndex, _feeReceiver);
+        orderBook.executeDecreaseOrder(_account, _orderIndex, _feeReceiver);
         IPerpetualsAbstractVaultController(externalAuthorization).disableLeverage();
 
         _emitDecreasePositionReferral(_account, _sizeDelta);
@@ -317,7 +317,7 @@ contract PerpetualsPositionManager is PerpetualsBasePositionManager {
             ,
             ,
 
-        ) = IPerpetualsOrderBook(orderBook).getIncreaseOrder(_account, _orderIndex);
+        ) = orderBook.getIncreaseOrder(_account, _orderIndex);
 
         if (!shouldValidateIncreaseOrder) {
             return _sizeDelta;
