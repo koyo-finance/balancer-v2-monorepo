@@ -2,6 +2,8 @@
 
 pragma solidity ^0.7.0;
 
+// solhint-disable-next-line max-line-length
+import { IPerpetualsAbstractVaultController } from "@koyofinance/contracts-interfaces/contracts/perpetuals/control/IPerpetualsAbstractVaultController.sol";
 import { Authentication } from "@koyofinance/contracts-solidity-utils/contracts/helpers/Authentication.sol";
 import { IAuthorizer } from "@koyofinance/contracts-interfaces/contracts/vault/IAuthorizer.sol";
 import { IPerpetualsVault } from "@koyofinance/contracts-interfaces/contracts/perpetuals/core/IPerpetualsVault.sol";
@@ -12,7 +14,7 @@ import { IVault as IExchangeVault } from "@koyofinance/contracts-interfaces/cont
 // solhint-disable-next-line max-line-length
 import { Errors, _require } from "@koyofinance/contracts-interfaces/contracts/solidity-utils/helpers/KoyoErrors.sol";
 
-contract PerpetualsVaultExternalAuthorization is Authentication {
+contract PerpetualsVaultExternalAuthorization is IPerpetualsAbstractVaultController, Authentication {
     uint256 public marginFeeBasisPoints;
     uint256 public maxMarginFeeBasisPoints;
     bool public shouldToggleIsLeverageEnabled = true;
@@ -163,7 +165,7 @@ contract PerpetualsVaultExternalAuthorization is Authentication {
         );
     }
 
-    function enableLeverage() external authenticate {
+    function enableLeverage() external override authenticate {
         IPerpetualsVault perpetualsVault = getPerpetualsVault();
 
         if (shouldToggleIsLeverageEnabled) {
@@ -183,7 +185,7 @@ contract PerpetualsVaultExternalAuthorization is Authentication {
         );
     }
 
-    function disableLeverage() external authenticate {
+    function disableLeverage() external override authenticate {
         IPerpetualsVault perpetualsVault = getPerpetualsVault();
 
         if (shouldToggleIsLeverageEnabled) {
